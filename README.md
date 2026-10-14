@@ -1,0 +1,52 @@
+# Aplikasi Kasir dan Stok Sederhana (Studi Kasus: Kedai Kopi)
+
+**Anggota Tim:**
+1. Api Widi Pratama - A11.2025.16268
+2. Afrizal Irfan - A11.2025.16532
+3. Dimas Putra Wijaya - A11.2025.16431
+
+---
+
+## 1. Latar Belakang & Studi Kasus
+Aplikasi ini dirancang untuk menyelesaikan berbagai permasalahan pencatatan dan operasional harian yang sering dialami oleh bisnis kedai kopi berskala kecil hingga menengah:
+
+- **Data produk dan stok belum tercatat dengan rapi[cite: 15]:** Kategori menu (seperti *Espresso Based*, *Manual Brew*, *Pastry*) sering tercampur dalam pencatatan manual. Pemantauan fisik barang satuan seperti *takeaway cup* dan *pastry* sering terlewat saat barang masuk gudang. Aplikasi ini menyediakan fitur kelola kategori dan produk untuk memastikan katalog menu terstruktur dan jumlah stok fisik barang tercatat secara pasti.
+- **Pemilik usaha kesulitan memantau transaksi harian[cite: 15]:** Pemilik kedai sering kali tidak berada di lokasi operasional. Tanpa sistem digital, pemilik harus menunggu pergantian *shift* untuk mengetahui jumlah produk yang terjual. Aplikasi ini menyediakan *dashboard* khusus dengan ringkasan jumlah produk, stok tersedia, dan transaksi hari ini.
+- **Jumlah stok tidak diperbarui setelah penjualan[cite: 15]:** Saat jam sibuk, kasir tidak memiliki waktu untuk memperbarui buku stok, menyebabkan kedai kehabisan barang esensial (seperti *cup*) di tengah operasional. Aplikasi ini menerapkan pengurangan stok secara real-time saat transaksi disimpan.
+- **Rekap transaksi masih dilakukan secara manual[cite: 15]:** Pada proses penutupan (*closing*), kasir harus menghitung ulang seluruh nota kertas. Aplikasi ini memiliki pencatatan transaksi penjualan beserta detail transaksi yang memuat produk, jumlah, harga, dan subtotal, sehingga menghilangkan kebutuhan rekapitulasi manual menggunakan kalkulator.
+
+---
+
+## 2. Target Pengguna
+Aplikasi ini menggunakan sistem multi-peran (2 *Role*) untuk merepresentasikan hierarki operasional kedai kopi di dunia nyata:
+
+1. **Admin / Kasir:** Bertugas dalam operasional harian. Peran ini memiliki hak akses penuh untuk mengelola produk, kategori, stok, dan transaksi[cite: 15].
+2. **Pemilik (Owner):** Berfungsi sebagai peran pengawas. Peran ini bersifat opsional dan hanya memiliki hak akses (*read-only*) untuk melihat *dashboard* atau laporan sederhana tanpa bisa mengubah atau menghapus data transaksi[cite: 15].
+
+---
+
+## 3. Kebutuhan Fitur Utama (Fitur Wajib)
+Sesuai batasan sistem, aplikasi ini memiliki fitur inti:
+- **Autentikasi & Keamanan:** Login, logout, dan proteksi halaman menggunakan session PHP[cite: 15].
+- **Manajemen Inventaris (CRUD):** Kelola kategori dan data produk beserta jumlah stoknya[cite: 15].
+- **Sistem Transaksi:** Pencatatan transaksi penjualan yang secara otomatis mengurangi stok produk terkait[cite: 15].
+- **Tabel Interaktif:** Menampilkan daftar produk dan transaksi menggunakan fitur pagination berbasis jQuery AJAX agar perpindahan halaman terjadi tanpa memuat ulang (*reload*) keseluruhan situs[cite: 15].
+- **Informasi Real-time:** Menampilkan tanggal dan waktu yang interaktif pada antarmuka kasir menggunakan JavaScript[cite: 15].
+
+---
+
+## 4. Fitur Pengembangan Opsional
+Selain fitur wajib, aplikasi ini mengimplementasikan dua fitur pengembangan opsional untuk meningkatkan efisiensi operasional kedai:
+
+1. **Cetak Struk Sederhana[cite: 15]:** Memudahkan kasir memberikan bukti pembayaran fisik kepada pelanggan layaknya sistem *Point of Sales* (POS) pada umumnya, menggunakan format cetak HTML dasar.
+2. **Peringatan Stok Menipis[cite: 15]:** Memberikan indikator visual (*alert*) pada *dashboard* atau tabel produk apabila stok barang fisik (seperti *cup* atau *pastry*) sudah mencapai batas minimum, sehingga kasir dapat segera melakukan *restock*.
+
+---
+
+## 5. Batasan Teknologi
+Sesuai dengan ketentuan proyek, aplikasi ini dikembangkan murni menggunakan teknologi berikut tanpa framework besar:
+- **Front-end:** HTML5, CSS3, JavaScript, jQuery (khusus untuk implementasi AJAX).
+- **Back-end & Database:** PHP Native (termasuk Session) dan MySQL/MariaDB[cite: 16].
+- **Version Control & Hosting:** Git, GitHub, dan layanan hosting web untuk rilis akhir[cite: 16].
+
+
