@@ -1,4 +1,4 @@
-# Aplikasi Kasir dan Stok Sederhana (Studi Kasus: Kedai Kopi)
+# Kopify - Aplikasi Kasir dan Manajemen Stok Kedai Kopi
 
 **Anggota Tim:**
 1. Api Widi Pratama - A11.2025.16268
