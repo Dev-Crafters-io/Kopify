@@ -47,5 +47,8 @@ Rancangan antarmuka aplikasi Kopify dibuat menggunakan **Figma**, mencakup wiref
 
 ---
 
-
+## 5. Fitur Pengembangan Opsional
+Selain fitur wajib, aplikasi ini mengimplementasikan dua fitur pengembangan opsional untuk meningkatkan efisiensi operasional kedai:
+1. **Cetak Struk Sederhana:** Memudahkan kasir memberikan bukti pembayaran fisik kepada pelanggan layaknya sistem POS pada umumnya menggunakan format cetak HTML dasar.
+2. **Peringatan Stok Menipis:** Memberikan indikator visual (*alert*) pada *dashboard* atau tabel produk apabila stok barang fisik (seperti *cup* atau *pastry*) sudah mencapai batas minimum.
 
