@@ -19,14 +19,14 @@ Aplikasi ini dirancang untuk menyelesaikan berbagai permasalahan pencatatan dan 
 ---
 
 ## 2. Target Pengguna
-Aplikasi ini menggunakan sistem multi-peran (2 *Role*) untuk merepresentasikan hierarki operasional kedai kopi di dunia nyata:
+Aplikasi ini menggunakan sistem multi-peran (2 *Role*) untuk merepresentasikan operasional kedai kopi di dunia nyata:
 
 1. **Admin / Kasir:** Bertugas dalam operasional harian. Peran ini memiliki hak akses penuh untuk mengelola produk, kategori, stok, dan transaksi.
-2. **Pemilik (Owner):** Berfungsi sebagai peran pengawas. Peran ini bersifat opsional dan hanya memiliki hak akses (*read-only*) untuk melihat *dashboard* atau laporan sederhana tanpa bisa mengubah atau menghapus data transaksi.
+2. **Pemilik:** Berfungsi sebagai peran pengawas. Peran ini bersifat opsional dan hanya memiliki hak akses (*read-only*) untuk melihat *dashboard* atau laporan sederhana tanpa bisa mengubah atau menghapus data transaksi.
 
 ---
 
-## 3. Kebutuhan Fitur Utama (Fitur Wajib)
+## 3. Kebutuhan Fitur Utama 
 Sesuai batasan sistem, aplikasi ini memiliki fitur inti:
 - **Autentikasi & Keamanan:** Login, logout, dan proteksi halaman menggunakan session PHP.
 - **Manajemen Inventaris (CRUD):** Kelola kategori dan data produk beserta jumlah stoknya.
@@ -36,25 +36,16 @@ Sesuai batasan sistem, aplikasi ini memiliki fitur inti:
 
 ---
 
-## 4. Fitur Pengembangan Opsional
-Selain fitur wajib, aplikasi ini mengimplementasikan dua fitur pengembangan opsional untuk meningkatkan efisiensi operasional kedai:
+## 5. Rancangan Antarmuka 
+Rancangan antarmuka aplikasi Kopify dibuat menggunakan **Figma**, mencakup wireframe untuk perencanaan tata letak awal (Login, Dashboard, Daftar Data, Form) dan *mockup* sebagai panduan visual akhir.
 
-1. **Cetak Struk Sederhana:** Memudahkan kasir memberikan bukti pembayaran fisik kepada pelanggan layaknya sistem *Point of Sales* (POS) pada umumnya, menggunakan format cetak HTML dasar.
-2. **Peringatan Stok Menipis:** Memberikan indikator visual (*alert*) pada *dashboard* atau tabel produk apabila stok barang fisik (seperti *cup* atau *pastry*) sudah mencapai batas minimum, sehingga kasir dapat segera melakukan *restock*.
-
-## 6. Rancangan Antarmuka (Wireframe & Mockup)
-Rancangan antarmuka aplikasi Kopify dibuat menggunakan **Figma**, mencakup *wireframe low-fidelity* untuk tata letak awal dan *high-fidelity mockup* sebagai panduan visual akhir
-
-| Wireframe (Low-Fidelity) | Mockup Visual (High-Fidelity) |
+| Wireframe | Mockup Visual |
 | :---: | :---: |
-| ![Wireframe Login Kopify](assets/Kopify-wireframe.jpg) | ![Mockup Login Kopify](assets/mockup-login.jpg)|
+| ![Wireframe Login Kopify](assets/Kopify-wireframe.jpg) | ![Mockup Login Kopify](assets/mockup-login.jpg) |
 
 **Tautan Figma:** [Kopify POS Login Design & Wireframe](https://www.figma.com/design/BMnRDSZJZvuPr5d14G8Ccm/Kopify-POS--Login-Prototype-2?node-id=0-1&p=f&m=draw)
 
-## 5. Batasan Teknologi
-Sesuai dengan ketentuan proyek, aplikasi ini dikembangkan murni menggunakan teknologi berikut tanpa framework besar:
-- **Front-end:** HTML5, CSS3, JavaScript, jQuery (khusus untuk implementasi AJAX).
-- **Back-end & Database:** PHP Native (termasuk Session) dan MySQL/MariaDB.
-- **Version Control & Hosting:** Git, GitHub, dan layanan hosting web untuk rilis akhir.
+---
+
 
 
