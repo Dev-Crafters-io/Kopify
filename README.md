@@ -36,7 +36,7 @@ Sesuai batasan sistem, aplikasi ini memiliki fitur inti:
 
 ---
 
-## 5. Rancangan Antarmuka 
+## 4. Rancangan Antarmuka 
 Rancangan antarmuka aplikasi Kopify dibuat menggunakan **Figma**, mencakup wireframe untuk perencanaan tata letak awal (Login, Dashboard, Daftar Data, Form) dan *mockup* sebagai panduan visual akhir.
 
 | Wireframe | Mockup Visual |
