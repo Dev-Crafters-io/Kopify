@@ -42,7 +42,14 @@ Selain fitur wajib, aplikasi ini mengimplementasikan dua fitur pengembangan opsi
 1. **Cetak Struk Sederhana:** Memudahkan kasir memberikan bukti pembayaran fisik kepada pelanggan layaknya sistem *Point of Sales* (POS) pada umumnya, menggunakan format cetak HTML dasar.
 2. **Peringatan Stok Menipis:** Memberikan indikator visual (*alert*) pada *dashboard* atau tabel produk apabila stok barang fisik (seperti *cup* atau *pastry*) sudah mencapai batas minimum, sehingga kasir dapat segera melakukan *restock*.
 
----
+## 6. Rancangan Antarmuka (Wireframe & Mockup)
+Rancangan antarmuka aplikasi Kopify dibuat menggunakan **Figma**, mencakup *wireframe low-fidelity* untuk tata letak awal dan *high-fidelity mockup* sebagai panduan visual akhir
+
+| Wireframe (Low-Fidelity) | Mockup Visual (High-Fidelity) |
+| :---: | :---: |
+| ![Wireframe Login Kopify](assets/wireframe-login.png) | ![Mockup Login Kopify](assets/mockup-login.png) |
+
+**Tautan Figma (Design & Wireframe):** [Kopify POS Login Design & Wireframe](https://www.figma.com/design/BMnRDSZJZvuPr5d14G8Ccm/Kopify-POS--Login-Prototype-2?node-id=0-1&p=f&m=draw)
 
 ## 5. Batasan Teknologi
 Sesuai dengan ketentuan proyek, aplikasi ini dikembangkan murni menggunakan teknologi berikut tanpa framework besar:
