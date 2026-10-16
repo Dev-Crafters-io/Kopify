@@ -47,7 +47,7 @@ Rancangan antarmuka aplikasi Kopify dibuat menggunakan **Figma**, mencakup *wire
 
 | Wireframe (Low-Fidelity) | Mockup Visual (High-Fidelity) |
 | :---: | :---: |
-| ![Wireframe Login Kopify](assets/wireframe-login.png) | ![Mockup Login Kopify] (assets/mockup-login.jpg)|
+| ![Wireframe Login Kopify](assets/wireframe-login.png) | ![Mockup Login Kopify](assets/mockup-login.jpg)|
 
 **Tautan Figma:** [Kopify POS Login Design & Wireframe](https://www.figma.com/design/BMnRDSZJZvuPr5d14G8Ccm/Kopify-POS--Login-Prototype-2?node-id=0-1&p=f&m=draw)
 
