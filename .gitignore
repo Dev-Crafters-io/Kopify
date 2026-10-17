@@ -1,0 +1,17 @@
+# Environment files
+.env
+.env.local
+
+# IDE & Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Logs & scratch
+*.log
+scratch/
