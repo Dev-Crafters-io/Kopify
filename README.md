@@ -54,6 +54,25 @@ Tata letak dan _mockup_ antarmuka dirancang di **Figma**.
 
 **Tautan Figma:** [Kopify POS - all design](https://www.figma.com/design/BMnRDSZJZvuPr5d14G8Ccm/Kopify-POS-all-design?t=Yc5aYdiZTt4xx6Oe-1)
 
+### Halaman Inti Milestone 1
+
+Wireframe yang disiapkan mencakup halaman inti berikut:
+
+1. **Halaman Login** - autentikasi Admin/Kasir dan Pemilik.
+2. **Dashboard** - ringkasan operasional dan akses cepat ke menu kasir.
+3. **Daftar Data** - daftar produk dan informasi stok dalam katalog/inventaris.
+4. **Form** - form tambah atau edit data produk.
+
+### Preview Wireframe
+
+**Login**
+
+![Wireframe Login](assets/images/wireframes/mockup-login.jpg)
+
+**Dashboard, Daftar Data, dan Form**
+
+![Wireframe Dashboard, Daftar Data, dan Form](assets/images/wireframes/Kopify-wireframe.jpg)
+
 ---
 
 ## 5. Fitur Pengembangan Opsional
