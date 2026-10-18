@@ -36,9 +36,9 @@ Sistem memisahkan akses pengguna ke dalam 2 _role_ operasional:
 
 ---
 
-## 3. Fitur Utama
+## 3. Rencana Fitur Utama
 
-Fitur wajib sistem yang ada di KOPIFY:
+Fitur berikut merupakan target pengembangan Kopify pada milestone berikutnya. Pada Milestone 1, fokus proyek masih berada pada perencanaan, kebutuhan pengguna, dan rancangan antarmuka.
 
 - **Autentikasi:** Login, Logout, dan Proteksi terhadap halaman-halaman sensitif.
 - **Manajemen Inventaris (CRUD):** Kelola kategori, registrasi data produk, dan pengaturan jumlah stok.
