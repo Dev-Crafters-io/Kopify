@@ -8,6 +8,14 @@
 
 ---
 
+## Repository Git
+
+Repository GitHub Kopify dapat diakses melalui tautan berikut:
+
+**Tautan repository:** [Dev-Crafters-io/Kopify](https://github.com/Dev-Crafters-io/Kopify)
+
+---
+
 ## 1. Latar Belakang & Studi Kasus
 
 Kopify adalah sistem Point of Sale (POS) dan manajemen inventaris berbasis web untuk mendigitalisasi operasional kedai kopi. Sistem ini menyelesaikan masalah pencatatan manual yang sering memperlambat alur kerja kedai skala kecil–menengah, di antaranya:
