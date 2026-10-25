@@ -1,11 +1,222 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HOME</title>
-</head>
-<body>
-    <a href="html/login.html">Login</a>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>HOME</title>
+        <link rel="icon" href="/assets/kopify-main-logo.png" type="image/png">
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+    <body>
+        <div id="root">
+            <main class="pos-shell">
+                <section class="catalog">
+                    <header class="topbar">
+                        <div class="logo">
+                            <img class="logo-mark" alt="" src="/assets/kopify-main-logo.png">
+                            <span>KOPIFY</span>
+                        </div>
+
+                        <div class="datetime">
+                            <strong>Senin, 26 Okt</strong>
+                            <span>00.47</span>
+                        </div>
+
+                        <button class="stock-pill">Stok menipis: 4 item</button>
+                        <button class="inventory-link">Inventori</button>
+                        <button class="owner-pill">Kasir: Fulan</button>
+                        <button class="icon-button" aria-label="Keluar"><a href="/html/login.html">↗</a></button>
+                    </header>
+
+                    <div class="catalog-content">
+                        <nav class="category-row">
+                            <button class="active">Semua Menu</button>
+                            <button>Coffee</button>
+                            <button>Non Coffee</button>
+                            <button>Pastry</button>
+                        </nav>
+
+                        <div class="search-row">
+                            <input placeholder="Cari menu favorit..." value="">
+                            <span>⌕</span>
+                        </div>
+
+                        <div class="product-grid">
+                            <article class="product-card">
+                                <img alt="Americano" src="https://images.unsplash.com/photo-1545731939-9c302d5d27ed?auto=format&amp;fit=crop&amp;w=500&amp;q=80">
+                                <div class="product-info">
+                                    <div>
+                                        <h3>Americano</h3>
+                                        <span>Coffee</span>
+                                    </div>
+                                    <strong>Rp 18.000</strong>
+                                    <button aria-label="Tambah Americano">+</button>
+                                </div>
+                            </article>
+
+                            <article class="product-card">
+                                <img alt="Caramel Latte" src="https://images.unsplash.com/photo-1792655421196-1dbf8d3e4773?auto=format&amp;fit=crop&amp;w=500&amp;q=80">
+                                <div class="product-info">
+                                    <div>
+                                        <h3>Caramel Latte</h3>
+                                        <span>Coffee</span>
+                                    </div>
+                                    <strong>Rp 28.000</strong>
+                                    <button aria-label="Tambah Caramel Latte">+</button>
+                                </div>
+                            </article>
+
+                            <article class="product-card">
+                                <img alt="Butterscotch Latte" src="https://images.unsplash.com/photo-1621779474825-754202895b35?auto=format&amp;fit=crop&amp;w=500&amp;q=80">
+                                <div class="product-info">
+                                    <div>
+                                        <h3>Butterscotch Latte</h3>
+                                        <span>Coffee</span>
+                                    </div>
+                                    <strong>Rp 30.000</strong>
+                                    <button aria-label="Tambah Butterscotch Latte">+</button>
+                                </div>
+                            </article>
+
+                            <article class="product-card">
+                                <img alt="Cappuccino" src="https://images.unsplash.com/photo-1769181258465-adde11962206?auto=format&amp;fit=crop&amp;w=500&amp;q=80">
+                                <div class="product-info">
+                                    <div>
+                                        <h3>Cappuccino</h3>
+                                        <span>Coffee</span>
+                                    </div>
+                                    <strong>Rp 25.000</strong>
+                                    <button aria-label="Tambah Cappuccino">+</button>
+                                </div>
+                            </article>
+
+                            <article class="product-card">
+                                <img alt="Vanilla Latte" src="https://images.unsplash.com/photo-1663869579040-5e4e1c7b54fd?auto=format&amp;fit=crop&amp;w=500&amp;q=80">
+                                <div class="product-info">
+                                    <div>
+                                        <h3>Vanilla Latte</h3>
+                                        <span>Coffee</span>
+                                    </div>
+                                    <strong>Rp 28.000</strong>
+                                    <button aria-label="Tambah Vanilla Latte">+</button>
+                                </div>
+                            </article>
+
+                            <article class="product-card">
+                                <img alt="French Fries" src="https://images.unsplash.com/photo-1648141294401-ede697a33c02?auto=format&amp;fit=crop&amp;w=500&amp;q=80">
+                                <div class="product-info">
+                                    <div>
+                                        <h3>French Fries</h3>
+                                        <span>Pastry</span>
+                                    </div>
+                                    <strong>Rp 22.000</strong>
+                                    <button aria-label="Tambah French Fries">+</button>
+                                </div>
+                            </article>
+
+                            <article class="product-card">
+                                <img alt="Chicken Wings" src="https://images.unsplash.com/photo-1663869579145-a41cc386e630?auto=format&amp;fit=crop&amp;w=500&amp;q=80">
+                                <div class="product-info">
+                                    <div>
+                                        <h3>Chicken Wings</h3>
+                                        <span>Pastry</span>
+                                    </div>
+                                    <strong>Rp 32.000</strong>
+                                    <button aria-label="Tambah Chicken Wings">+</button>
+                                </div>
+                            </article>
+
+                            <article class="product-card">
+                                <img alt="Iced Chocolate" src="https://images.unsplash.com/photo-1545731939-9c302d5d27ed?auto=format&amp;fit=crop&amp;w=500&amp;q=80">
+                                <div class="product-info">
+                                    <div>
+                                        <h3>Iced Chocolate</h3>
+                                        <span>Non Coffee</span>
+                                    </div>
+                                    <strong>Rp 26.000</strong>
+                                    <button aria-label="Tambah Iced Chocolate">+</button>
+                                </div>
+                            </article>
+                        </div>
+
+                        <footer class="status-strip">
+                            <span><i class="green"></i> Operasional</span>
+                            <span><b>Produk</b> 24 aktif</span>
+                            <span><b>Stok rendah</b> 4 item</span>
+                            <span><b>Hari ini</b> 38 transaksi</span>
+                        </footer>
+                    </div>
+                </section>
+
+                <aside class="order-panel">
+                    <div class="order-heading">
+                        <div>
+                            <span>Pesanan</span>
+                            <h2>#005</h2>
+                        </div>
+                        <select aria-label="Tipe pesanan">
+                            <option>Dine In</option>
+                            <option>Take Away</option>
+                        </select>
+                    </div>
+
+                    <label class="customer-field">
+                        Nama pelanggan
+                        <input placeholder="Opsional">
+                    </label>
+
+                    <div class="order-list">
+                        <div class="order-item">
+                            <div>
+                                <strong>Butterscotch Latte</strong>
+                                <span>Rp 30.000</span>
+                            </div>
+                            <div class="stepper">
+                                <button>-</button>
+                                <span>1</span>
+                                <button>+</button>
+                            </div>
+                            <b>Rp 30.000</b>
+                        </div>
+
+                        <div class="order-item">
+                            <div>
+                                <strong>Cappuccino</strong>
+                                <span>Rp 25.000</span>
+                            </div>
+                            <div class="stepper">
+                                <button>-</button>
+                                <span>1</span>
+                                <button>+</button>
+                            </div>
+                            <b>Rp 25.000</b>
+                        </div>
+                    </div>
+
+                    <div class="summary">
+                        <div>
+                            <span>Subtotal</span>
+                            <b>Rp 55.000</b>
+                        </div>
+                        <div>
+                            <span>Pajak (10%)</span>
+                            <b>Rp 5.500</b>
+                        </div>
+                        <div class="total">
+                            <span>Total</span>
+                            <b>Rp 60.500</b>
+                        </div>
+                        <div class="payment-row">
+                            <button class="active">Tunai</button>
+                            <button>QRIS</button>
+                            <button>Kartu</button>
+                        </div>
+                        <button class="checkout">Proses Pembayaran</button>
+                    </div>
+                </aside>
+            </main>
+        </div>
+
+        <script src="js/script.js"></script>
+    </body>
 </html>
