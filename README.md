@@ -1,4 +1,8 @@
-# Kopify - Aplikasi Kasir dan Manajemen Stok Kedai Kopi
+<div align="center">
+  <img src="assets/kopify-main-logo.png" alt="logo" width="20%"/>
+  <h1>Kopify</h1>
+  <p>Aplikasi Kasir dan Manajemen Stok Kedai Kopi</p>
+</div>
 
 **Anggota Tim:**
 
