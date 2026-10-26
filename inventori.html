@@ -45,7 +45,7 @@
         <h1 class="page-title">Inventori Bahan Baku</h1>
         <p class="page-description">Pantau ketersediaan bahan untuk operasional kedai.</p>
       </div>
-      <button type="button" class="btn-add-material">
+      <button type="button" id="btn-open-modal-tambah" class="btn-add-material">
         <span>+ Tambah Bahan</span>
       </button>
     </header>
@@ -420,6 +420,68 @@
     </main>
   </div>
 
-  <script src="inventori.js?v=1"></script>
+  <div id="modalTambahBahan" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modalTambahTitle">
+    <div class="modal-card">
+      <header class="modal-header">
+        <h2 id="modalTambahTitle" class="modal-title">Tambah Bahan Baku Baru</h2>
+        <button type="button" id="btn-close-modal" class="btn-close-modal" aria-label="Tutup Form">&times;</button>
+      </header>
+
+      <form id="formTambahBahan" class="modal-form">
+        <div class="form-group">
+          <label for="inputNamaBahan" class="form-label">Nama Bahan Baku <span class="required-star">*</span></label>
+          <input type="text" id="inputNamaBahan" class="form-input" placeholder="Contoh: Biji Kopi Arabika Gayo" required autocomplete="off">
+        </div>
+
+        <div class="form-row-2">
+          <div class="form-group">
+            <label for="selectKategori" class="form-label">Kategori <span class="required-star">*</span></label>
+            <select id="selectKategori" class="form-select" required>
+              <option value="" disabled selected>Pilih Kategori</option>
+              <option value="biji kopi">Biji Kopi</option>
+              <option value="susu">Susu</option>
+              <option value="sirup">Sirup &amp; Flavour</option>
+              <option value="kemasan">Kemasan</option>
+              <option value="operasional">Operasional / Gas</option>
+              <option value="pemanis">Pemanis</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="selectSatuan" class="form-label">Satuan Ukuran <span class="required-star">*</span></label>
+            <select id="selectSatuan" class="form-select" required>
+              <option value="ml">ml (Mililiter)</option>
+              <option value="g">g (Gram)</option>
+              <option value="pcs">pcs (Pieces)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row-2">
+          <div class="form-group">
+            <label for="inputStokAwal" class="form-label">Stok Awal <span class="required-star">*</span></label>
+            <input type="number" id="inputStokAwal" class="form-input" min="0" step="1" placeholder="0" required>
+          </div>
+
+          <div class="form-group">
+            <label for="inputStokMin" class="form-label">Batas Minimum Stok <span class="required-star">*</span></label>
+            <input type="number" id="inputStokMin" class="form-input" min="0" step="1" placeholder="Contoh: 1000" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="inputHargaSatuan" class="form-label">Harga Beli Satuan (Rp) <span class="required-star">*</span></label>
+          <input type="number" id="inputHargaSatuan" class="form-input" min="0" step="1" placeholder="Contoh: 280" required>
+        </div>
+
+        <footer class="modal-footer">
+          <button type="button" id="btn-cancel-modal" class="btn-modal-cancel">Batal</button>
+          <button type="submit" class="btn-modal-submit">Simpan Bahan Baku</button>
+        </footer>
+      </form>
+    </div>
+  </div>
+
+  <script src="inventori.js?v=2"></script>
 </body>
 </html>

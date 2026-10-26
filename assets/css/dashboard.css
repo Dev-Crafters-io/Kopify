@@ -35,10 +35,10 @@
   --color-border-panel: #D6D6D6;
   --color-border-toggle: rgba(214, 214, 214, 0.43);
 
-  --shadow-header: 0px 4px 12px 0px rgba(0, 0, 0, 0.08);
-  --shadow-card: 0px 2px 12px 0px rgba(0, 0, 0, 0.08);
-  --shadow-panel: 0px 4px 12px 0px rgba(0, 0, 0, 0.18);
-  --shadow-hover: 0px 6px 16px 0px rgba(0, 0, 0, 0.12);
+  --shadow-header: 0px 4px 16px -2px rgba(43, 24, 16, 0.05);
+  --shadow-card: 0 4px 16px -2px rgba(43, 24, 16, 0.05);
+  --shadow-panel: -8px 0 24px rgba(43, 24, 16, 0.04);
+  --shadow-hover: 0 8px 24px -4px rgba(43, 24, 16, 0.08);
 
   --radius-xs: 4px;
   --radius-sm: 8px;
@@ -143,26 +143,30 @@ body {
   display: inline-flex;
   align-items: center;
   height: 36px;
-  padding: 0 14px;
+  padding: 0 16px;
   border-radius: var(--radius-pill);
   font-size: 13px;
   font-weight: 600;
   text-decoration: none;
   color: #6F645C;
   background-color: var(--color-surface-white);
-  border: 1px solid #EAE4DD;
+  border: none !important;
+  box-shadow: 0 2px 8px rgba(43, 24, 16, 0.04);
   transition: all 0.2s ease;
 }
 
 .nav-pill:hover {
   background-color: #F5F1EC;
   color: #2B1810;
+  box-shadow: 0 4px 12px rgba(43, 24, 16, 0.08);
+  transform: translateY(-1px);
 }
 
 .nav-pill.active {
   background-color: #2B1810;
   color: #FFFFFF;
-  border-color: #2B1810;
+  border: none !important;
+  box-shadow: 0 4px 14px rgba(43, 24, 16, 0.22);
 }
 
 .topbar-right {
@@ -181,6 +185,8 @@ body {
   border-radius: var(--radius-pill);
   font-size: 13px;
   line-height: 1.26;
+  border: none !important;
+  box-shadow: 0 2px 8px rgba(43, 24, 16, 0.04);
 }
 
 .info-pill img {
@@ -189,20 +195,31 @@ body {
   display: block;
 }
 
+.info-pill--datetime {
+  background-color: var(--color-surface-white);
+  border: none !important;
+  box-shadow: 0 2px 8px rgba(43, 24, 16, 0.04);
+  color: #6F645C;
+  font-weight: 500;
+  height: 36px;
+}
 
 .info-pill--user {
   background-color: #F5F1EC;
-  border: 1px solid #EAE4DD;
+  border: none !important;
+  box-shadow: 0 2px 8px rgba(43, 24, 16, 0.04);
   color: #2B1810;
   font-weight: 600;
-  height: 40px;
+  height: 36px;
 }
 
 .info-pill--warning {
   background-color: var(--color-warning-bg);
+  border: none !important;
+  box-shadow: 0 2px 8px rgba(217, 107, 67, 0.12);
   color: var(--color-warning-text);
   font-weight: 700;
-  height: 40px;
+  height: 36px;
 }
 
 .category-filter-row {
@@ -268,8 +285,8 @@ body {
 .menu-search-bar {
   height: 48px;
   background-color: var(--color-surface-white);
-  border: 0.5px solid var(--color-border-subtle);
-  box-shadow: var(--shadow-card);
+  border: none !important;
+  box-shadow: 0 4px 16px -2px rgba(43, 24, 16, 0.05);
   border-radius: var(--radius-lg);
   padding: 0 16px;
   display: flex;
@@ -277,17 +294,26 @@ body {
   justify-content: space-between;
   align-items: center;
   flex-shrink: 0;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.menu-search-bar:focus-within {
+  box-shadow: 0 0 0 3px rgba(43, 24, 16, 0.08), 0 4px 16px -2px rgba(43, 24, 16, 0.06);
 }
 
 .search-input {
   flex: 1;
-  border: none;
-  outline: none;
+  border: none !important;
+  outline: none !important;
   font-family: inherit;
   font-size: 14px;
   font-weight: 400;
   color: var(--color-text-main);
   background: transparent;
+}
+
+.search-input:focus {
+  outline: none !important;
 }
 
 .search-input::placeholder {
@@ -336,23 +362,25 @@ body {
   align-items: flex-start;
 }
 
-.product-card {
+.product-card,
+.menu-card {
   width: 190px;
   height: 240px;
   background-color: var(--color-surface-white);
-  border: 0.5px solid var(--color-border-light);
-  box-shadow: var(--shadow-card);
-  border-radius: var(--radius-lg);
+  border: none !important;
+  box-shadow: 0 4px 16px -2px rgba(43, 24, 16, 0.05);
+  border-radius: 16px;
   padding: 12px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition: all 0.2s ease-in-out;
 }
 
-.product-card:hover {
+.product-card:hover,
+.menu-card:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-hover);
+  box-shadow: 0 8px 24px -4px rgba(43, 24, 16, 0.08);
 }
 
 .product-image {
@@ -426,7 +454,7 @@ body {
 
 .active-order-tracking {
   padding: 16px 0;
-  border-top: 0.5px solid var(--color-border-light);
+  border-top: 1px solid rgba(43, 24, 16, 0.04);
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -439,15 +467,22 @@ body {
   flex-direction: row;
   align-items: center;
   gap: 6px;
-  padding: 8px 12px;
+  padding: 8px 14px;
   border-radius: var(--radius-pill);
   background-color: var(--color-surface-white);
-  border: 1px solid var(--color-border-toggle);
+  border: none !important;
+  box-shadow: 0 4px 16px -2px rgba(43, 24, 16, 0.05);
   cursor: pointer;
   font-size: 12px;
   font-weight: 600;
   color: var(--color-brand-dark);
   flex-shrink: 0;
+  transition: all 0.2s ease-in-out;
+}
+
+.active-order-toggle:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px -2px rgba(43, 24, 16, 0.08);
 }
 
 .active-order-toggle img {
@@ -476,14 +511,20 @@ body {
 .order-status-card {
   width: 140px;
   padding: 12px;
-  border-radius: var(--radius-sm);
+  border-radius: 12px;
   background-color: var(--color-surface-white);
-  border: 0.5px solid var(--color-border-subtle);
-  box-shadow: var(--shadow-card);
+  border: none !important;
+  box-shadow: 0 4px 16px -2px rgba(43, 24, 16, 0.05);
   display: flex;
   flex-direction: column;
   gap: 8px;
   flex-shrink: 0;
+  transition: all 0.2s ease-in-out;
+}
+
+.order-status-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px -2px rgba(43, 24, 16, 0.08);
 }
 
 .order-status-card-top {
@@ -534,8 +575,9 @@ body {
   width: 380px;
   height: 100vh;
   background-color: var(--color-surface-white);
-  border-left: 1px solid var(--color-border-panel);
-  box-shadow: var(--shadow-panel);
+  border: none !important;
+  border-left: none !important;
+  box-shadow: -8px 0 24px rgba(43, 24, 16, 0.04);
   border-radius: var(--radius-xl) 0 0 var(--radius-xl);
   padding: 24px;
   display: flex;
@@ -574,7 +616,8 @@ body {
   width: 100%;
   height: 40px;
   background-color: var(--color-surface-white);
-  border: 1px solid var(--color-border-light);
+  border: none !important;
+  box-shadow: 0 2px 8px rgba(43, 24, 16, 0.05);
   border-radius: var(--radius-sm);
   padding: 0 12px;
   display: flex;
@@ -586,7 +629,7 @@ body {
   color: #374151;
   cursor: pointer;
   appearance: none;
-  outline: none;
+  outline: none !important;
 }
 
 .custom-select-box img {
@@ -644,7 +687,8 @@ body {
 
 .quantity-stepper {
   height: 32px;
-  border: 1px solid var(--color-border-light);
+  border: none !important;
+  box-shadow: 0 2px 6px rgba(43, 24, 16, 0.06);
   border-radius: var(--radius-sm);
   display: flex;
   flex-direction: row;
@@ -784,26 +828,30 @@ body {
 
 .payment-btn--qris {
   background-color: var(--color-brand-subtle);
-  border: 1px solid var(--color-brand-primary);
+  border: none !important;
+  box-shadow: 0 2px 8px rgba(212, 140, 70, 0.15);
   color: var(--color-brand-primary);
 }
 
 .payment-btn--qris.active {
   background-color: var(--color-brand-subtle);
-  border: 1.5px solid var(--color-brand-primary);
+  border: none !important;
+  box-shadow: 0 2px 10px rgba(212, 140, 70, 0.25);
   color: var(--color-brand-primary);
 }
 
 .payment-btn--cash {
   background-color: var(--color-brand-primary);
-  border: 1px solid var(--color-brand-primary);
+  border: none !important;
+  box-shadow: 0 4px 12px rgba(212, 140, 70, 0.3);
   color: var(--color-surface-white);
 }
 
 .payment-btn--cash.active {
   background-color: var(--color-brand-primary);
   color: var(--color-surface-white);
-  box-shadow: 0px 2px 8px rgba(212, 140, 70, 0.3);
+  border: none !important;
+  box-shadow: 0px 4px 14px rgba(212, 140, 70, 0.35);
 }
 
 .btn-checkout-primary {
@@ -923,10 +971,13 @@ body {
     gap: 10px;
     width: 100%;
   }
-  .product-card {
+  .product-card,
+  .menu-card {
     width: 100%;
     height: auto;
     min-height: 220px;
+    border: none !important;
+    border-radius: 16px;
   }
   .product-image {
     width: 100%;
@@ -968,7 +1019,7 @@ body {
   background-color: #FDFBF7;
   padding: 24px 20px;
   border-radius: 6px;
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.25), 0 2px 6px rgba(43, 24, 16, 0.08);
+  box-shadow: 0 16px 36px rgba(43, 24, 16, 0.22), 0 4px 12px rgba(43, 24, 16, 0.08);
   color: #2B1810;
   font-family: 'IBM Plex Sans', -apple-system, sans-serif;
   display: flex;

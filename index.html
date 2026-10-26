@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="./assets/css/dashboard.css?v=2">
+  <link rel="stylesheet" href="./assets/css/dashboard.css?v=3">
 </head>
 <body>
   <div class="pos-container">
@@ -34,6 +34,10 @@
         </nav>
 
         <div class="topbar-right">
+          <div class="info-pill info-pill--datetime">
+            <img src="./assets/icons/calendar.svg" alt="Calendar Icon" width="16" height="16">
+            <span id="live-datetime">Memuat waktu...</span>
+          </div>
 
           <div class="info-pill info-pill--user">
             <img src="./assets/icons/user.svg" alt="User Kasir Icon">
@@ -352,7 +356,7 @@
           </div>
           <div class="receipt-meta-row">
             <span class="meta-label">DATE</span>
-            <span class="meta-value">Sabtu, 17 Okt 2026</span>
+            <span class="meta-value" id="receipt-date">Sabtu, 17 Okt 2026</span>
           </div>
           <div class="receipt-meta-row">
             <span class="meta-label">ORDER TYPE</span>

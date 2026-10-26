@@ -1,4 +1,26 @@
 document.addEventListener('DOMContentLoaded', () => {
+  const liveDateTimeElement = document.getElementById('live-datetime');
+
+  function updateLiveClock() {
+    if (!liveDateTimeElement) return;
+    const now = new Date();
+    const days = ['Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab'];
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'];
+
+    const dayName = days[now.getDay()];
+    const date = now.getDate();
+    const monthName = months[now.getMonth()];
+    const year = now.getFullYear();
+
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+
+    liveDateTimeElement.textContent = `${dayName}, ${date} ${monthName} ${year} — ${hours}:${minutes} WIB`;
+  }
+
+  updateLiveClock();
+  setInterval(updateLiveClock, 1000);
+
   const categoryPills = document.querySelectorAll('.category-pill');
   const productCards = document.querySelectorAll('.product-card');
 
@@ -175,6 +197,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (checkoutBtn && receiptModal) {
     checkoutBtn.addEventListener('click', () => {
+      const receiptDate = document.getElementById('receipt-date');
+      if (receiptDate) {
+        const now = new Date();
+        const days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'];
+        const day = days[now.getDay()];
+        const d = now.getDate();
+        const m = months[now.getMonth()];
+        const y = now.getFullYear();
+        const h = String(now.getHours()).padStart(2, '0');
+        const min = String(now.getMinutes()).padStart(2, '0');
+        receiptDate.textContent = `${day}, ${d} ${m} ${y} • ${h}:${min}`;
+      }
       receiptModal.classList.add('show');
     });
   }
