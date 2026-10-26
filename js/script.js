@@ -1,37 +1,4 @@
-/**
- * KOPIFY POS - Interactive Controller
- * Handles live clock, category filtering, search input,
- * order quantity stepping, payment method toggle, and checkout.
- */
-
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Live DateTime Clock in Indonesian Format
-  const liveDateTimeElement = document.getElementById('live-datetime');
-
-  function updateLiveClock() {
-    if (!liveDateTimeElement) return;
-    const now = new Date();
-    
-    // Days array in Indonesian
-    const days = ['Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab'];
-    // Months array in Indonesian
-    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'];
-
-    const dayName = days[now.getDay()];
-    const date = now.getDate();
-    const monthName = months[now.getMonth()];
-    const year = now.getFullYear();
-
-    const hours = String(now.getHours()).padStart(2, '0');
-    const minutes = String(now.getMinutes()).padStart(2, '0');
-
-    liveDateTimeElement.textContent = `${dayName}, ${date} ${monthName} ${year} — ${hours}:${minutes} WIB`;
-  }
-
-  updateLiveClock();
-  setInterval(updateLiveClock, 30000);
-
-  // 2. Category Filter Pills
   const categoryPills = document.querySelectorAll('.category-pill');
   const productCards = document.querySelectorAll('.product-card');
 
@@ -47,7 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 3. Search Input Filtering
   const searchInput = document.getElementById('menu-search-input');
   if (searchInput) {
     searchInput.addEventListener('input', (e) => {
@@ -75,7 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 4. Order Calculations & Quantity Steppers
   const subtotalEl = document.getElementById('order-subtotal');
   const totalEl = document.getElementById('order-total');
 
@@ -105,7 +70,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (totalEl) totalEl.textContent = formatRupiah(subtotal);
   }
 
-  // Attach event listeners to quantity steppers
   function bindSteppers() {
     const itemRows = document.querySelectorAll('.order-item-row');
 
@@ -122,7 +86,6 @@ document.addEventListener('DOMContentLoaded', () => {
             valEl.textContent = currentVal - 1;
             updateOrderTotals();
           } else {
-            // Remove item row if decreased to 0
             row.remove();
             updateOrderTotals();
           }
@@ -142,7 +105,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   bindSteppers();
 
-  // 5. Add Product from Menu Grid
   const addButtons = document.querySelectorAll('.btn-add-product');
   const orderItemsContainer = document.getElementById('order-items-container');
 
@@ -156,7 +118,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const price = parseInt(card.getAttribute('data-price'), 10) || 0;
       const id = card.querySelector('h3')?.textContent.trim() || title;
 
-      // Check if already in order
       let existingRow = Array.from(document.querySelectorAll('.order-item-row')).find(row => {
         return row.querySelector('.order-item-title')?.textContent.trim() === id;
       });
@@ -188,7 +149,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 6. Payment Method Toggle (QRIS / Tunai)
   const qrisBtn = document.getElementById('btn-pay-qris');
   const cashBtn = document.getElementById('btn-pay-cash');
 
@@ -208,13 +168,34 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 7. Checkout Action
   const checkoutBtn = document.getElementById('btn-checkout');
-  if (checkoutBtn) {
+  const receiptModal = document.getElementById('receiptModal');
+  const closeReceiptBtn = document.getElementById('close-receipt-btn');
+  const printReceiptBtn = document.getElementById('print-receipt-btn');
+
+  if (checkoutBtn && receiptModal) {
     checkoutBtn.addEventListener('click', () => {
-      const activePayment = document.querySelector('.payment-btn.active span')?.textContent || 'Tunai';
-      const totalAmount = totalEl?.textContent || 'Rp 0';
-      alert(`Pesanan #005 siap diproses!\nMetode Pembayaran: ${activePayment}\nTotal: ${totalAmount}`);
+      receiptModal.classList.add('show');
+    });
+  }
+
+  if (closeReceiptBtn && receiptModal) {
+    closeReceiptBtn.addEventListener('click', () => {
+      receiptModal.classList.remove('show');
+    });
+  }
+
+  if (printReceiptBtn) {
+    printReceiptBtn.addEventListener('click', () => {
+      window.print();
+    });
+  }
+
+  if (receiptModal) {
+    receiptModal.addEventListener('click', (e) => {
+      if (e.target === receiptModal) {
+        receiptModal.classList.remove('show');
+      }
     });
   }
 });

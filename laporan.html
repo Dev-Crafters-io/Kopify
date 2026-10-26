@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KOPIFY — Laporan Finansial & Audit</title>
+  <link rel="icon" href="./assets/kopify-main-logo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="laporan.css?v=2">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="report-container">
+    <nav class="top-navbar" aria-label="Navigasi Utama">
+      <div class="brand-wrapper">
+        <img src="./assets/kopify-mascot.svg" alt="Kopify Mascot" class="brand-mascot-img" width="36" height="36">
+        <div class="brand-details">
+          <span class="brand-name">Kopify</span>
+          <span class="brand-subtitle">Finansial & Bisnis</span>
+        </div>
+      </div>
+
+      <div class="nav-pills" role="navigation">
+        <a href="index.html" class="nav-pill">Kasir</a>
+        <a href="#" class="nav-pill">Inventori</a>
+        <a href="#" class="nav-pill">Komposisi Menu</a>
+        <a href="laporan.html" class="nav-pill active">Laporan</a>
+      </div>
+
+      <div class="user-profile">
+        <div class="user-badge">
+          <span>Owner: Dimas Wijaya</span>
+        </div>
+        <a href="html/login.html" class="btn-logout" aria-label="Logout">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+            <polyline points="16 17 21 12 16 7"></polyline>
+            <line x1="21" y1="12" x2="9" y2="12"></line>
+          </svg>
+        </a>
+      </div>
+    </nav>
+
+    <main class="page-header">
+      <div class="header-title-bar">
+        <div class="title-group">
+          <h1 class="page-title">Laporan Bisnis & Performa Bahan</h1>
+          <p class="page-description">Pantau omzet riil, margin laba dari formula bahan, dan efisiensi stok gudang.</p>
+        </div>
+        <button type="button" class="btn-download">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          <span>Unduh PDF / Excel</span>
+        </button>
+      </div>
+
+      <div class="period-control-bar">
+        <div class="period-label-group">
+          <span class="period-label-bold">Ringkasan bisnis</span>
+          <span>/ Bulan ini</span>
+        </div>
+        <div class="date-selector-group" role="group" aria-label="Filter Rentang Waktu">
+          <button type="button" class="date-btn">Hari ini</button>
+          <button type="button" class="date-btn">7 Hari</button>
+          <button type="button" class="date-btn active">30 Hari</button>
+          <button type="button" class="date-btn">Kustom</button>
+        </div>
+      </div>
+    </main>
+
+    <section class="metrics-grid" aria-label="Ringkasan Metrik Finansial">
+      <article class="metric-card">
+        <span class="metric-header">TOTAL PENDAPATAN</span>
+        <strong class="metric-value">Rp 38.450.000</strong>
+        <span class="metric-badge metric-badge--alert">+12% dibanding bulan lalu</span>
+      </article>
+
+      <article class="metric-card">
+        <span class="metric-header">TOTAL HPP BAHAN (BOM)</span>
+        <strong class="metric-value">Rp 15.380.000</strong>
+        <span class="metric-context">40% dari total omzet</span>
+      </article>
+
+      <article class="metric-card">
+        <span class="metric-header">LABA KOTOR</span>
+        <strong class="metric-value">Rp 23.070.000</strong>
+        <span class="metric-badge metric-badge--success">Margin sehat</span>
+      </article>
+
+      <article class="metric-card">
+        <span class="metric-header">POTENSI KEBOCORAN STOK</span>
+        <strong class="metric-value">Rp 252.000</strong>
+        <span class="metric-badge metric-badge--alert">2 bahan selisih fisik</span>
+      </article>
+    </section>
+
+    <section class="mid-analytics-section">
+      <article class="analytics-card">
+        <div class="card-header-group">
+          <div class="card-title-group">
+            <h2 class="card-heading">Tren Omzet vs Pemakaian Bahan Baku</h2>
+            <span class="card-subtext">Rupiah • 30 hari</span>
+          </div>
+          <div class="chart-legends">
+            <div class="legend-item">
+              <span class="legend-color legend-color--sales"></span>
+              <span>Omzet harian</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-color legend-color--costs"></span>
+              <span>Biaya bahan</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="chart-container-wrapper">
+          <canvas id="revenueChart"></canvas>
+        </div>
+
+        <div class="chart-disclosure-row">
+          <span>Ilustrasi tren harian</span>
+          <span>Hari ke-1 hingga ke-30</span>
+        </div>
+      </article>
+
+      <article class="analytics-card">
+        <div class="card-header-group">
+          <div class="card-title-group">
+            <h2 class="card-heading">Top 5 Menu Paling Menguntungkan</h2>
+            <span class="card-subtext">5 menu ditampilkan</span>
+          </div>
+        </div>
+
+        <div class="ranking-list">
+          <div class="ranking-item">
+            <div class="ranking-main">
+              <span class="ranking-badge">01</span>
+              <div class="ranking-info">
+                <span class="ranking-name">Americano</span>
+                <div class="ranking-meta">
+                  <span>Sold: 420 cup</span>
+                  <span>•</span>
+                  <span class="ranking-margin">Margin: 74%</span>
+                </div>
+              </div>
+            </div>
+            <div class="ranking-value-group">
+              <strong class="ranking-profit">Rp 7.560.000</strong>
+              <span class="ranking-label">Laba kotor</span>
+            </div>
+          </div>
+
+          <div class="ranking-item">
+            <div class="ranking-main">
+              <span class="ranking-badge">02</span>
+              <div class="ranking-info">
+                <span class="ranking-name">Caramel Macchiato</span>
+                <div class="ranking-meta">
+                  <span>Sold: 310 cup</span>
+                  <span>•</span>
+                  <span class="ranking-margin">Margin: 50%</span>
+                </div>
+              </div>
+            </div>
+            <div class="ranking-value-group">
+              <strong class="ranking-profit">Rp 4.340.000</strong>
+              <span class="ranking-label">Laba kotor</span>
+            </div>
+          </div>
+
+          <div class="ranking-item">
+            <div class="ranking-main">
+              <span class="ranking-badge">03</span>
+              <div class="ranking-info">
+                <span class="ranking-name">Butterscotch Sea Salt</span>
+                <div class="ranking-meta">
+                  <span>Sold: 220 cup</span>
+                  <span>•</span>
+                  <span class="ranking-margin">Margin: 53%</span>
+                </div>
+              </div>
+            </div>
+            <div class="ranking-value-group">
+              <strong class="ranking-profit">Rp 3.630.000</strong>
+              <span class="ranking-label">Laba kotor</span>
+            </div>
+          </div>
+
+          <div class="ranking-item">
+            <div class="ranking-main">
+              <span class="ranking-badge">04</span>
+              <div class="ranking-info">
+                <span class="ranking-name">Cappuccino</span>
+                <div class="ranking-meta">
+                  <span>Sold: 180 cup</span>
+                  <span>•</span>
+                  <span class="ranking-margin">Margin: 61%</span>
+                </div>
+              </div>
+            </div>
+            <div class="ranking-value-group">
+              <strong class="ranking-profit">Rp 2.640.000</strong>
+              <span class="ranking-label">Laba kotor</span>
+            </div>
+          </div>
+
+          <div class="ranking-item">
+            <div class="ranking-main">
+              <span class="ranking-badge">05</span>
+              <div class="ranking-info">
+                <span class="ranking-name">Vanilla Latte</span>
+                <div class="ranking-meta">
+                  <span>Sold: 150 cup</span>
+                  <span>•</span>
+                  <span class="ranking-margin">Margin: 57%</span>
+                </div>
+              </div>
+            </div>
+            <div class="ranking-value-group">
+              <strong class="ranking-profit">Rp 2.220.000</strong>
+              <span class="ranking-label">Laba kotor</span>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="audit-section-card">
+      <div class="audit-header-row">
+        <div class="card-title-group">
+          <h2 class="card-heading">Audit Selisih Bahan Baku</h2>
+          <span class="card-subtext">Perbandingan pemakaian berdasarkan formula menu dan stok fisik.</span>
+        </div>
+        <span class="audit-badge">Cuplikan audit • 3 bahan</span>
+      </div>
+
+      <div class="table-responsive">
+        <table class="audit-table">
+          <thead>
+            <tr>
+              <th scope="col">BAHAN MENTAH</th>
+              <th scope="col">TERPAKAI TEORI (POS)</th>
+              <th scope="col">FISIK TERPAKAI</th>
+              <th scope="col">SELISIH (VARIANCE)</th>
+              <th scope="col">NILAI KERUGIAN</th>
+              <th scope="col">STATUS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="cell-material">Fresh Milk Full Cream</td>
+              <td>82.5 L</td>
+              <td>86.0 L</td>
+              <td class="variance-negative">-3.5 L</td>
+              <td class="cell-loss">Rp 84.000</td>
+              <td>
+                <span class="status-pill status-pill--alert">Tumpah / Waste</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="cell-material">House Blend Beans</td>
+              <td>14.2 kg</td>
+              <td>14.8 kg</td>
+              <td class="variance-negative">-0.6 kg</td>
+              <td class="cell-loss">Rp 168.000</td>
+              <td>
+                <span class="status-pill status-pill--alert">Kalibrasi Grinder</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="cell-material">Monin Sirup Karamel</td>
+              <td>6.2 L</td>
+              <td>6.2 L</td>
+              <td class="variance-neutral">0</td>
+              <td class="cell-loss">Rp 0</td>
+              <td>
+                <span class="status-pill status-pill--neutral">Akurat</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="audit-footer-note">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="16" x2="12" y2="12"></line>
+          <line x1="12" y1="8" x2="12.01" y2="8"></line>
+        </svg>
+        <span>Cuplikan bahan terpilih, bukan keseluruhan audit stok.</span>
+      </div>
+    </section>
+
+    <footer class="report-footer">
+      <span>KOPIFY / FINANSIAL & BISNIS</span>
+      <span>Ringkasan untuk owner • Nilai dalam Rupiah</span>
+    </footer>
+  </div>
+
+  <script src="laporan.js"></script>
+</body>
+</html>
