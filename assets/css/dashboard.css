@@ -1,12 +1,3 @@
-/* ==========================================================================
-   KOPIFY POS DASHBOARD - STYLESHEET
-   100% Precise recreation of Figma Node 98:375 (dashboard kopify)
-   Stack: Pure Vanilla CSS3 with BEM/Semantic Naming
-   ========================================================================== */
-
-/* --------------------------------------------------------------------------
-   1. CSS Reset & Base Variables
-   -------------------------------------------------------------------------- */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -14,13 +5,12 @@
 }
 
 :root {
-  /* Typography */
+
   --font-family-base: 'IBM Plex Sans', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
-  /* Color System from Figma */
   --color-bg-app: #F8F5F1;
   --color-surface-white: #FFFFFF;
-  
+
   --color-brand-primary: #D48C46;
   --color-brand-accent: #C87D53;
   --color-brand-dark: #2C1A11;
@@ -45,13 +35,11 @@
   --color-border-panel: #D6D6D6;
   --color-border-toggle: rgba(214, 214, 214, 0.43);
 
-  /* Elevation / Soft Shadows */
   --shadow-header: 0px 4px 12px 0px rgba(0, 0, 0, 0.08);
   --shadow-card: 0px 2px 12px 0px rgba(0, 0, 0, 0.08);
   --shadow-panel: 0px 4px 12px 0px rgba(0, 0, 0, 0.18);
   --shadow-hover: 0px 6px 16px 0px rgba(0, 0, 0, 0.12);
 
-  /* Border Radii */
   --radius-xs: 4px;
   --radius-sm: 8px;
   --radius-md: 10px;
@@ -71,9 +59,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* --------------------------------------------------------------------------
-   2. Main Layout Shell (Split-Screen)
-   -------------------------------------------------------------------------- */
 .pos-container {
   display: flex;
   flex-direction: row;
@@ -83,9 +68,6 @@ body {
   overflow: hidden;
 }
 
-/* --------------------------------------------------------------------------
-   3. Left Main Content Area
-   -------------------------------------------------------------------------- */
 .pos-main {
   flex: 1;
   display: flex;
@@ -95,11 +77,11 @@ body {
   overflow: hidden;
 }
 
-/* 3.1 POS Topbar */
 .pos-topbar {
-  height: 80px;
+  height: 72px;
   background-color: var(--color-surface-white);
-  box-shadow: var(--shadow-header);
+  border-bottom: 1px solid #EAE4DD;
+  box-shadow: 0px 4px 12px 0px rgba(43, 24, 16, 0.04);
   padding: 0 32px;
   display: flex;
   flex-direction: row;
@@ -116,28 +98,71 @@ body {
   gap: 12px;
 }
 
-.brand-burger-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
+.pos-topbar .brand-section img,
+.brand-mascot-img {
+  width: 36px;
+  height: 36px;
+  max-width: 36px;
+  max-height: 36px;
+  background-color: #2B1810;
+  border-radius: var(--radius-sm);
+  padding: 4px;
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
+}
+
+.brand-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.brand-name {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #2B1704;
+  font-family: 'Plus Jakarta Sans', var(--font-family-base);
+}
+
+.brand-subtitle {
+  font-size: 12px;
+  font-weight: 500;
+  color: #6B7280;
+  line-height: 1.2;
+}
+
+.nav-pills {
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 4px;
+  gap: 8px;
 }
 
-.brand-burger-btn img {
-  width: 24px;
-  height: 24px;
-  display: block;
+.nav-pill {
+  display: inline-flex;
+  align-items: center;
+  height: 36px;
+  padding: 0 14px;
+  border-radius: var(--radius-pill);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #6F645C;
+  background-color: var(--color-surface-white);
+  border: 1px solid #EAE4DD;
+  transition: all 0.2s ease;
 }
 
-.brand-text {
-  font-size: 22px;
-  font-weight: 800;
-  line-height: 1.26;
-  color: var(--color-brand-dark);
-  letter-spacing: -0.01em;
+.nav-pill:hover {
+  background-color: #F5F1EC;
+  color: #2B1810;
+}
+
+.nav-pill.active {
+  background-color: #2B1810;
+  color: #FFFFFF;
+  border-color: #2B1810;
 }
 
 .topbar-right {
@@ -164,26 +189,22 @@ body {
   display: block;
 }
 
-.info-pill--datetime {
-  background-color: var(--color-surface-white);
-  border: 0.5px solid #000000;
-  color: var(--color-text-muted);
-  font-weight: 500;
-}
 
 .info-pill--user {
-  background-color: var(--color-brand-primary);
-  color: var(--color-surface-white);
-  font-weight: 700;
+  background-color: #F5F1EC;
+  border: 1px solid #EAE4DD;
+  color: #2B1810;
+  font-weight: 600;
+  height: 40px;
 }
 
 .info-pill--warning {
   background-color: var(--color-warning-bg);
   color: var(--color-warning-text);
   font-weight: 700;
+  height: 40px;
 }
 
-/* 3.2 Category Filter Row */
 .category-filter-row {
   height: 56px;
   background-color: var(--color-surface-white);
@@ -234,7 +255,6 @@ body {
   font-weight: 700;
 }
 
-/* 3.3 Menu Area */
 .menu-area {
   flex: 1;
   display: flex;
@@ -245,7 +265,6 @@ body {
   overflow: hidden;
 }
 
-/* 3.4 Search Input Bar */
 .menu-search-bar {
   height: 48px;
   background-color: var(--color-surface-white);
@@ -291,7 +310,6 @@ body {
   display: block;
 }
 
-/* 3.5 Product Grid */
 .menu-grid-wrapper {
   flex: 1;
   overflow-y: auto;
@@ -299,7 +317,6 @@ body {
   min-height: 0;
 }
 
-/* Custom Scrollbar */
 .menu-grid-wrapper::-webkit-scrollbar {
   width: 6px;
 }
@@ -407,7 +424,6 @@ body {
   display: block;
 }
 
-/* 3.6 Active Order Tracking Strip */
 .active-order-tracking {
   padding: 16px 0;
   border-top: 0.5px solid var(--color-border-light);
@@ -514,9 +530,6 @@ body {
   color: var(--color-text-muted);
 }
 
-/* --------------------------------------------------------------------------
-   4. Right Order Summary Panel (Pesanan #005)
-   -------------------------------------------------------------------------- */
 .order-summary-panel {
   width: 380px;
   height: 100vh;
@@ -532,7 +545,6 @@ body {
   z-index: 20;
 }
 
-/* 4.1 Order Header */
 .order-summary-header {
   display: flex;
   flex-direction: column;
@@ -583,7 +595,6 @@ body {
   display: block;
 }
 
-/* 4.2 Items List */
 .order-items-list {
   flex: 1;
   overflow-y: auto;
@@ -684,7 +695,6 @@ body {
   flex-shrink: 0;
 }
 
-/* 4.3 Divider */
 .order-divider {
   width: 100%;
   height: 1px;
@@ -693,7 +703,6 @@ body {
   flex-shrink: 0;
 }
 
-/* 4.4 Summary Breakdown */
 .order-summary-breakdown {
   display: flex;
   flex-direction: column;
@@ -738,7 +747,6 @@ body {
   letter-spacing: -0.02em;
 }
 
-/* 4.5 Footer & Actions */
 .order-summary-footer {
   display: flex;
   flex-direction: column;
@@ -826,9 +834,6 @@ body {
   transform: scale(0.99);
 }
 
-/* --------------------------------------------------------------------------
-   5. Responsive Breakpoints (Desktop, Tablet 768px, Mobile 390px)
-   -------------------------------------------------------------------------- */
 @media (max-width: 1200px) {
   .pos-container {
     overflow-y: auto;
@@ -839,7 +844,6 @@ body {
   }
 }
 
-/* Tablet (768px) */
 @media (max-width: 768px) {
   .pos-container {
     flex-direction: column;
@@ -865,6 +869,13 @@ body {
     flex-wrap: wrap;
     gap: 12px;
   }
+  .nav-pills {
+    order: 3;
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    justify-content: flex-start;
+  }
   .topbar-right {
     flex-wrap: wrap;
     gap: 8px;
@@ -880,13 +891,20 @@ body {
   }
 }
 
-/* Mobile Screen (390px) */
 @media (max-width: 480px) {
   .pos-topbar {
     padding: 12px;
   }
-  .brand-text {
+  .brand-name {
     font-size: 18px;
+  }
+  .nav-pills {
+    gap: 6px;
+  }
+  .nav-pill {
+    padding: 0 10px;
+    height: 32px;
+    font-size: 12px;
   }
   .info-pill {
     font-size: 11px;
@@ -916,5 +934,385 @@ body {
   }
   .order-summary-panel {
     padding: 16px;
+  }
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  backdrop-filter: blur(2px);
+  padding: 16px;
+  overflow-y: auto;
+}
+
+.modal-overlay.show {
+  display: flex;
+}
+
+.receipt-modal-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  max-height: 94vh;
+  margin: auto;
+}
+
+.receipt-card {
+  width: 340px;
+  background-color: #FDFBF7;
+  padding: 24px 20px;
+  border-radius: 6px;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.25), 0 2px 6px rgba(43, 24, 16, 0.08);
+  color: #2B1810;
+  font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.receipt-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 16px;
+}
+
+.receipt-logo {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: #2B1810;
+  letter-spacing: 0.02em;
+  text-align: center;
+}
+
+.receipt-divider {
+  width: 100%;
+  border-bottom: 1px dashed #C4BDB4;
+}
+
+.receipt-divider--thick {
+  border-bottom: 1px dashed #2B1810;
+}
+
+.receipt-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 14px 0;
+  font-size: 10px;
+  line-height: 1.3;
+}
+
+.receipt-meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.meta-label {
+  color: #7A6E65;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.meta-value {
+  color: #2B1810;
+  font-weight: 600;
+}
+
+.receipt-order-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px 0;
+}
+
+.receipt-table-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  font-weight: 700;
+  color: #7A6E65;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding-bottom: 2px;
+}
+
+.receipt-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.receipt-item-main {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+}
+
+.receipt-item-name {
+  font-weight: 500;
+  color: #2B1810;
+}
+
+.receipt-item-price {
+  font-weight: 700;
+  color: #2B1810;
+}
+
+.receipt-item-detail {
+  font-size: 10px;
+  color: #7A6E65;
+  line-height: 1.3;
+}
+
+.receipt-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px 0 8px;
+  font-size: 11px;
+}
+
+.receipt-summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #7A6E65;
+}
+
+.receipt-summary-num {
+  color: #2B1810;
+  font-weight: 600;
+}
+
+.receipt-qris-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background-color: #2B1810;
+  color: #FFFFFF;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.receipt-total-section {
+  padding: 10px 0;
+}
+
+.receipt-total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.receipt-total-label {
+  font-size: 18px;
+  font-weight: 700;
+  color: #2B1810;
+  letter-spacing: 0.02em;
+}
+
+.receipt-total-val {
+  font-size: 20px;
+  font-weight: 700;
+  color: #2B1810;
+}
+
+.receipt-promo-box {
+  padding: 14px 0 0;
+}
+
+.receipt-promo-container {
+  border: 1px dashed #C4BDB4;
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.receipt-wifi-block {
+  background-color: #F5F0E8;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #7A6E65;
+  font-size: 10px;
+}
+
+.receipt-wifi-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  font-weight: 500;
+}
+
+.receipt-divider-inner {
+  border-bottom: 1px dashed #C4BDB4;
+}
+
+.receipt-coupon-block {
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.receipt-coupon-title {
+  font-size: 10px;
+  font-weight: 700;
+  color: #7A6E65;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.receipt-coupon-badge {
+  background-color: #2B1810;
+  color: #FFFFFF;
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.receipt-coupon-code {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+}
+
+.coupon-code-text {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.coupon-discount {
+  font-size: 10px;
+  font-weight: 700;
+  opacity: 0.9;
+}
+
+.receipt-coupon-desc {
+  font-size: 9px;
+  color: #7A6E65;
+  text-align: center;
+  line-height: 1.3;
+}
+
+.receipt-instagram-block {
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  color: #2B1810;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.receipt-footer {
+  padding-top: 18px;
+  text-align: center;
+}
+
+.receipt-thank-you {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 13px;
+  font-style: italic;
+  color: #7A6E65;
+}
+
+.receipt-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 340px;
+}
+
+.btn-receipt-print {
+  flex: 1;
+  height: 44px;
+  background-color: #2B1810;
+  color: #FFFFFF;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: opacity 0.2s ease, transform 0.1s ease;
+}
+
+.btn-receipt-print:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+}
+
+.btn-receipt-close {
+  flex: 1;
+  height: 44px;
+  background-color: transparent;
+  color: #2B1810;
+  border: 1.5px solid #2B1810;
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-receipt-close:hover {
+  background-color: #2B1810;
+  color: #FFFFFF;
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #receiptModal, #receiptModal * {
+    visibility: visible;
+  }
+  #receiptModal {
+    position: static;
+    background: transparent;
+    padding: 0;
+    display: block;
+  }
+  .receipt-actions {
+    display: none !important;
+  }
+  .receipt-card {
+    box-shadow: none;
+    border: 1px solid #C4BDB4;
+    margin: 0 auto;
   }
 }

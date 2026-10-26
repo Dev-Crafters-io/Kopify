@@ -5,46 +5,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>KOPIFY — POS Dashboard</title>
   <link rel="icon" href="./assets/kopify-main-logo.png" type="image/png">
-  
-  <!-- Google Fonts: IBM Plex Sans & Plus Jakarta Sans -->
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  
-  <!-- CSS Dashboard Stylesheet -->
-  <link rel="stylesheet" href="./assets/css/dashboard.css">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./assets/css/dashboard.css?v=2">
 </head>
 <body>
   <div class="pos-container">
-    
-    <!-- ====================================================================
-         PANEL KIRI: MAIN CONTENT (Topbar, Filters, Menu, Order Tracker)
-         ==================================================================== -->
+
     <main class="pos-main">
-      
-      <!-- 1. Topbar -->
+
       <header class="pos-topbar">
         <div class="brand-section">
-          <button class="brand-burger-btn" aria-label="Toggle Menu Navigation">
-            <img src="./assets/icons/menu-burger.svg" alt="Menu Burger Icon">
-          </button>
-          <h1 class="brand-text">KOPIFY</h1>
+          <img src="./assets/kopify-mascot.svg" alt="Kopify Mascot" class="brand-mascot-img" width="36" height="36">
+          <div class="brand-details">
+            <span class="brand-name">Kopify</span>
+            <span class="brand-subtitle">Kasir &amp; Operasional</span>
+          </div>
         </div>
 
-        <div class="topbar-right">
-          <!-- Live Time Placeholder -->
-          <div class="info-pill info-pill--datetime">
-            <img src="./assets/icons/calendar.svg" alt="Calendar Icon">
-            <span id="live-datetime">Jum, 16 Okt 2026 — 18:11 WIB</span>
-          </div>
+        <nav class="nav-pills" aria-label="Navigasi Utama">
+          <a href="index.html" class="nav-pill active">Kasir</a>
+          <a href="#" class="nav-pill">Inventori</a>
+          <a href="#" class="nav-pill">Komposisi Menu</a>
+          <a href="laporan.html" class="nav-pill">Laporan</a>
+        </nav>
 
-          <!-- Kasir Info -->
+        <div class="topbar-right">
+
           <div class="info-pill info-pill--user">
             <img src="./assets/icons/user.svg" alt="User Kasir Icon">
-            <span>Kasir: Api Widi (Admin)</span>
+            <span>Kasir: Api Widi</span>
           </div>
 
-          <!-- Stock Warning Alert -->
           <div class="info-pill info-pill--warning">
             <img src="./assets/icons/alert-triangle.svg" alt="Alert Triangle Icon">
             <span>3 Stok Menipis</span>
@@ -52,7 +47,6 @@
         </div>
       </header>
 
-      <!-- 2. Category Filter Row -->
       <nav class="category-filter-row" aria-label="Kategori Produk">
         <button class="category-pill active" data-category="all">
           <img src="./assets/icons/coffee-bean.svg" alt="Semua Menu Icon">
@@ -69,10 +63,8 @@
         </button>
       </nav>
 
-      <!-- 3. Menu Area -->
       <section class="menu-area">
-        
-        <!-- Search Input -->
+
         <div class="menu-search-bar">
           <input 
             type="text" 
@@ -86,11 +78,9 @@
           </div>
         </div>
 
-        <!-- Product Grid -->
         <div class="menu-grid-wrapper">
           <div class="menu-grid" id="product-grid-container">
-            
-            <!-- Card 1: Americano -->
+
             <article class="product-card" data-category="coffee" data-name="Americano" data-price="24000">
               <img src="./assets/images/products/americano.png" alt="Americano" class="product-image">
               <div class="product-info-stack">
@@ -105,7 +95,6 @@
               </div>
             </article>
 
-            <!-- Card 2: Croissant -->
             <article class="product-card" data-category="pastry" data-name="Croissant" data-price="24000">
               <img src="./assets/images/products/croissant.jpg" alt="Croissant" class="product-image">
               <div class="product-info-stack">
@@ -120,7 +109,6 @@
               </div>
             </article>
 
-            <!-- Card 3: Butterscotch Sea Salt -->
             <article class="product-card" data-category="coffee" data-name="Butterscotch Sea Salt" data-price="31000">
               <img src="./assets/images/products/butterscotch.png" alt="Butterscotch Sea Salt" class="product-image">
               <div class="product-info-stack">
@@ -135,7 +123,6 @@
               </div>
             </article>
 
-            <!-- Card 4: Cappuccino -->
             <article class="product-card" data-category="coffee" data-name="Cappuccino" data-price="25000">
               <img src="./assets/images/products/cappuccino.jpg" alt="Cappuccino" class="product-image">
               <div class="product-info-stack">
@@ -150,7 +137,6 @@
               </div>
             </article>
 
-            <!-- Card 5: Vanilla Latte -->
             <article class="product-card" data-category="coffee" data-name="Vanilla Latte" data-price="26000">
               <img src="./assets/images/products/vanilla-latte.jpg" alt="Vanilla Latte" class="product-image">
               <div class="product-info-stack">
@@ -165,7 +151,6 @@
               </div>
             </article>
 
-            <!-- Card 6: French Fries -->
             <article class="product-card" data-category="snacks" data-name="French Fries" data-price="15000">
               <img src="./assets/images/products/french-fries.jpg" alt="French Fries" class="product-image">
               <div class="product-info-stack">
@@ -180,7 +165,6 @@
               </div>
             </article>
 
-            <!-- Card 7: Chicken Wings -->
             <article class="product-card" data-category="snacks" data-name="Chicken Wings" data-price="28000">
               <img src="./assets/images/products/chicken.jpg" alt="Chicken Wings" class="product-image">
               <div class="product-info-stack">
@@ -195,7 +179,6 @@
               </div>
             </article>
 
-            <!-- Card 8: Americano (Node Repetition in Grid) -->
             <article class="product-card" data-category="coffee" data-name="Americano" data-price="24000">
               <img src="./assets/images/products/americano.png" alt="Americano" class="product-image">
               <div class="product-info-stack">
@@ -213,7 +196,6 @@
           </div>
         </div>
 
-        <!-- 4. Active Order Tracking at Bottom -->
         <footer class="active-order-tracking">
           <button class="active-order-toggle" aria-label="Filter Pesanan Aktif">
             <span>Pesanan Aktif</span>
@@ -221,8 +203,7 @@
           </button>
 
           <div class="order-status-viewport">
-            
-            <!-- Order Status Card 1 -->
+
             <div class="order-status-card">
               <div class="order-status-card-top">
                 <strong class="order-status-table">Meja 04</strong>
@@ -234,7 +215,6 @@
               </div>
             </div>
 
-            <!-- Order Status Card 2 -->
             <div class="order-status-card">
               <div class="order-status-card-top">
                 <strong class="order-status-table">Meja 03</strong>
@@ -246,7 +226,6 @@
               </div>
             </div>
 
-            <!-- Order Status Card 3 -->
             <div class="order-status-card">
               <div class="order-status-card-top">
                 <strong class="order-status-table">Meja 02</strong>
@@ -264,18 +243,13 @@
       </section>
     </main>
 
-    <!-- ====================================================================
-         PANEL KANAN: ORDER SUMMARY PANEL (Pesanan #005)
-         ==================================================================== -->
     <aside class="order-summary-panel">
-      
-      <!-- Top Section: Header & Order Items -->
+
       <div class="order-summary-top">
-        
-        <!-- Header -->
+
         <div class="order-summary-header">
           <h2 class="order-summary-title">Pesanan #005</h2>
-          
+
           <div class="order-dropdowns-row">
             <div class="custom-select-wrapper">
               <button class="custom-select-box" aria-label="Pilih Meja">
@@ -292,10 +266,8 @@
           </div>
         </div>
 
-        <!-- Order Items List -->
         <div class="order-items-list" id="order-items-container">
-          
-          <!-- Item 1: Cappuccino -->
+
           <div class="order-item-row" data-id="cappuccino-item" data-price="35000">
             <div class="order-item-info">
               <h4 class="order-item-title">Cappuccino</h4>
@@ -309,7 +281,6 @@
             <strong class="order-item-price">Rp 35.000</strong>
           </div>
 
-          <!-- Item 2: Croissant -->
           <div class="order-item-row" data-id="croissant-item" data-price="16600">
             <div class="order-item-info">
               <h4 class="order-item-title">Croissant</h4>
@@ -327,13 +298,10 @@
 
       </div>
 
-      <!-- Bottom Section: Divider, Summary Breakdown, & Checkout Actions -->
       <div class="order-summary-bottom">
-        
-        <!-- Dashed Divider -->
+
         <div class="order-divider"></div>
 
-        <!-- Price Breakdown -->
         <div class="order-summary-breakdown">
           <div class="summary-row">
             <span class="summary-label">Subtotal</span>
@@ -345,7 +313,6 @@
           </div>
         </div>
 
-        <!-- Payment Toggle & Checkout Button -->
         <div class="order-summary-footer">
           <div class="payment-methods-row" role="radiogroup" aria-label="Metode Pembayaran">
             <button class="payment-btn payment-btn--qris" id="btn-pay-qris" role="radio" aria-checked="false">
@@ -369,7 +336,146 @@
 
   </div>
 
-  <!-- Functional Interactions Script -->
-  <script src="./js/script.js"></script>
+  <div id="receiptModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="receiptModalTitle">
+    <div class="receipt-modal-wrapper">
+      <article class="receipt-card">
+        <header class="receipt-header">
+          <h2 id="receiptModalTitle" class="receipt-logo">Kopify</h2>
+        </header>
+
+        <div class="receipt-divider"></div>
+
+        <section class="receipt-meta">
+          <div class="receipt-meta-row">
+            <span class="meta-label">TRANSACTION</span>
+            <strong class="meta-value">#005</strong>
+          </div>
+          <div class="receipt-meta-row">
+            <span class="meta-label">DATE</span>
+            <span class="meta-value">Sabtu, 17 Okt 2026</span>
+          </div>
+          <div class="receipt-meta-row">
+            <span class="meta-label">ORDER TYPE</span>
+            <span class="meta-value">Dine In – Meja 04</span>
+          </div>
+        </section>
+
+        <div class="receipt-divider"></div>
+
+        <section class="receipt-order-section">
+          <div class="receipt-table-header">
+            <span>ITEM</span>
+            <span>TOTAL</span>
+          </div>
+
+          <div class="receipt-item">
+            <div class="receipt-item-main">
+              <span class="receipt-item-name">1x Cappuccino</span>
+              <strong class="receipt-item-price">Rp 35.000</strong>
+            </div>
+            <span class="receipt-item-detail">Hot / Medium • Extra Foam, No Sugar</span>
+          </div>
+
+          <div class="receipt-item">
+            <div class="receipt-item-main">
+              <span class="receipt-item-name">2x Croissant</span>
+              <strong class="receipt-item-price">Rp 33.200</strong>
+            </div>
+            <span class="receipt-item-detail">Butter / Original • Freshly Baked</span>
+          </div>
+        </section>
+
+        <div class="receipt-divider"></div>
+
+        <section class="receipt-summary">
+          <div class="receipt-summary-row">
+            <span>Subtotal</span>
+            <span class="receipt-summary-num">Rp 68.200</span>
+          </div>
+          <div class="receipt-summary-row">
+            <span>Pembayaran</span>
+            <div class="receipt-qris-badge">
+              <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="7" height="7"></rect>
+                <rect x="14" y="3" width="7" height="7"></rect>
+                <rect x="14" y="14" width="7" height="7"></rect>
+                <rect x="3" y="14" width="7" height="7"></rect>
+              </svg>
+              <span>QRIS</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="receipt-total-section">
+          <div class="receipt-total-row">
+            <strong class="receipt-total-label">TOTAL</strong>
+            <strong class="receipt-total-val">Rp 68.200</strong>
+          </div>
+        </section>
+
+        <div class="receipt-divider receipt-divider--thick"></div>
+
+        <section class="receipt-promo-box">
+          <div class="receipt-promo-container">
+            <div class="receipt-wifi-block">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12.55a11 11 0 0 1 14.08 0"></path>
+                <path d="M1.42 9a16 16 0 0 1 21.16 0"></path>
+                <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
+                <line x1="12" y1="20" x2="12.01" y2="20"></line>
+              </svg>
+              <div class="receipt-wifi-info">
+                <span>SSID: Kopify_Free</span>
+                <span>Pass: ngopi123</span>
+              </div>
+            </div>
+
+            <div class="receipt-divider-inner"></div>
+
+            <div class="receipt-coupon-block">
+              <span class="receipt-coupon-title">NEXT VISIT COUPON</span>
+              <div class="receipt-coupon-badge">
+                <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+                  <line x1="7" y1="7" x2="7.01" y2="7"></line>
+                </svg>
+                <div class="receipt-coupon-code">
+                  <strong class="coupon-code-text">KOPIFY10</strong>
+                  <span class="coupon-discount">10% OFF</span>
+                </div>
+              </div>
+              <p class="receipt-coupon-desc">Valid for next visit. Cannot be combined with other promos.</p>
+            </div>
+
+            <div class="receipt-divider-inner"></div>
+
+            <div class="receipt-instagram-block">
+              <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+              <span class="receipt-ig-handle">@kopify.id</span>
+            </div>
+          </div>
+        </section>
+
+        <footer class="receipt-footer">
+          <p class="receipt-thank-you">Thank you for choosing Kopify!</p>
+        </footer>
+      </article>
+
+      <div class="receipt-actions">
+        <button type="button" class="btn-receipt-print" id="print-receipt-btn">
+          <span>🖨️ Cetak Struk</span>
+        </button>
+        <button type="button" class="btn-receipt-close" id="close-receipt-btn">
+          <span>Selesai &amp; Lanjut</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="./js/script.js?v=2"></script>
 </body>
 </html>
