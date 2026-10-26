@@ -102,24 +102,32 @@ body {
 }
 
 .nav-pill {
-  padding: 8px 18px;
+  display: inline-flex;
+  align-items: center;
+  height: 36px;
+  padding: 0 16px;
   border-radius: var(--radius-pill);
   font-size: 13px;
   font-weight: 600;
   text-decoration: none;
-  color: var(--color-muted);
-  background-color: transparent;
+  color: #6F645C;
+  background-color: var(--bg-card);
+  border: none;
+  box-shadow: 0 2px 8px rgba(43, 24, 16, 0.04);
   transition: all 0.2s ease;
 }
 
 .nav-pill:hover {
   background-color: var(--color-pill-bg);
   color: var(--color-primary-dark);
+  box-shadow: 0 4px 12px rgba(43, 24, 16, 0.08);
+  transform: translateY(-1px);
 }
 
 .nav-pill.active {
   background-color: var(--color-primary-dark);
-  color: var(--bg-card);
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(43, 24, 16, 0.22);
 }
 
 .user-profile {
