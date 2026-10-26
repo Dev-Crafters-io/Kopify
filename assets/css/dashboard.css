@@ -148,15 +148,15 @@ body {
   font-size: 13px;
   font-weight: 600;
   text-decoration: none;
-  color: #6F645C;
-  background-color: var(--color-surface-white);
+  color: #2B1810;
+  background-color: #FFFFFF;
   border: none !important;
   box-shadow: 0 2px 8px rgba(43, 24, 16, 0.04);
   transition: all 0.2s ease;
 }
 
 .nav-pill:hover {
-  background-color: #F5F1EC;
+  background-color: #F8F5F1;
   color: #2B1810;
   box-shadow: 0 4px 12px rgba(43, 24, 16, 0.08);
   transform: translateY(-1px);
@@ -196,16 +196,16 @@ body {
 }
 
 .info-pill--datetime {
-  background-color: var(--color-surface-white);
+  background-color: #FFFFFF;
   border: none !important;
   box-shadow: 0 2px 8px rgba(43, 24, 16, 0.04);
-  color: #6F645C;
+  color: #2B1810;
   font-weight: 500;
   height: 36px;
 }
 
 .info-pill--user {
-  background-color: #F5F1EC;
+  background-color: #FFFFFF;
   border: none !important;
   box-shadow: 0 2px 8px rgba(43, 24, 16, 0.04);
   color: #2B1810;
@@ -214,10 +214,10 @@ body {
 }
 
 .info-pill--warning {
-  background-color: var(--color-warning-bg);
+  background-color: #2B1810;
   border: none !important;
-  box-shadow: 0 2px 8px rgba(217, 107, 67, 0.12);
-  color: var(--color-warning-text);
+  box-shadow: 0 4px 14px rgba(43, 24, 16, 0.22);
+  color: #FFFFFF;
   font-weight: 700;
   height: 36px;
 }
