@@ -5,6 +5,7 @@
 # IDE & Editors
 .vscode/
 .idea/
+.mcp.json
 *.swp
 *.swo
 

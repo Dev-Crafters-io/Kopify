@@ -1,222 +1,375 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>HOME</title>
-        <link rel="icon" href="assets/kopify-main-logo.png" type="image/png">
-        <link rel="stylesheet" href="css/style.css">
-    </head>
-    <body>
-        <div id="root">
-            <main class="pos-shell">
-                <section class="catalog">
-                    <header class="topbar">
-                        <div class="logo">
-                            <img class="logo-mark" alt="" src="assets/kopify-main-logo.png">
-                            <span>KOPIFY</span>
-                        </div>
-
-                        <div class="datetime">
-                            <strong>Senin, 26 Okt</strong>
-                            <span>00.47</span>
-                        </div>
-
-                        <button class="stock-pill">Stok menipis: 4 item</button>
-                        <button class="inventory-link">Inventori</button>
-                        <button class="owner-pill">Kasir: Fulan</button>
-                        <button class="icon-button" aria-label="Keluar"><a href="html/login.html">↗</a></button>
-                    </header>
-
-                    <div class="catalog-content">
-                        <nav class="category-row">
-                            <button class="active">Semua Menu</button>
-                            <button>Coffee</button>
-                            <button>Non Coffee</button>
-                            <button>Pastry</button>
-                        </nav>
-
-                        <div class="search-row">
-                            <input placeholder="Cari menu favorit..." value="">
-                            <span>⌕</span>
-                        </div>
-
-                        <div class="product-grid">
-                            <article class="product-card">
-                                <img alt="Americano" src="https://images.unsplash.com/photo-1545731939-9c302d5d27ed?auto=format&amp;fit=crop&amp;w=500&amp;q=80">
-                                <div class="product-info">
-                                    <div>
-                                        <h3>Americano</h3>
-                                        <span>Coffee</span>
-                                    </div>
-                                    <strong>Rp 18.000</strong>
-                                    <button aria-label="Tambah Americano">+</button>
-                                </div>
-                            </article>
-
-                            <article class="product-card">
-                                <img alt="Caramel Latte" src="https://images.unsplash.com/photo-1792655421196-1dbf8d3e4773?auto=format&amp;fit=crop&amp;w=500&amp;q=80">
-                                <div class="product-info">
-                                    <div>
-                                        <h3>Caramel Latte</h3>
-                                        <span>Coffee</span>
-                                    </div>
-                                    <strong>Rp 28.000</strong>
-                                    <button aria-label="Tambah Caramel Latte">+</button>
-                                </div>
-                            </article>
-
-                            <article class="product-card">
-                                <img alt="Butterscotch Latte" src="https://images.unsplash.com/photo-1621779474825-754202895b35?auto=format&amp;fit=crop&amp;w=500&amp;q=80">
-                                <div class="product-info">
-                                    <div>
-                                        <h3>Butterscotch Latte</h3>
-                                        <span>Coffee</span>
-                                    </div>
-                                    <strong>Rp 30.000</strong>
-                                    <button aria-label="Tambah Butterscotch Latte">+</button>
-                                </div>
-                            </article>
-
-                            <article class="product-card">
-                                <img alt="Cappuccino" src="https://images.unsplash.com/photo-1769181258465-adde11962206?auto=format&amp;fit=crop&amp;w=500&amp;q=80">
-                                <div class="product-info">
-                                    <div>
-                                        <h3>Cappuccino</h3>
-                                        <span>Coffee</span>
-                                    </div>
-                                    <strong>Rp 25.000</strong>
-                                    <button aria-label="Tambah Cappuccino">+</button>
-                                </div>
-                            </article>
-
-                            <article class="product-card">
-                                <img alt="Vanilla Latte" src="https://images.unsplash.com/photo-1663869579040-5e4e1c7b54fd?auto=format&amp;fit=crop&amp;w=500&amp;q=80">
-                                <div class="product-info">
-                                    <div>
-                                        <h3>Vanilla Latte</h3>
-                                        <span>Coffee</span>
-                                    </div>
-                                    <strong>Rp 28.000</strong>
-                                    <button aria-label="Tambah Vanilla Latte">+</button>
-                                </div>
-                            </article>
-
-                            <article class="product-card">
-                                <img alt="French Fries" src="https://images.unsplash.com/photo-1648141294401-ede697a33c02?auto=format&amp;fit=crop&amp;w=500&amp;q=80">
-                                <div class="product-info">
-                                    <div>
-                                        <h3>French Fries</h3>
-                                        <span>Pastry</span>
-                                    </div>
-                                    <strong>Rp 22.000</strong>
-                                    <button aria-label="Tambah French Fries">+</button>
-                                </div>
-                            </article>
-
-                            <article class="product-card">
-                                <img alt="Chicken Wings" src="https://images.unsplash.com/photo-1663869579145-a41cc386e630?auto=format&amp;fit=crop&amp;w=500&amp;q=80">
-                                <div class="product-info">
-                                    <div>
-                                        <h3>Chicken Wings</h3>
-                                        <span>Pastry</span>
-                                    </div>
-                                    <strong>Rp 32.000</strong>
-                                    <button aria-label="Tambah Chicken Wings">+</button>
-                                </div>
-                            </article>
-
-                            <article class="product-card">
-                                <img alt="Iced Chocolate" src="https://images.unsplash.com/photo-1545731939-9c302d5d27ed?auto=format&amp;fit=crop&amp;w=500&amp;q=80">
-                                <div class="product-info">
-                                    <div>
-                                        <h3>Iced Chocolate</h3>
-                                        <span>Non Coffee</span>
-                                    </div>
-                                    <strong>Rp 26.000</strong>
-                                    <button aria-label="Tambah Iced Chocolate">+</button>
-                                </div>
-                            </article>
-                        </div>
-
-                        <footer class="status-strip">
-                            <span><i class="green"></i> Operasional</span>
-                            <span><b>Produk</b> 24 aktif</span>
-                            <span><b>Stok rendah</b> 4 item</span>
-                            <span><b>Hari ini</b> 38 transaksi</span>
-                        </footer>
-                    </div>
-                </section>
-
-                <aside class="order-panel">
-                    <div class="order-heading">
-                        <div>
-                            <span>Pesanan</span>
-                            <h2>#005</h2>
-                        </div>
-                        <select aria-label="Tipe pesanan">
-                            <option>Dine In</option>
-                            <option>Take Away</option>
-                        </select>
-                    </div>
-
-                    <label class="customer-field">
-                        Nama pelanggan
-                        <input placeholder="Opsional">
-                    </label>
-
-                    <div class="order-list">
-                        <div class="order-item">
-                            <div>
-                                <strong>Butterscotch Latte</strong>
-                                <span>Rp 30.000</span>
-                            </div>
-                            <div class="stepper">
-                                <button>-</button>
-                                <span>1</span>
-                                <button>+</button>
-                            </div>
-                            <b>Rp 30.000</b>
-                        </div>
-
-                        <div class="order-item">
-                            <div>
-                                <strong>Cappuccino</strong>
-                                <span>Rp 25.000</span>
-                            </div>
-                            <div class="stepper">
-                                <button>-</button>
-                                <span>1</span>
-                                <button>+</button>
-                            </div>
-                            <b>Rp 25.000</b>
-                        </div>
-                    </div>
-
-                    <div class="summary">
-                        <div>
-                            <span>Subtotal</span>
-                            <b>Rp 55.000</b>
-                        </div>
-                        <div>
-                            <span>Pajak (10%)</span>
-                            <b>Rp 5.500</b>
-                        </div>
-                        <div class="total">
-                            <span>Total</span>
-                            <b>Rp 60.500</b>
-                        </div>
-                        <div class="payment-row">
-                            <button class="active">Tunai</button>
-                            <button>QRIS</button>
-                            <button>Kartu</button>
-                        </div>
-                        <button class="checkout">Proses Pembayaran</button>
-                    </div>
-                </aside>
-            </main>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KOPIFY — POS Dashboard</title>
+  <link rel="icon" href="./assets/kopify-main-logo.png" type="image/png">
+  
+  <!-- Google Fonts: IBM Plex Sans & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- CSS Dashboard Stylesheet -->
+  <link rel="stylesheet" href="./assets/css/dashboard.css">
+</head>
+<body>
+  <div class="pos-container">
+    
+    <!-- ====================================================================
+         PANEL KIRI: MAIN CONTENT (Topbar, Filters, Menu, Order Tracker)
+         ==================================================================== -->
+    <main class="pos-main">
+      
+      <!-- 1. Topbar -->
+      <header class="pos-topbar">
+        <div class="brand-section">
+          <button class="brand-burger-btn" aria-label="Toggle Menu Navigation">
+            <img src="./assets/icons/menu-burger.svg" alt="Menu Burger Icon">
+          </button>
+          <h1 class="brand-text">KOPIFY</h1>
         </div>
 
-        <script src="js/script.js"></script>
-    </body>
+        <div class="topbar-right">
+          <!-- Live Time Placeholder -->
+          <div class="info-pill info-pill--datetime">
+            <img src="./assets/icons/calendar.svg" alt="Calendar Icon">
+            <span id="live-datetime">Jum, 16 Okt 2026 — 18:11 WIB</span>
+          </div>
+
+          <!-- Kasir Info -->
+          <div class="info-pill info-pill--user">
+            <img src="./assets/icons/user.svg" alt="User Kasir Icon">
+            <span>Kasir: Api Widi (Admin)</span>
+          </div>
+
+          <!-- Stock Warning Alert -->
+          <div class="info-pill info-pill--warning">
+            <img src="./assets/icons/alert-triangle.svg" alt="Alert Triangle Icon">
+            <span>3 Stok Menipis</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- 2. Category Filter Row -->
+      <nav class="category-filter-row" aria-label="Kategori Produk">
+        <button class="category-pill active" data-category="all">
+          <img src="./assets/icons/coffee-bean.svg" alt="Semua Menu Icon">
+          <span>Semua Menu</span>
+        </button>
+        <button class="category-pill" data-category="coffee">
+          <span>Coffee</span>
+        </button>
+        <button class="category-pill" data-category="pastry">
+          <span>Pastry</span>
+        </button>
+        <button class="category-pill" data-category="snacks">
+          <span>Snacks</span>
+        </button>
+      </nav>
+
+      <!-- 3. Menu Area -->
+      <section class="menu-area">
+        
+        <!-- Search Input -->
+        <div class="menu-search-bar">
+          <input 
+            type="text" 
+            class="search-input" 
+            id="menu-search-input" 
+            placeholder="Cari kopi atau cemilan..." 
+            aria-label="Cari kopi atau cemilan"
+          >
+          <div class="search-icon-badge">
+            <img src="./assets/icons/search.svg" alt="Search Icon">
+          </div>
+        </div>
+
+        <!-- Product Grid -->
+        <div class="menu-grid-wrapper">
+          <div class="menu-grid" id="product-grid-container">
+            
+            <!-- Card 1: Americano -->
+            <article class="product-card" data-category="coffee" data-name="Americano" data-price="24000">
+              <img src="./assets/images/products/americano.png" alt="Americano" class="product-image">
+              <div class="product-info-stack">
+                <h3 class="product-title">Americano</h3>
+                <span class="product-stock">Stok: 1</span>
+              </div>
+              <div class="product-bottom-row">
+                <span class="product-price">Rp 24.000</span>
+                <button class="btn-add-product" aria-label="Tambah Americano ke Pesanan" data-id="americano">
+                  <img src="./assets/icons/plus.svg" alt="Plus Icon">
+                </button>
+              </div>
+            </article>
+
+            <!-- Card 2: Croissant -->
+            <article class="product-card" data-category="pastry" data-name="Croissant" data-price="24000">
+              <img src="./assets/images/products/croissant.jpg" alt="Croissant" class="product-image">
+              <div class="product-info-stack">
+                <h3 class="product-title">Croissant</h3>
+                <span class="product-stock">Stok: 15</span>
+              </div>
+              <div class="product-bottom-row">
+                <span class="product-price">Rp 24.000</span>
+                <button class="btn-add-product" aria-label="Tambah Croissant ke Pesanan" data-id="croissant">
+                  <img src="./assets/icons/plus.svg" alt="Plus Icon">
+                </button>
+              </div>
+            </article>
+
+            <!-- Card 3: Butterscotch Sea Salt -->
+            <article class="product-card" data-category="coffee" data-name="Butterscotch Sea Salt" data-price="31000">
+              <img src="./assets/images/products/butterscotch.png" alt="Butterscotch Sea Salt" class="product-image">
+              <div class="product-info-stack">
+                <h3 class="product-title">Butterscotch Sea Salt</h3>
+                <span class="product-stock">Stok: 2</span>
+              </div>
+              <div class="product-bottom-row">
+                <span class="product-price">Rp 31.000</span>
+                <button class="btn-add-product" aria-label="Tambah Butterscotch Sea Salt ke Pesanan" data-id="butterscotch">
+                  <img src="./assets/icons/plus.svg" alt="Plus Icon">
+                </button>
+              </div>
+            </article>
+
+            <!-- Card 4: Cappuccino -->
+            <article class="product-card" data-category="coffee" data-name="Cappuccino" data-price="25000">
+              <img src="./assets/images/products/cappuccino.jpg" alt="Cappuccino" class="product-image">
+              <div class="product-info-stack">
+                <h3 class="product-title">Cappuccino</h3>
+                <span class="product-stock">Stok: 2</span>
+              </div>
+              <div class="product-bottom-row">
+                <span class="product-price">Rp 25.000</span>
+                <button class="btn-add-product" aria-label="Tambah Cappuccino ke Pesanan" data-id="cappuccino">
+                  <img src="./assets/icons/plus.svg" alt="Plus Icon">
+                </button>
+              </div>
+            </article>
+
+            <!-- Card 5: Vanilla Latte -->
+            <article class="product-card" data-category="coffee" data-name="Vanilla Latte" data-price="26000">
+              <img src="./assets/images/products/vanilla-latte.jpg" alt="Vanilla Latte" class="product-image">
+              <div class="product-info-stack">
+                <h3 class="product-title">Vanilla Latte</h3>
+                <span class="product-stock">Stok: 15</span>
+              </div>
+              <div class="product-bottom-row">
+                <span class="product-price">Rp 26.000</span>
+                <button class="btn-add-product" aria-label="Tambah Vanilla Latte ke Pesanan" data-id="vanilla-latte">
+                  <img src="./assets/icons/plus.svg" alt="Plus Icon">
+                </button>
+              </div>
+            </article>
+
+            <!-- Card 6: French Fries -->
+            <article class="product-card" data-category="snacks" data-name="French Fries" data-price="15000">
+              <img src="./assets/images/products/french-fries.jpg" alt="French Fries" class="product-image">
+              <div class="product-info-stack">
+                <h3 class="product-title">French Fries</h3>
+                <span class="product-stock">Stok: 8</span>
+              </div>
+              <div class="product-bottom-row">
+                <span class="product-price">Rp 15.000</span>
+                <button class="btn-add-product" aria-label="Tambah French Fries ke Pesanan" data-id="french-fries">
+                  <img src="./assets/icons/plus.svg" alt="Plus Icon">
+                </button>
+              </div>
+            </article>
+
+            <!-- Card 7: Chicken Wings -->
+            <article class="product-card" data-category="snacks" data-name="Chicken Wings" data-price="28000">
+              <img src="./assets/images/products/chicken.jpg" alt="Chicken Wings" class="product-image">
+              <div class="product-info-stack">
+                <h3 class="product-title">Chicken Wings</h3>
+                <span class="product-stock">Stok: 12</span>
+              </div>
+              <div class="product-bottom-row">
+                <span class="product-price">Rp 28.000</span>
+                <button class="btn-add-product" aria-label="Tambah Chicken Wings ke Pesanan" data-id="chicken-wings">
+                  <img src="./assets/icons/plus.svg" alt="Plus Icon">
+                </button>
+              </div>
+            </article>
+
+            <!-- Card 8: Americano (Node Repetition in Grid) -->
+            <article class="product-card" data-category="coffee" data-name="Americano" data-price="24000">
+              <img src="./assets/images/products/americano.png" alt="Americano" class="product-image">
+              <div class="product-info-stack">
+                <h3 class="product-title">Americano</h3>
+                <span class="product-stock">Stok: 1</span>
+              </div>
+              <div class="product-bottom-row">
+                <span class="product-price">Rp 24.000</span>
+                <button class="btn-add-product" aria-label="Tambah Americano ke Pesanan" data-id="americano-2">
+                  <img src="./assets/icons/plus.svg" alt="Plus Icon">
+                </button>
+              </div>
+            </article>
+
+          </div>
+        </div>
+
+        <!-- 4. Active Order Tracking at Bottom -->
+        <footer class="active-order-tracking">
+          <button class="active-order-toggle" aria-label="Filter Pesanan Aktif">
+            <span>Pesanan Aktif</span>
+            <img src="./assets/icons/chevron-down.svg" alt="Chevron Down Icon">
+          </button>
+
+          <div class="order-status-viewport">
+            
+            <!-- Order Status Card 1 -->
+            <div class="order-status-card">
+              <div class="order-status-card-top">
+                <strong class="order-status-table">Meja 04</strong>
+                <span class="order-status-type">Dine In</span>
+              </div>
+              <div class="order-status-card-bottom">
+                <span class="order-status-badge">Dapur</span>
+                <span class="order-status-time">10:00 AM</span>
+              </div>
+            </div>
+
+            <!-- Order Status Card 2 -->
+            <div class="order-status-card">
+              <div class="order-status-card-top">
+                <strong class="order-status-table">Meja 03</strong>
+                <span class="order-status-type">Take Away</span>
+              </div>
+              <div class="order-status-card-bottom">
+                <span class="order-status-badge">Selesai</span>
+                <span class="order-status-time">08:45 AM</span>
+              </div>
+            </div>
+
+            <!-- Order Status Card 3 -->
+            <div class="order-status-card">
+              <div class="order-status-card-top">
+                <strong class="order-status-table">Meja 02</strong>
+                <span class="order-status-type">Dine In</span>
+              </div>
+              <div class="order-status-card-bottom">
+                <span class="order-status-badge">Antri</span>
+                <span class="order-status-time">08:15 AM</span>
+              </div>
+            </div>
+
+          </div>
+        </footer>
+
+      </section>
+    </main>
+
+    <!-- ====================================================================
+         PANEL KANAN: ORDER SUMMARY PANEL (Pesanan #005)
+         ==================================================================== -->
+    <aside class="order-summary-panel">
+      
+      <!-- Top Section: Header & Order Items -->
+      <div class="order-summary-top">
+        
+        <!-- Header -->
+        <div class="order-summary-header">
+          <h2 class="order-summary-title">Pesanan #005</h2>
+          
+          <div class="order-dropdowns-row">
+            <div class="custom-select-wrapper">
+              <button class="custom-select-box" aria-label="Pilih Meja">
+                <span>Meja 05</span>
+                <img src="./assets/icons/chevron-down.svg" alt="Chevron Down Icon">
+              </button>
+            </div>
+            <div class="custom-select-wrapper">
+              <button class="custom-select-box" aria-label="Pilih Tipe Pesanan">
+                <span>Dine In</span>
+                <img src="./assets/icons/chevron-down.svg" alt="Chevron Down Icon">
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Order Items List -->
+        <div class="order-items-list" id="order-items-container">
+          
+          <!-- Item 1: Cappuccino -->
+          <div class="order-item-row" data-id="cappuccino-item" data-price="35000">
+            <div class="order-item-info">
+              <h4 class="order-item-title">Cappuccino</h4>
+              <span class="order-item-subtitle">Hot • Medium</span>
+            </div>
+            <div class="quantity-stepper">
+              <button class="stepper-btn stepper-btn--minus" aria-label="Kurangi kuantitas">−</button>
+              <span class="stepper-value">1</span>
+              <button class="stepper-btn stepper-btn--plus" aria-label="Tambah kuantitas">+</button>
+            </div>
+            <strong class="order-item-price">Rp 35.000</strong>
+          </div>
+
+          <!-- Item 2: Croissant -->
+          <div class="order-item-row" data-id="croissant-item" data-price="16600">
+            <div class="order-item-info">
+              <h4 class="order-item-title">Croissant</h4>
+              <span class="order-item-subtitle">Butter • Plain</span>
+            </div>
+            <div class="quantity-stepper">
+              <button class="stepper-btn stepper-btn--minus" aria-label="Kurangi kuantitas">−</button>
+              <span class="stepper-value">2</span>
+              <button class="stepper-btn stepper-btn--plus" aria-label="Tambah kuantitas">+</button>
+            </div>
+            <strong class="order-item-price">Rp 33.200</strong>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Bottom Section: Divider, Summary Breakdown, & Checkout Actions -->
+      <div class="order-summary-bottom">
+        
+        <!-- Dashed Divider -->
+        <div class="order-divider"></div>
+
+        <!-- Price Breakdown -->
+        <div class="order-summary-breakdown">
+          <div class="summary-row">
+            <span class="summary-label">Subtotal</span>
+            <strong class="summary-value" id="order-subtotal">Rp 68.200</strong>
+          </div>
+          <div class="summary-row summary-row--total">
+            <span class="total-label">TOTAL</span>
+            <strong class="total-value" id="order-total">Rp 68.200</strong>
+          </div>
+        </div>
+
+        <!-- Payment Toggle & Checkout Button -->
+        <div class="order-summary-footer">
+          <div class="payment-methods-row" role="radiogroup" aria-label="Metode Pembayaran">
+            <button class="payment-btn payment-btn--qris" id="btn-pay-qris" role="radio" aria-checked="false">
+              <img src="./assets/icons/qr-code.svg" alt="QRIS Icon">
+              <span>QRIS</span>
+            </button>
+            <button class="payment-btn payment-btn--cash active" id="btn-pay-cash" role="radio" aria-checked="true">
+              <img src="./assets/icons/wallet.svg" alt="Tunai Icon">
+              <span>Tunai</span>
+            </button>
+          </div>
+
+          <button class="btn-checkout-primary" id="btn-checkout">
+            BAYAR SEKARANG
+          </button>
+        </div>
+
+      </div>
+
+    </aside>
+
+  </div>
+
+  <!-- Functional Interactions Script -->
+  <script src="./js/script.js"></script>
+</body>
 </html>
