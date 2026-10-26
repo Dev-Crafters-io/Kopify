@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KOPIFY — Inventori Bahan Baku</title>
+  <link rel="icon" href="./assets/kopify-main-logo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="inventori.css?v=1">
+</head>
+<body>
+  <div class="inventory-container">
+    <nav class="top-navbar" aria-label="Navigasi Utama">
+      <div class="brand-wrapper">
+        <div class="brand-icon-box">
+          <img src="./assets/kopify-mascot.svg" alt="Kopify Mascot" class="brand-mascot-img" width="32" height="32">
+        </div>
+        <div class="brand-details">
+          <span class="brand-name">Kopify</span>
+          <span class="brand-subtitle">Inventori &amp; operasional</span>
+        </div>
+      </div>
+
+      <div class="nav-pills" role="navigation">
+        <a href="index.html" class="nav-pill">Kasir</a>
+        <a href="inventori.html" class="nav-pill active">Inventori</a>
+        <a href="bom.html" class="nav-pill">Komposisi Menu</a>
+        <a href="laporan.html" class="nav-pill">Laporan</a>
+      </div>
+
+      <div class="user-actions">
+        <div class="user-badge">
+          <span>Admin: Api Widi</span>
+        </div>
+        <a href="html/login.html" class="btn-logout" aria-label="Logout">
+          <img src="./assets/icons/logout-inventory.svg" alt="Logout Icon" width="18" height="18">
+        </a>
+      </div>
+    </nav>
+
+    <header class="page-header">
+      <div class="header-title-group">
+        <h1 class="page-title">Inventori Bahan Baku</h1>
+        <p class="page-description">Pantau ketersediaan bahan untuk operasional kedai.</p>
+      </div>
+      <button type="button" class="btn-add-material">
+        <span>+ Tambah Bahan</span>
+      </button>
+    </header>
+
+    <section class="summary-cards-grid" aria-label="Ringkasan Inventori">
+      <article class="summary-card">
+        <div class="card-top">
+          <span class="card-label">TOTAL BAHAN</span>
+          <div class="icon-box">
+            <img src="./assets/icons/package.svg" alt="Package Icon" width="18" height="18">
+          </div>
+        </div>
+        <strong class="metric-number">18</strong>
+        <span class="card-subtext">5 kategori aktif</span>
+      </article>
+
+      <article class="summary-card">
+        <div class="card-top">
+          <span class="card-label">STOK MENIPIS</span>
+          <div class="icon-box">
+            <img src="./assets/icons/alert-triangle-inventory.svg" alt="Alert Icon" width="18" height="18">
+          </div>
+        </div>
+        <strong class="metric-number metric-number--warning">3</strong>
+        <div class="subtext-pill-row">
+          <span class="restock-pill">Perlu restock</span>
+        </div>
+      </article>
+
+      <article class="summary-card">
+        <div class="card-top">
+          <span class="card-label">NILAI INVENTORI</span>
+          <div class="icon-box">
+            <img src="./assets/icons/wallet-inventory.svg" alt="Wallet Icon" width="18" height="18">
+          </div>
+        </div>
+        <strong class="metric-number">Rp 4.850.000</strong>
+        <span class="card-subtext">Estimasi saat ini</span>
+      </article>
+    </section>
+
+    <main class="table-card">
+      <div class="table-toolbar">
+        <div class="search-filters-group">
+          <div class="search-input-wrapper">
+            <img src="./assets/icons/search.svg" alt="Search Icon" width="16" height="16">
+            <input type="text" id="inventory-search" class="table-search-input" placeholder="Cari bahan baku...">
+          </div>
+
+          <div class="category-filter-pills" role="tablist">
+            <button type="button" class="cat-pill active" data-category="all">Semua</button>
+            <button type="button" class="cat-pill" data-category="biji kopi">Biji Kopi</button>
+            <button type="button" class="cat-pill" data-category="susu">Susu</button>
+            <button type="button" class="cat-pill" data-category="sirup">Sirup</button>
+            <button type="button" class="cat-pill" data-category="kemasan">Kemasan</button>
+            <button type="button" class="cat-pill" data-category="operasional">Operasional</button>
+          </div>
+        </div>
+
+        <div class="table-meta-group">
+          <span class="meta-count-badge">18 bahan</span>
+          <span class="meta-page-info">Halaman 1 dari 3</span>
+        </div>
+      </div>
+
+      <div class="table-responsive">
+        <table class="inventory-table">
+          <thead>
+            <tr>
+              <th scope="col">BAHAN BAKU</th>
+              <th scope="col">KATEGORI</th>
+              <th scope="col">STOK TERSEDIA</th>
+              <th scope="col">HARGA SATUAN</th>
+              <th scope="col">STATUS</th>
+              <th scope="col" class="th-action">AKSI</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-category="susu">
+              <td>
+                <div class="material-cell">
+                  <span class="material-avatar">F</span>
+                  <div class="material-info">
+                    <strong class="material-name">Fresh Milk Full Cream</strong>
+                    <span class="material-min">Min. 2.500 ml</span>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <span class="category-tag">Susu</span>
+              </td>
+              <td>
+                <strong class="stock-value">1.200</strong>
+                <span class="unit-label">ml</span>
+              </td>
+              <td>
+                <strong class="price-value">Rp 24</strong>
+                <span class="unit-label">/ ml</span>
+              </td>
+              <td>
+                <span class="badge-status badge-danger">
+                  <span class="status-dot"></span>
+                  Stok rendah
+                </span>
+              </td>
+              <td>
+                <div class="action-stepper">
+                  <button type="button" class="btn-step btn-decrement" aria-label="Kurangi stok">-</button>
+                  <button type="button" class="btn-step btn-increment" aria-label="Tambah stok">+</button>
+                </div>
+              </td>
+            </tr>
+
+            <tr data-category="kemasan">
+              <td>
+                <div class="material-cell">
+                  <span class="material-avatar">H</span>
+                  <div class="material-info">
+                    <strong class="material-name">Hot Paper Cup 8oz + Lid</strong>
+                    <span class="material-min">Min. 100 pcs</span>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <span class="category-tag">Kemasan</span>
+              </td>
+              <td>
+                <strong class="stock-value">40</strong>
+                <span class="unit-label">pcs</span>
+              </td>
+              <td>
+                <strong class="price-value">Rp 850</strong>
+                <span class="unit-label">/ pcs</span>
+              </td>
+              <td>
+                <span class="badge-status badge-danger">
+                  <span class="status-dot"></span>
+                  Stok rendah
+                </span>
+              </td>
+              <td>
+                <div class="action-stepper">
+                  <button type="button" class="btn-step btn-decrement" aria-label="Kurangi stok">-</button>
+                  <button type="button" class="btn-step btn-increment" aria-label="Tambah stok">+</button>
+                </div>
+              </td>
+            </tr>
+
+            <tr data-category="sirup">
+              <td>
+                <div class="material-cell">
+                  <span class="material-avatar">M</span>
+                  <div class="material-info">
+                    <strong class="material-name">Monin Sirup Karamel</strong>
+                    <span class="material-min">Min. 500 ml</span>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <span class="category-tag">Sirup &amp; Flavour</span>
+              </td>
+              <td>
+                <strong class="stock-value">450</strong>
+                <span class="unit-label">ml</span>
+              </td>
+              <td>
+                <strong class="price-value">Rp 220</strong>
+                <span class="unit-label">/ ml</span>
+              </td>
+              <td>
+                <span class="badge-status badge-danger">
+                  <span class="status-dot"></span>
+                  Stok rendah
+                </span>
+              </td>
+              <td>
+                <div class="action-stepper">
+                  <button type="button" class="btn-step btn-decrement" aria-label="Kurangi stok">-</button>
+                  <button type="button" class="btn-step btn-increment" aria-label="Tambah stok">+</button>
+                </div>
+              </td>
+            </tr>
+
+            <tr data-category="biji kopi">
+              <td>
+                <div class="material-cell">
+                  <span class="material-avatar">H</span>
+                  <div class="material-info">
+                    <strong class="material-name">House Blend Espresso Beans</strong>
+                    <span class="material-min">Min. 1.000 g</span>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <span class="category-tag">Biji Kopi</span>
+              </td>
+              <td>
+                <strong class="stock-value">4.500</strong>
+                <span class="unit-label">g</span>
+              </td>
+              <td>
+                <strong class="price-value">Rp 280</strong>
+                <span class="unit-label">/ g</span>
+              </td>
+              <td>
+                <span class="badge-status badge-success">
+                  <span class="status-dot"></span>
+                  Aman
+                </span>
+              </td>
+              <td>
+                <div class="action-stepper">
+                  <button type="button" class="btn-step btn-decrement" aria-label="Kurangi stok">-</button>
+                  <button type="button" class="btn-step btn-increment" aria-label="Tambah stok">+</button>
+                </div>
+              </td>
+            </tr>
+
+            <tr data-category="kemasan">
+              <td>
+                <div class="material-cell">
+                  <span class="material-avatar">C</span>
+                  <div class="material-info">
+                    <strong class="material-name">Cold Cup 12oz + Lid</strong>
+                    <span class="material-min">Min. 100 pcs</span>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <span class="category-tag">Kemasan</span>
+              </td>
+              <td>
+                <strong class="stock-value">320</strong>
+                <span class="unit-label">pcs</span>
+              </td>
+              <td>
+                <strong class="price-value">Rp 950</strong>
+                <span class="unit-label">/ pcs</span>
+              </td>
+              <td>
+                <span class="badge-status badge-success">
+                  <span class="status-dot"></span>
+                  Aman
+                </span>
+              </td>
+              <td>
+                <div class="action-stepper">
+                  <button type="button" class="btn-step btn-decrement" aria-label="Kurangi stok">-</button>
+                  <button type="button" class="btn-step btn-increment" aria-label="Tambah stok">+</button>
+                </div>
+              </td>
+            </tr>
+
+            <tr data-category="operasional">
+              <td>
+                <div class="material-cell">
+                  <span class="material-avatar">C</span>
+                  <div class="material-info">
+                    <strong class="material-name">Cream Charger (N2O 8g)</strong>
+                    <span class="material-min">Min. 50 pcs</span>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <span class="category-tag">Operasional / Gas</span>
+              </td>
+              <td>
+                <strong class="stock-value">96</strong>
+                <span class="unit-label">pcs</span>
+              </td>
+              <td>
+                <strong class="price-value">Rp 8.000</strong>
+                <span class="unit-label">/ pcs</span>
+              </td>
+              <td>
+                <span class="badge-status badge-success">
+                  <span class="status-dot"></span>
+                  Aman
+                </span>
+              </td>
+              <td>
+                <div class="action-stepper">
+                  <button type="button" class="btn-step btn-decrement" aria-label="Kurangi stok">-</button>
+                  <button type="button" class="btn-step btn-increment" aria-label="Tambah stok">+</button>
+                </div>
+              </td>
+            </tr>
+
+            <tr data-category="sirup">
+              <td>
+                <div class="material-cell">
+                  <span class="material-avatar">G</span>
+                  <div class="material-info">
+                    <strong class="material-name">Gula Aren Cair Organik</strong>
+                    <span class="material-min">Min. 800 ml</span>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <span class="category-tag">Pemanis</span>
+              </td>
+              <td>
+                <strong class="stock-value">1.800</strong>
+                <span class="unit-label">ml</span>
+              </td>
+              <td>
+                <strong class="price-value">Rp 45</strong>
+                <span class="unit-label">/ ml</span>
+              </td>
+              <td>
+                <span class="badge-status badge-success">
+                  <span class="status-dot"></span>
+                  Aman
+                </span>
+              </td>
+              <td>
+                <div class="action-stepper">
+                  <button type="button" class="btn-step btn-decrement" aria-label="Kurangi stok">-</button>
+                  <button type="button" class="btn-step btn-increment" aria-label="Tambah stok">+</button>
+                </div>
+              </td>
+            </tr>
+
+            <tr data-category="sirup">
+              <td>
+                <div class="material-cell">
+                  <span class="material-avatar">P</span>
+                  <div class="material-info">
+                    <strong class="material-name">Pure Vanilla Extract</strong>
+                    <span class="material-min">Min. 300 ml</span>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <span class="category-tag">Sirup &amp; Flavour</span>
+              </td>
+              <td>
+                <strong class="stock-value">450</strong>
+                <span class="unit-label">ml</span>
+              </td>
+              <td>
+                <strong class="price-value">Rp 350</strong>
+                <span class="unit-label">/ ml</span>
+              </td>
+              <td>
+                <span class="badge-status badge-success">
+                  <span class="status-dot"></span>
+                  Aman
+                </span>
+              </td>
+              <td>
+                <div class="action-stepper">
+                  <button type="button" class="btn-step btn-decrement" aria-label="Kurangi stok">-</button>
+                  <button type="button" class="btn-step btn-increment" aria-label="Tambah stok">+</button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <footer class="table-pagination">
+        <span class="pagination-info">Menampilkan 1-8 dari 18 data</span>
+        <div class="pagination-nav">
+          <button type="button" class="page-btn" aria-label="Halaman sebelumnya">&lt;</button>
+          <button type="button" class="page-btn active">1</button>
+          <button type="button" class="page-btn">2</button>
+          <button type="button" class="page-btn">3</button>
+          <button type="button" class="page-btn" aria-label="Halaman berikutnya">&gt;</button>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <script src="inventori.js?v=1"></script>
+</body>
+</html>

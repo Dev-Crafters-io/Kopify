@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KOPIFY — Resep Menu (BOM)</title>
+  <link rel="icon" href="./assets/kopify-main-logo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="bom.css?v=1">
+</head>
+<body>
+  <div class="bom-container">
+    <nav class="top-navbar" aria-label="Navigasi Utama">
+      <div class="brand-wrapper">
+        <div class="brand-icon-box">
+          <img src="./assets/kopify-mascot.svg" alt="Kopify Mascot" class="brand-mascot-img" width="32" height="32">
+        </div>
+        <div class="brand-details">
+          <span class="brand-name">Kopify</span>
+          <span class="brand-subtitle">Inventori &amp; operasional</span>
+        </div>
+      </div>
+
+      <div class="nav-pills" role="navigation">
+        <a href="index.html" class="nav-pill">Kasir</a>
+        <a href="inventori.html" class="nav-pill">Inventori</a>
+        <a href="bom.html" class="nav-pill active">Komposisi Menu</a>
+        <a href="laporan.html" class="nav-pill">Laporan</a>
+      </div>
+
+      <div class="user-actions">
+        <div class="user-badge">
+          <span>Admin: Api Widi</span>
+        </div>
+        <a href="html/login.html" class="btn-logout" aria-label="Logout">
+          <img src="./assets/icons/logout-inventory.svg" alt="Logout Icon" width="18" height="18">
+        </a>
+      </div>
+    </nav>
+
+    <header class="page-header">
+      <div class="header-title-group">
+        <h1 class="page-title">Komposisi Menu</h1>
+        <p class="page-description">Atur takaran bahan mentah per porsi menu dan pantau HPP modal secara otomatis.</p>
+      </div>
+      <button type="button" class="btn-new-menu">
+        <span>+ Menu Baru</span>
+      </button>
+    </header>
+
+    <main class="recipe-workspace-grid">
+      <section class="menu-list-panel" aria-label="Daftar Menu Produk">
+        <div class="menu-list-header">
+          <h2 class="menu-list-title">Daftar menu</h2>
+          <span class="menu-count-badge">5 menu</span>
+        </div>
+
+        <div class="menu-search-wrapper">
+          <img src="./assets/icons/search.svg" alt="Search Icon" width="16" height="16">
+          <input type="text" id="menu-search" class="menu-search-input" placeholder="Cari menu POS...">
+        </div>
+
+        <div class="menu-filter-pills" role="tablist">
+          <button type="button" class="menu-pill active" data-category="all">Semua</button>
+          <button type="button" class="menu-pill" data-category="coffee">Coffee</button>
+          <button type="button" class="menu-pill" data-category="non-coffee">Non-Coffee</button>
+        </div>
+
+        <div class="menu-cards-container">
+          <article class="product-menu-item active-menu" data-category="coffee">
+            <div class="item-top-row">
+              <strong class="item-title">Caramel Macchiato</strong>
+              <span class="item-category-badge">Coffee</span>
+            </div>
+            <span class="item-recipe-status">4 Bahan (HPP: Rp 13.990)</span>
+            <div class="item-bottom-row">
+              <span class="item-price-tag">Harga Jual: Rp 28.000</span>
+              <img src="./assets/icons/circle-check.svg" alt="Active Indicator" class="item-indicator-icon" width="16" height="16">
+            </div>
+          </article>
+
+          <article class="product-menu-item" data-category="coffee">
+            <div class="item-top-row">
+              <strong class="item-title">Cappuccino</strong>
+              <span class="item-category-badge">Coffee</span>
+            </div>
+            <span class="item-recipe-status">3 Bahan (HPP: Rp 9.360)</span>
+            <div class="item-bottom-row">
+              <span class="item-price-tag">Harga Jual: Rp 24.000</span>
+              <img src="./assets/icons/chevron-right.svg" alt="Select Arrow" class="item-indicator-icon" width="16" height="16">
+            </div>
+          </article>
+
+          <article class="product-menu-item" data-category="coffee">
+            <div class="item-top-row">
+              <strong class="item-title">Vanilla Latte</strong>
+              <span class="item-category-badge">Coffee</span>
+            </div>
+            <span class="item-recipe-status">4 Bahan (HPP: Rp 11.200)</span>
+            <div class="item-bottom-row">
+              <span class="item-price-tag">Harga Jual: Rp 26.000</span>
+              <img src="./assets/icons/chevron-right.svg" alt="Select Arrow" class="item-indicator-icon" width="16" height="16">
+            </div>
+          </article>
+
+          <article class="product-menu-item" data-category="coffee">
+            <div class="item-top-row">
+              <strong class="item-title">Butterscotch Sea Salt</strong>
+              <span class="item-category-badge">Coffee</span>
+            </div>
+            <span class="item-recipe-status">5 Bahan (HPP: Rp 14.500)</span>
+            <div class="item-bottom-row">
+              <span class="item-price-tag">Harga Jual: Rp 31.000</span>
+              <img src="./assets/icons/chevron-right.svg" alt="Select Arrow" class="item-indicator-icon" width="16" height="16">
+            </div>
+          </article>
+
+          <article class="product-menu-item" data-category="coffee">
+            <div class="item-top-row">
+              <strong class="item-title">Manual Brew V60</strong>
+              <span class="item-category-badge">Coffee</span>
+            </div>
+            <span class="item-status-pill">Belum ada resep</span>
+            <div class="item-bottom-row">
+              <span class="item-price-tag">Harga Jual: Rp 25.000</span>
+              <img src="./assets/icons/chevron-right.svg" alt="Select Arrow" class="item-indicator-icon" width="16" height="16">
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="recipe-detail-panel" aria-label="Detail Komposisi Resep">
+        <header class="recipe-header-group">
+          <h2 class="recipe-heading">Komposisi Resep: Caramel Macchiato</h2>
+          <div class="recipe-meta-tags">
+            <span class="recipe-menu-price-pill">Harga Menu: Rp 28.000</span>
+            <span class="recipe-serving-basis">Formula per 1 cup</span>
+          </div>
+        </header>
+
+        <div class="recipe-metrics-grid">
+          <div class="recipe-metric-box">
+            <span class="metric-caption">Total HPP Bahan</span>
+            <strong class="metric-data-value">Rp 13.990 / cup</strong>
+          </div>
+
+          <div class="recipe-metric-box recipe-metric-box--margin">
+            <span class="metric-caption">Margin Kotor</span>
+            <strong class="metric-data-value">50% (Rp 14.010)</strong>
+          </div>
+
+          <div class="recipe-metric-box">
+            <span class="metric-caption">Kesiapan Bahan</span>
+            <div class="metric-readiness-row">
+              <span class="readiness-dot"></span>
+              <span class="readiness-text">Siap Jual</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="recipe-table-responsive">
+          <table class="ingredients-table">
+            <thead>
+              <tr>
+                <th scope="col">BAHAN MENTAH</th>
+                <th scope="col" class="col-quantity">TAKARAN</th>
+                <th scope="col">HARGA MODAL</th>
+                <th scope="col">SUB-TOTAL</th>
+                <th scope="col" class="col-action">AKSI</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-unit-cost="280">
+                <td>
+                  <div class="material-title-block">
+                    <strong class="ingredient-name">House Blend Espresso Beans</strong>
+                    <span class="ingredient-category">Biji Kopi</span>
+                  </div>
+                </td>
+                <td>
+                  <div class="quantity-control-wrapper">
+                    <input type="number" class="quantity-number-input" value="18" min="0" step="1" aria-label="Takaran gram">
+                    <span class="quantity-unit-label">g</span>
+                  </div>
+                </td>
+                <td>
+                  <span class="cost-cell-value">Rp 280 / g</span>
+                </td>
+                <td>
+                  <strong class="subtotal-cell-value">Rp 5.040</strong>
+                </td>
+                <td style="text-align: center;">
+                  <button type="button" class="btn-remove-material" aria-label="Hapus bahan">Hapus</button>
+                </td>
+              </tr>
+
+              <tr data-unit-cost="24">
+                <td>
+                  <div class="material-title-block">
+                    <strong class="ingredient-name">Fresh Milk Full Cream</strong>
+                    <span class="ingredient-category">Susu</span>
+                  </div>
+                </td>
+                <td>
+                  <div class="quantity-control-wrapper">
+                    <input type="number" class="quantity-number-input" value="150" min="0" step="1" aria-label="Takaran ml">
+                    <span class="quantity-unit-label">ml</span>
+                  </div>
+                </td>
+                <td>
+                  <span class="cost-cell-value">Rp 24 / ml</span>
+                </td>
+                <td>
+                  <strong class="subtotal-cell-value">Rp 3.600</strong>
+                </td>
+                <td style="text-align: center;">
+                  <button type="button" class="btn-remove-material" aria-label="Hapus bahan">Hapus</button>
+                </td>
+              </tr>
+
+              <tr data-unit-cost="220">
+                <td>
+                  <div class="material-title-block">
+                    <strong class="ingredient-name">Monin Sirup Karamel</strong>
+                    <span class="ingredient-category">Sirup &amp; Flavour</span>
+                  </div>
+                </td>
+                <td>
+                  <div class="quantity-control-wrapper">
+                    <input type="number" class="quantity-number-input" value="20" min="0" step="1" aria-label="Takaran ml">
+                    <span class="quantity-unit-label">ml</span>
+                  </div>
+                </td>
+                <td>
+                  <span class="cost-cell-value">Rp 220 / ml</span>
+                </td>
+                <td>
+                  <strong class="subtotal-cell-value">Rp 4.400</strong>
+                </td>
+                <td style="text-align: center;">
+                  <button type="button" class="btn-remove-material" aria-label="Hapus bahan">Hapus</button>
+                </td>
+              </tr>
+
+              <tr data-unit-cost="950">
+                <td>
+                  <div class="material-title-block">
+                    <strong class="ingredient-name">Cold Cup 12oz + Lid</strong>
+                    <span class="ingredient-category">Kemasan</span>
+                  </div>
+                </td>
+                <td>
+                  <div class="quantity-control-wrapper">
+                    <input type="number" class="quantity-number-input" value="1" min="0" step="1" aria-label="Takaran pcs">
+                    <span class="quantity-unit-label">pcs</span>
+                  </div>
+                </td>
+                <td>
+                  <span class="cost-cell-value">Rp 950 / pcs</span>
+                </td>
+                <td>
+                  <strong class="subtotal-cell-value">Rp 950</strong>
+                </td>
+                <td style="text-align: center;">
+                  <button type="button" class="btn-remove-material" aria-label="Hapus bahan">Hapus</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="recipe-total-bar">
+          <span class="total-bar-info">4 bahan mentah · 1 porsi menu</span>
+          <strong class="total-bar-cost">Total HPP: Rp 13.990</strong>
+        </div>
+
+        <div class="recipe-actions-row">
+          <button type="button" class="btn-add-ingredient">
+            <span>+ Tambah Bahan Mentah</span>
+          </button>
+          <button type="button" id="btn-save-recipe" class="btn-save-recipe">
+            <img src="./assets/icons/check-white.svg" alt="Check Icon" width="16" height="16">
+            <span>Simpan Resep</span>
+          </button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="bom.js?v=1"></script>
+</body>
+</html>
