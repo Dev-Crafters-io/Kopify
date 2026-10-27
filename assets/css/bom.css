@@ -796,38 +796,140 @@ body {
 
   .top-navbar {
     height: auto;
-    padding: 14px 16px;
-    flex-direction: column;
-    gap: 14px;
-    align-items: stretch;
+    padding: 12px 16px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
   }
 
-  .nav-pills {
-    justify-content: center;
-    flex-wrap: wrap;
+  .brand-wrapper {
+    order: 1;
   }
 
   .user-actions {
-    justify-content: space-between;
+    order: 2;
+    margin-left: auto;
+    gap: 8px;
+  }
+
+  .nav-pills {
+    order: 3;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    white-space: nowrap;
+    flex-wrap: nowrap;
+    gap: 8px;
+    padding: 4px 0;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .nav-pills::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav-pill {
+    flex-shrink: 0;
   }
 
   .page-header {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .btn-new-menu {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .recipe-workspace-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
   }
 
   .recipe-metrics-grid {
     grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .recipe-table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .recipe-actions-row {
     flex-direction: column;
     align-items: stretch;
+    gap: 10px;
   }
 
   .btn-add-ingredient,
   .btn-save-recipe {
     justify-content: center;
     width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .bom-container {
+    padding: 12px 10px;
+    gap: 12px;
+  }
+
+  .top-navbar {
+    padding: 10px 12px;
+  }
+
+  .brand-name {
+    font-size: 16px;
+  }
+
+  .brand-subtitle {
+    display: none;
+  }
+
+  .user-badge {
+    font-size: 11px;
+    padding: 4px 8px;
+  }
+
+  .page-title {
+    font-size: 20px;
+  }
+
+  .page-description {
+    font-size: 12px;
+  }
+
+  .active-menu-name {
+    font-size: 18px;
+  }
+
+  .metric-card {
+    padding: 12px 14px;
+  }
+
+  .metric-val {
+    font-size: 20px;
+  }
+
+  .ingredients-table thead th,
+  .ingredients-table tbody td {
+    padding: 10px 12px;
+    font-size: 12px;
+  }
+
+  .quantity-number-input {
+    width: 52px;
+    height: 28px;
+    font-size: 12px;
   }
 }

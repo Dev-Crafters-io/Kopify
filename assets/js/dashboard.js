@@ -156,6 +156,22 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initial sync of order totals and badges
   updateOrderTotals();
 
+  // Auto-close order summary panel on mobile screens
+  if (window.innerWidth <= 992) {
+    closeOrderPanel();
+  }
+
+  let lastWindowWidth = window.innerWidth;
+  window.addEventListener('resize', () => {
+    const currentWidth = window.innerWidth;
+    if (lastWindowWidth > 992 && currentWidth <= 992) {
+      closeOrderPanel();
+    } else if (lastWindowWidth <= 992 && currentWidth > 992) {
+      openOrderPanel();
+    }
+    lastWindowWidth = currentWidth;
+  });
+
   function bindSteppers() {
     const itemRows = document.querySelectorAll('.order-item-row');
 
