@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="./assets/css/dashboard.css?v=7">
+  <link rel="stylesheet" href="./assets/css/dashboard.css?v=8">
 </head>
 <body>
   <div class="pos-container">
@@ -53,6 +53,16 @@
             <img src="./assets/icons/alert-triangle.svg" alt="Alert Triangle Icon">
             <span>3 Stok Menipis</span>
           </div>
+
+          <button type="button" class="info-pill info-pill--cart" id="topbar-cart-btn" aria-label="Buka/Tutup Keranjang" title="Keranjang Pesanan">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="9" cy="21" r="1"></circle>
+              <circle cx="20" cy="21" r="1"></circle>
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+            </svg>
+            <span class="cart-pill-text">Pesanan</span>
+            <span class="cart-pill-badge" id="topbar-cart-badge">2</span>
+          </button>
         </div>
       </header>
 
@@ -252,12 +262,23 @@
       </section>
     </main>
 
-    <aside class="order-summary-panel">
+    <aside class="order-summary-panel" id="order-summary-panel">
 
       <div class="order-summary-top">
 
         <div class="order-summary-header">
-          <h2 class="order-summary-title">Pesanan #005</h2>
+          <div class="order-summary-header-row">
+            <div class="order-title-wrapper">
+              <h2 class="order-summary-title">Pesanan #005</h2>
+              <span class="order-badge-pill" id="order-badge-count">2 item</span>
+            </div>
+            <button type="button" class="btn-close-order" id="btn-close-order" aria-label="Tutup Ringkasan Pesanan" title="Tutup Pesanan">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+          </div>
 
           <div class="order-dropdowns-row">
             <div class="custom-select-wrapper">
@@ -342,6 +363,33 @@
       </div>
 
     </aside>
+
+    <!-- Floating Trigger to Reopen Order Summary when closed -->
+    <button type="button" class="floating-order-trigger" id="floating-order-trigger" aria-label="Buka Ringkasan Pesanan" style="display: none;">
+      <div class="floating-order-left">
+        <div class="floating-cart-icon-box">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          <span class="floating-cart-count" id="floating-cart-count">2</span>
+        </div>
+        <div class="floating-order-info">
+          <span class="floating-order-title">Pesanan #005</span>
+          <span class="floating-order-sub" id="floating-order-items-text">2 Menu Dipilih</span>
+        </div>
+      </div>
+      <div class="floating-order-right">
+        <strong class="floating-order-total" id="floating-order-total">Rp 68.200</strong>
+        <span class="floating-order-cta">
+          Buka Pesanan
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </span>
+      </div>
+    </button>
 
   </div>
 
@@ -485,6 +533,6 @@
     </div>
   </div>
 
-  <script src="./assets/js/dashboard.js?v=2"></script>
+  <script src="./assets/js/dashboard.js?v=3"></script>
 </body>
 </html>

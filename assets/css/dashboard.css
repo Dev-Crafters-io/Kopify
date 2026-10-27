@@ -611,6 +611,11 @@ body {
   justify-content: space-between;
   flex-shrink: 0;
   z-index: 20;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.order-summary-panel.is-closed {
+  display: none !important;
 }
 
 .order-summary-header {
@@ -618,6 +623,58 @@ body {
   flex-direction: column;
   gap: 16px;
   flex-shrink: 0;
+}
+
+.order-summary-header-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.order-title-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.order-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-brand-subtle);
+  color: var(--color-brand-primary);
+  border: 1px solid rgba(212, 140, 70, 0.25);
+}
+
+.btn-close-order {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: #F5EFEB;
+  border: 1px solid var(--color-border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-body);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.btn-close-order:hover {
+  background-color: #E8DFD5;
+  color: var(--color-brand-dark-brown);
+  transform: scale(1.08);
+}
+
+.btn-close-order:active {
+  transform: scale(0.95);
 }
 
 .order-summary-title {
@@ -908,6 +965,177 @@ body {
   transform: scale(0.99);
 }
 
+/* Topbar Cart Pill Button */
+.info-pill--cart {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--color-brand-subtle);
+  border: 1px solid rgba(212, 140, 70, 0.28);
+  color: var(--color-brand-dark-brown);
+  cursor: pointer;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.info-pill--cart:hover {
+  background-color: #FEEED9;
+  border-color: var(--color-brand-primary);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(212, 140, 70, 0.18);
+}
+
+.cart-pill-badge {
+  background-color: var(--color-brand-primary);
+  color: #FFFFFF;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 1px 7px;
+  border-radius: var(--radius-pill);
+  min-width: 18px;
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* Floating Order Trigger when Cart is Closed */
+.floating-order-trigger {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  background: linear-gradient(135deg, #2C1A11 0%, #1A0F0A 100%);
+  color: #FFFFFF;
+  padding: 12px 20px;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 10px 30px rgba(44, 26, 17, 0.35), 0 2px 8px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  cursor: pointer;
+  font-family: inherit;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+  min-width: 320px;
+}
+
+.floating-order-trigger:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 14px 36px rgba(44, 26, 17, 0.45), 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.floating-order-trigger:active {
+  transform: translateY(-1px) scale(0.99);
+}
+
+.floating-order-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.floating-cart-icon-box {
+  position: relative;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-brand-primary);
+}
+
+.floating-cart-count {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background-color: var(--color-brand-primary);
+  color: #FFFFFF;
+  font-size: 11px;
+  font-weight: 700;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #2C1A11;
+}
+
+.floating-order-info {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.floating-order-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.2;
+}
+
+.floating-order-sub {
+  font-size: 11px;
+  color: #C7B8AF;
+  line-height: 1.2;
+}
+
+.floating-order-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.floating-order-total {
+  font-size: 15px;
+  font-weight: 700;
+  color: #F8C38C;
+}
+
+.floating-order-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--color-brand-primary);
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  transition: background-color 0.2s ease;
+}
+
+.floating-order-trigger:hover .floating-order-cta {
+  background-color: #E09852;
+}
+
+@keyframes triggerBounceIn {
+  0% { transform: translateY(24px) scale(0.95); opacity: 0; }
+  60% { transform: translateY(-4px) scale(1.02); opacity: 1; }
+  100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+@keyframes triggerPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.06); }
+  100% { transform: scale(1); }
+}
+
+.floating-order-trigger.bounce-in {
+  animation: triggerBounceIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.floating-order-trigger.pulse-anim {
+  animation: triggerPulse 0.4s ease;
+}
+
 @media (max-width: 1200px) {
   .pos-container {
     overflow-y: auto;
@@ -1004,6 +1232,19 @@ body {
     max-height: none !important;
     overflow: visible !important;
     padding: 16px 0 !important;
+  }
+
+  .floating-order-trigger {
+    left: 16px !important;
+    right: 16px !important;
+    bottom: 16px !important;
+    min-width: 0 !important;
+    width: calc(100% - 32px) !important;
+    padding: 10px 16px !important;
+  }
+
+  .floating-order-sub {
+    display: none !important;
   }
 }
 
@@ -1182,6 +1423,37 @@ body {
 
   .order-summary-panel {
     padding: 16px 12px !important;
+  }
+
+  .floating-order-trigger {
+    left: 12px !important;
+    right: 12px !important;
+    bottom: 12px !important;
+    width: calc(100% - 24px) !important;
+    padding: 8px 12px !important;
+    gap: 10px !important;
+  }
+
+  .floating-order-title {
+    font-size: 13px !important;
+  }
+
+  .floating-order-total {
+    font-size: 13px !important;
+  }
+
+  .floating-order-cta {
+    padding: 5px 10px !important;
+    font-size: 11px !important;
+    gap: 4px !important;
+  }
+
+  .info-pill--cart .cart-pill-text {
+    display: none !important;
+  }
+
+  .info-pill--cart {
+    padding: 6px 10px !important;
   }
 }
 

@@ -72,6 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function updateOrderTotals() {
     let subtotal = 0;
+    let totalItems = 0;
     const itemRows = document.querySelectorAll('.order-item-row');
 
     itemRows.forEach(row => {
@@ -86,11 +87,74 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       subtotal += rowPrice;
+      totalItems += qty;
     });
 
     if (subtotalEl) subtotalEl.textContent = formatRupiah(subtotal);
     if (totalEl) totalEl.textContent = formatRupiah(subtotal);
+
+    // Sync badges & floating trigger
+    const orderBadge = document.getElementById('order-badge-count');
+    if (orderBadge) orderBadge.textContent = `${totalItems} item`;
+
+    const topbarCartBadge = document.getElementById('topbar-cart-badge');
+    if (topbarCartBadge) topbarCartBadge.textContent = totalItems;
+
+    const floatingCartCount = document.getElementById('floating-cart-count');
+    if (floatingCartCount) floatingCartCount.textContent = totalItems;
+
+    const floatingOrderItemsText = document.getElementById('floating-order-items-text');
+    if (floatingOrderItemsText) floatingOrderItemsText.textContent = `${totalItems} Menu Dipilih`;
+
+    const floatingOrderTotal = document.getElementById('floating-order-total');
+    if (floatingOrderTotal) floatingOrderTotal.textContent = formatRupiah(subtotal);
   }
+
+  // Order Summary Panel Toggle (Open / Close)
+  const orderSummaryPanel = document.getElementById('order-summary-panel');
+  const btnCloseOrder = document.getElementById('btn-close-order');
+  const floatingOrderTrigger = document.getElementById('floating-order-trigger');
+  const topbarCartBtn = document.getElementById('topbar-cart-btn');
+
+  function openOrderPanel() {
+    if (!orderSummaryPanel) return;
+    orderSummaryPanel.classList.remove('is-closed');
+    if (floatingOrderTrigger) floatingOrderTrigger.style.display = 'none';
+    if (window.innerWidth <= 992) {
+      orderSummaryPanel.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  function closeOrderPanel() {
+    if (!orderSummaryPanel) return;
+    orderSummaryPanel.classList.add('is-closed');
+    if (floatingOrderTrigger) {
+      floatingOrderTrigger.style.display = 'flex';
+      floatingOrderTrigger.classList.add('bounce-in');
+      setTimeout(() => floatingOrderTrigger.classList.remove('bounce-in'), 400);
+    }
+  }
+
+  if (btnCloseOrder) {
+    btnCloseOrder.addEventListener('click', closeOrderPanel);
+  }
+
+  if (floatingOrderTrigger) {
+    floatingOrderTrigger.addEventListener('click', openOrderPanel);
+  }
+
+  if (topbarCartBtn) {
+    topbarCartBtn.addEventListener('click', () => {
+      if (orderSummaryPanel && orderSummaryPanel.classList.contains('is-closed')) {
+        openOrderPanel();
+      } else {
+        closeOrderPanel();
+      }
+    });
+  }
+
+  // Initial sync of order totals and badges
+  updateOrderTotals();
 
   function bindSteppers() {
     const itemRows = document.querySelectorAll('.order-item-row');
@@ -168,6 +232,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
       bindSteppers();
       updateOrderTotals();
+
+      if (orderSummaryPanel && orderSummaryPanel.classList.contains('is-closed') && floatingOrderTrigger) {
+        floatingOrderTrigger.classList.add('pulse-anim');
+        setTimeout(() => floatingOrderTrigger.classList.remove('pulse-anim'), 400);
+      }
     });
   });
 
