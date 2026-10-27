@@ -44,13 +44,13 @@ document.addEventListener('DOMContentLoaded', () => {
         i.classList.remove('active-menu');
         const icon = i.querySelector('.item-indicator-icon');
         if (icon) {
-          icon.src = './assets/icons/chevron-right.svg';
+          icon.src = '../assets/icons/chevron-right.svg';
         }
       });
       item.classList.add('active-menu');
       const activeIcon = item.querySelector('.item-indicator-icon');
       if (activeIcon) {
-        activeIcon.src = './assets/icons/circle-check.svg';
+        activeIcon.src = '../assets/icons/circle-check.svg';
       }
     });
   });

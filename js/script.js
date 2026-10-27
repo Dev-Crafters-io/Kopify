@@ -72,6 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function updateOrderTotals() {
     let subtotal = 0;
+    let totalItems = 0;
     const itemRows = document.querySelectorAll('.order-item-row');
 
     itemRows.forEach(row => {
@@ -86,10 +87,17 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       subtotal += rowPrice;
+      totalItems += qty;
     });
 
     if (subtotalEl) subtotalEl.textContent = formatRupiah(subtotal);
     if (totalEl) totalEl.textContent = formatRupiah(subtotal);
+
+    const badgeCounts = document.querySelectorAll('.order-badge-count');
+    badgeCounts.forEach(b => {
+      b.textContent = totalItems;
+      b.style.display = totalItems > 0 ? 'inline-flex' : 'none';
+    });
   }
 
   function bindSteppers() {
@@ -233,4 +241,89 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  // Order summary panel toggle logic
+  const summaryPanel = document.getElementById('order-summary-panel');
+  const toggleSummaryBtn = document.getElementById('btn-toggle-summary');
+  const closeSummaryBtn = document.getElementById('btn-close-summary');
+  const floatingSummaryBtn = document.getElementById('btn-floating-summary');
+  const summaryBackdrop = document.getElementById('summary-backdrop');
+
+  function openSummaryPanel() {
+    if (!summaryPanel) return;
+    summaryPanel.classList.remove('closed');
+    document.body.classList.add('summary-open');
+    if (toggleSummaryBtn) {
+      toggleSummaryBtn.classList.add('active');
+      toggleSummaryBtn.setAttribute('aria-expanded', 'true');
+    }
+    if (summaryBackdrop) {
+      summaryBackdrop.classList.add('active');
+    }
+  }
+
+  function closeSummaryPanel() {
+    if (!summaryPanel) return;
+    summaryPanel.classList.add('closed');
+    document.body.classList.remove('summary-open');
+    if (toggleSummaryBtn) {
+      toggleSummaryBtn.classList.remove('active');
+      toggleSummaryBtn.setAttribute('aria-expanded', 'false');
+    }
+    if (summaryBackdrop) {
+      summaryBackdrop.classList.remove('active');
+    }
+  }
+
+  function toggleSummaryPanel() {
+    if (!summaryPanel) return;
+    if (summaryPanel.classList.contains('closed')) {
+      openSummaryPanel();
+    } else {
+      closeSummaryPanel();
+    }
+  }
+
+  if (toggleSummaryBtn) {
+    toggleSummaryBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleSummaryPanel();
+    });
+  }
+
+  if (closeSummaryBtn) {
+    closeSummaryBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeSummaryPanel();
+    });
+  }
+
+  if (floatingSummaryBtn) {
+    floatingSummaryBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      openSummaryPanel();
+    });
+  }
+
+  if (summaryBackdrop) {
+    summaryBackdrop.addEventListener('click', () => {
+      closeSummaryPanel();
+    });
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && summaryPanel && !summaryPanel.classList.contains('closed')) {
+      closeSummaryPanel();
+    }
+  });
+
+  // Check initial responsive state on load
+  if (window.innerWidth <= 768) {
+    closeSummaryPanel();
+  } else {
+    openSummaryPanel();
+  }
+
+  // Initial calculation of items and totals
+  updateOrderTotals();
 });
