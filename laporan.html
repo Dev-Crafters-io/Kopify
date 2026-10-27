@@ -8,7 +8,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="laporan.css?v=2">
+  <script>
+    if (!sessionStorage.getItem('kopify_logged_in')) {
+      window.location.replace('login.html');
+    }
+  </script>
+  <link rel="stylesheet" href="./assets/css/laporan.css?v=2">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
@@ -33,7 +38,7 @@
         <div class="user-badge">
           <span>Owner: Dimas Wijaya</span>
         </div>
-        <a href="html/login.html" class="btn-logout" aria-label="Logout">
+        <a href="login.html" class="btn-logout" aria-label="Logout" onclick="sessionStorage.removeItem('kopify_logged_in');">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
             <polyline points="16 17 21 12 16 7"></polyline>
@@ -302,6 +307,6 @@
     </footer>
   </div>
 
-  <script src="laporan.js"></script>
+  <script src="./assets/js/laporan.js?v=3"></script>
 </body>
 </html>

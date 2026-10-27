@@ -137,6 +137,9 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
+  position: relative;
+  z-index: 20;
+  flex-shrink: 0;
 }
 
 .nav-pill {
@@ -153,6 +156,11 @@ body {
   border: none !important;
   box-shadow: 0 2px 8px rgba(43, 24, 16, 0.04);
   transition: all 0.2s ease;
+  cursor: pointer;
+  pointer-events: auto;
+  user-select: none;
+  position: relative;
+  z-index: 25;
 }
 
 .nav-pill:hover {
@@ -279,7 +287,25 @@ body {
   justify-content: space-between;
   padding: 16px 32px 0;
   min-height: 0;
-  overflow: hidden;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #8b7e77 transparent;
+  scroll-behavior: smooth;
+}
+
+.menu-area::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.menu-area::-webkit-scrollbar-track {
+  background: transparent;
+}
+.menu-area::-webkit-scrollbar-thumb {
+  background: #8b7e77;
+  border-radius: 4px;
+}
+.menu-area::-webkit-scrollbar-thumb:hover {
+  background: #432b27;
 }
 
 .menu-search-bar {
@@ -892,99 +918,270 @@ body {
   }
 }
 
-@media (max-width: 768px) {
-  .pos-container {
-    flex-direction: column;
-    height: auto;
-    min-height: 100vh;
-    overflow-y: auto;
-  }
-  .pos-main {
-    height: auto;
-    overflow: visible;
-  }
-  .order-summary-panel {
-    width: 100%;
-    height: auto;
-    border-left: none;
-    border-top: 1px solid var(--color-border-panel);
-    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
-    padding: 20px;
-  }
-  .pos-topbar {
-    padding: 12px 16px;
-    height: auto;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-  .nav-pills {
-    order: 3;
-    width: 100%;
-    overflow-x: auto;
-    padding-bottom: 4px;
-    justify-content: flex-start;
-  }
-  .topbar-right {
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-  .category-filter-row {
-    padding: 0 16px;
-  }
-  .menu-area {
-    padding: 16px 16px 0;
-  }
-  .menu-grid {
-    justify-content: flex-start;
+/* ==========================================================================
+   Responsive UI Breakdown Strategy: 1366px, 992px, 768px, and 480px / 425px
+   ========================================================================== */
+
+/* Laptop screens: hide date badge to prevent topbar right badge from overlapping nav pills */
+@media (max-width: 1366px) {
+  .info-pill--datetime {
+    display: none !important;
   }
 }
 
-@media (max-width: 480px) {
-  .pos-topbar {
-    padding: 12px;
+/* 3. Main Content Stacking (Menu vs Cart at max-width: 992px) */
+@media (max-width: 992px) {
+  body {
+    height: auto !important;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto !important;
   }
-  .brand-name {
-    font-size: 18px;
+
+  .pos-container {
+    flex-direction: column !important;
+    height: auto !important;
+    min-height: 100vh;
+    overflow: visible !important;
+    width: 100% !important;
   }
-  .nav-pills {
-    gap: 6px;
+
+  .pos-main {
+    flex: none !important;
+    width: 100% !important;
+    height: auto !important;
+    overflow: visible !important;
   }
-  .nav-pill {
-    padding: 0 10px;
-    height: 32px;
-    font-size: 12px;
-  }
-  .info-pill {
-    font-size: 11px;
-    padding: 6px 10px;
-  }
-  .category-pill {
-    padding: 8px 14px;
-    font-size: 13px;
-  }
+
   .menu-area {
-    padding: 12px 12px 0;
+    flex: none !important;
+    width: 100% !important;
+    height: auto !important;
+    overflow: visible !important;
+    padding: 16px 24px 0 !important;
   }
+
+  .menu-grid-wrapper {
+    flex: none !important;
+    width: 100% !important;
+    height: auto !important;
+    overflow: visible !important;
+    padding: 16px 0 !important;
+  }
+
   .menu-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    width: 100%;
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px !important;
+    width: 100% !important;
   }
+
   .product-card,
   .menu-card {
-    width: 100%;
-    height: auto;
-    min-height: 220px;
-    border: none !important;
-    border-radius: 16px;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 220px !important;
+    box-sizing: border-box;
   }
-  .product-image {
-    width: 100%;
-    height: 100px;
-  }
+
+  /* The Right Order Panel drops below the product grid, taking 100% width */
   .order-summary-panel {
-    padding: 16px;
+    width: 100% !important;
+    height: auto !important;
+    border-left: none !important;
+    border-top: 1px solid var(--color-border-panel) !important;
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0 !important;
+    box-shadow: 0 -4px 20px rgba(43, 24, 16, 0.05) !important;
+    padding: 24px !important;
+    overflow: visible !important;
+    flex-shrink: 0 !important;
+    margin-top: 16px;
+  }
+
+  .order-items-list {
+    flex: none !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    padding: 16px 0 !important;
+  }
+}
+
+/* 1. Top Navigation Bar Breakdown & 2. Swipeable Category Filters (max-width: 768px) */
+@media (max-width: 768px) {
+  /* 1.1 Hide the Date badge entirely on screens smaller than 768px */
+  .info-pill--datetime {
+    display: none !important;
+  }
+
+  /* 1.2 Align Logo to top-left, and User/Alert badges to top-right */
+  .pos-topbar {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    height: auto !important;
+    padding: 12px 16px !important;
+    gap: 12px !important;
+  }
+
+  .brand-section {
+    order: 1 !important;
+    margin-right: auto !important;
+  }
+
+  .topbar-right {
+    order: 2 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    margin-left: auto !important;
+  }
+
+  /* 1.3 Group navigation pills into a horizontally scrollable container with hidden scrollbar */
+  .nav-pills {
+    order: 3 !important;
+    width: 100% !important;
+    display: flex !important;
+    overflow-x: auto !important;
+    white-space: nowrap !important;
+    flex-wrap: nowrap !important;
+    gap: 8px !important;
+    padding-bottom: 6px !important;
+    padding-right: 32px !important;
+    scrollbar-width: none !important; /* Firefox */
+    -ms-overflow-style: none !important; /* IE/Edge */
+    -webkit-overflow-scrolling: touch !important;
+    justify-content: flex-start !important;
+    position: relative !important;
+    z-index: 30 !important;
+  }
+
+  .nav-pills::-webkit-scrollbar {
+    display: none !important; /* Chrome, Safari, Opera */
+  }
+
+  .nav-pill {
+    flex-shrink: 0 !important;
+    white-space: nowrap !important;
+    position: relative !important;
+    z-index: 35 !important;
+    cursor: pointer !important;
+    pointer-events: auto !important;
+    -webkit-tap-highlight-color: rgba(43, 24, 16, 0.1);
+  }
+
+  /* 2. Swipeable Category Filters */
+  .category-filter-row {
+    display: flex !important;
+    overflow-x: auto !important;
+    white-space: nowrap !important;
+    flex-wrap: nowrap !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+    padding: 0 16px !important;
+    gap: 8px !important;
+    height: 52px !important;
+    align-items: center !important;
+  }
+
+  .category-filter-row::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .category-pill {
+    flex-shrink: 0 !important;
+    white-space: nowrap !important;
+  }
+
+  .menu-area {
+    padding: 16px 16px 0 !important;
+  }
+
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+  }
+
+  .order-summary-panel {
+    padding: 20px 16px !important;
+  }
+}
+
+/* Polishing for small mobile screens (max-width: 480px / 425px) */
+@media (max-width: 480px) {
+  .pos-topbar {
+    padding: 10px 12px !important;
+    gap: 8px !important;
+  }
+
+  .brand-details .brand-name {
+    font-size: 16px !important;
+  }
+
+  .brand-details .brand-subtitle {
+    display: none !important;
+  }
+
+  .info-pill {
+    font-size: 11px !important;
+    padding: 4px 8px !important;
+    height: 32px !important;
+  }
+
+  .info-pill--user span {
+    max-width: 85px !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+  }
+
+  .category-filter-row {
+    padding: 0 12px !important;
+    height: 48px !important;
+  }
+
+  .category-pill {
+    padding: 6px 12px !important;
+    font-size: 12px !important;
+  }
+
+  .menu-area {
+    padding: 12px 12px 0 !important;
+  }
+
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+  }
+
+  .product-card,
+  .menu-card {
+    padding: 10px !important;
+    min-height: 200px !important;
+  }
+
+  .product-image {
+    height: 95px !important;
+  }
+
+  .product-title {
+    font-size: 13px !important;
+  }
+
+  .product-price {
+    font-size: 13px !important;
+  }
+
+  .btn-add-item {
+    width: 28px !important;
+    height: 28px !important;
+  }
+
+  .order-summary-panel {
+    padding: 16px 12px !important;
   }
 }
 

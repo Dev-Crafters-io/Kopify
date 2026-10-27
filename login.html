@@ -4,18 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kopify — Masuk Kasir & Owner</title>
-  <link rel="icon" href="../assets/kopify-main-logo.png" type="image/png">
+  <link rel="icon" href="./assets/kopify-main-logo.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=IBM+Plex+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/css/login.css">
+  <link rel="stylesheet" href="./assets/css/login.css">
 </head>
 <body>
   <div class="login-container">
     <section class="branding-pane">
       <div class="branding-logo-text">Kopify</div>
       <div class="branding-center-content">
-        <img src="../assets/images/login-illustration.png" alt="Kopify Coffee Story" class="branding-illustration">
+        <img src="./assets/images/login-illustration.png" alt="Kopify Coffee Story" class="branding-illustration">
         <p class="branding-quote">Where Every Cup Tells a Story.</p>
       </div>
     </section>
@@ -27,7 +27,7 @@
           <p class="login-subtitle">Masuk ke sistem operasional kedai</p>
         </header>
 
-        <form action="../index.html" method="GET" class="login-form">
+        <form action="index.html" method="GET" class="login-form">
           <div class="form-field">
             <label for="username" class="form-label">Email / Username</label>
             <input 
@@ -66,15 +66,30 @@
 
           <div class="demo-switcher">
             <span>Akses Demo Cepat:</span>
-            <a href="../index.html" class="demo-link">Kasir</a>
+            <a href="index.html" class="demo-link">Kasir</a>
             <span class="demo-separator">·</span>
-            <a href="../index.html" class="demo-link">Manajer</a>
+            <a href="index.html" class="demo-link">Manajer</a>
             <span class="demo-separator">·</span>
-            <a href="../laporan.html" class="demo-link">Owner</a>
+            <a href="laporan.html" class="demo-link">Owner (Laporan)</a>
           </div>
         </form>
       </div>
     </main>
   </div>
+
+  <script>
+    const form = document.querySelector('.login-form');
+    if (form) {
+      form.addEventListener('submit', () => {
+        sessionStorage.setItem('kopify_logged_in', 'true');
+      });
+    }
+
+    document.querySelectorAll('.demo-link').forEach(link => {
+      link.addEventListener('click', () => {
+        sessionStorage.setItem('kopify_logged_in', 'true');
+      });
+    });
+  </script>
 </body>
 </html>

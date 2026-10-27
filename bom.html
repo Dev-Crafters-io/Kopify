@@ -8,7 +8,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="bom.css?v=1">
+  <script>
+    if (!sessionStorage.getItem('kopify_logged_in')) {
+      window.location.replace('login.html');
+    }
+  </script>
+  <link rel="stylesheet" href="./assets/css/bom.css?v=2">
 </head>
 <body>
   <div class="bom-container">
@@ -34,7 +39,7 @@
         <div class="user-badge">
           <span>Admin: Api Widi</span>
         </div>
-        <a href="html/login.html" class="btn-logout" aria-label="Logout">
+        <a href="login.html" class="btn-logout" aria-label="Logout" onclick="sessionStorage.removeItem('kopify_logged_in');">
           <img src="./assets/icons/logout-inventory.svg" alt="Logout Icon" width="18" height="18">
         </a>
       </div>
@@ -289,6 +294,6 @@
     </main>
   </div>
 
-  <script src="bom.js?v=1"></script>
+  <script src="./assets/js/bom.js?v=2"></script>
 </body>
 </html>

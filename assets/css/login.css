@@ -36,33 +36,32 @@ body {
 
 .login-container {
   display: flex;
-  flex-direction: row;
-  width: 100vw;
+  flex-direction: column;
+  width: 100%;
   min-height: 100vh;
 }
 
 .branding-pane {
-  flex: 1.15;
   background-color: var(--color-espresso);
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 64px;
+  min-height: 280px;
+  padding: 32px 20px;
   overflow: hidden;
 }
 
 .branding-logo-text {
-  position: absolute;
-  top: 40px;
-  left: 40px;
   font-family: var(--font-family-base);
   font-size: 28px;
   font-weight: 700;
   color: var(--color-cream);
   letter-spacing: -0.01em;
   line-height: 1.26;
+  margin-bottom: 16px;
+  text-align: center;
 }
 
 .branding-center-content {
@@ -70,23 +69,23 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 24px;
+  gap: 16px;
   max-width: 520px;
   width: 100%;
 }
 
 .branding-illustration {
   width: 100%;
-  max-width: 512px;
+  max-width: 320px;
   height: auto;
-  max-height: 380px;
+  max-height: 240px;
   object-fit: contain;
   display: block;
 }
 
 .branding-quote {
   font-family: var(--font-family-base);
-  font-size: 28px;
+  font-size: 20px;
   font-weight: 700;
   line-height: 1.26;
   color: var(--color-cream);
@@ -94,12 +93,12 @@ body {
 }
 
 .auth-pane {
-  flex: 0.95;
   background-color: var(--color-cream);
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 40px 24px;
+  padding: 32px 16px 48px;
+  width: 100%;
 }
 
 .login-card {
@@ -108,7 +107,7 @@ body {
   background-color: var(--color-white);
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-card);
-  padding: 56px 64px;
+  padding: 32px 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -283,40 +282,57 @@ body {
   user-select: none;
 }
 
-@media (max-width: 1024px) {
+/* ==========================================================================
+   Mobile-First Progressive Enhancement Breakpoints
+   ========================================================================== */
+
+/* Tablet and Small Laptops (769px and up) */
+@media (min-width: 769px) {
+  .login-container {
+    flex-direction: row;
+    width: 100vw;
+  }
   .branding-pane {
+    flex: 1.15;
     padding: 40px;
+    min-height: 100vh;
+  }
+  .branding-logo-text {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    margin-bottom: 0;
+    text-align: left;
+  }
+  .branding-illustration {
+    max-width: 440px;
+    max-height: 330px;
   }
   .branding-quote {
     font-size: 24px;
   }
+  .auth-pane {
+    flex: 0.95;
+    padding: 40px 24px;
+  }
   .login-card {
-    padding: 40px 32px;
+    padding: 44px 36px;
   }
 }
 
-@media (max-width: 768px) {
-  .login-container {
-    flex-direction: column;
-  }
+/* Desktop and Large Displays (1025px and up) */
+@media (min-width: 1025px) {
   .branding-pane {
-    min-height: 320px;
-    padding: 32px 20px;
+    padding: 64px;
   }
-  .branding-logo-text {
-    position: static;
-    margin-bottom: 20px;
-    text-align: center;
+  .branding-illustration {
+    max-width: 512px;
+    max-height: 380px;
   }
   .branding-quote {
-    font-size: 22px;
-  }
-  .auth-pane {
-    padding: 32px 16px 48px;
+    font-size: 28px;
   }
   .login-card {
-    padding: 32px 24px;
-    box-shadow: none;
-    background: transparent;
+    padding: 56px 64px;
   }
 }
