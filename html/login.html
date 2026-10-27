@@ -1,80 +1,38 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kopify — Masuk Kasir & Owner</title>
-  <link rel="icon" href="../assets/kopify-main-logo.png" type="image/png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=IBM+Plex+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/css/login.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kopify</title>    
+    <link rel="icon" href="/assets/kopify-main-logo.png" type="image/png">
+    <link rel="stylesheet" href="../css/login.css">
 </head>
 <body>
-  <div class="login-container">
-    <section class="branding-pane">
-      <div class="branding-logo-text">Kopify</div>
-      <div class="branding-center-content">
-        <img src="../assets/images/login-illustration.png" alt="Kopify Coffee Story" class="branding-illustration">
-        <p class="branding-quote">Where Every Cup Tells a Story.</p>
-      </div>
-    </section>
-
-    <main class="auth-pane">
-      <div class="login-card">
-        <header class="login-header">
-          <h1 class="login-title">Kopify</h1>
-          <p class="login-subtitle">Masuk ke sistem operasional kedai</p>
-        </header>
-
-        <form action="../index.html" method="GET" class="login-form">
-          <div class="form-field">
-            <label for="username" class="form-label">Email / Username</label>
-            <input 
-              type="text" 
-              id="username" 
-              name="username" 
-              class="form-input" 
-              placeholder="Masukkan email atau username" 
-              required
-              autocomplete="username"
-            >
-          </div>
-
-          <div class="form-field">
-            <label for="password" class="form-label">Password</label>
-            <input 
-              type="password" 
-              id="password" 
-              name="password" 
-              class="form-input" 
-              placeholder="Masukkan Password" 
-              required
-              autocomplete="current-password"
-            >
-          </div>
-
-          <div class="form-options">
-            <label class="checkbox-label">
-              <input type="checkbox" id="remember" name="remember" class="checkbox-input">
-              <span>Ingat saya</span>
-            </label>
-            <a href="#" class="forgot-password-link">Lupa Password?</a>
-          </div>
-
-          <button type="submit" class="btn-primary">Masuk ke Akun</button>
-
-          <div class="demo-switcher">
-            <span>Akses Demo Cepat:</span>
-            <a href="../index.html" class="demo-link">Kasir</a>
-            <span class="demo-separator">·</span>
-            <a href="../index.html" class="demo-link">Manajer</a>
-            <span class="demo-separator">·</span>
-            <a href="../laporan.html" class="demo-link">Owner</a>
-          </div>
-        </form>
-      </div>
-    </main>
-  </div>
+    <div id="root">
+        <main class="login-shell">
+            <section class="login-visual">
+                <div class="logo logo-light">
+                    <img class="logo-mark" alt="" src="../assets/kopify-main-logo.png">
+                    <span>KOPIFY</span>
+                </div>
+                <img class="hero-logo" alt="Logo Kopify, gelas kopi tersenyum" src="../assets/kopify-main-logo.png">
+                <p class="tagline">Where Every Cup<br>Tells a Story.</p>
+            </section>
+            <section class="login-panel">
+                <form class="login-card">
+                    <div class="brand-title"><span>K</span>opify</div>
+                    <p>Teman operasional kedai kamu.</p>
+                    <label>Email<input required="" type="email" value="admin@kopify.id"></label>
+                    <label>Password<div class="password-wrap"><input required="" type="password" value="kopify123"><button type="button" aria-label="Tampilkan password">Show</button></div></label>
+                    <div class="login-options">
+                        <label><input type="checkbox"> Ingat saya</label>
+                        <button type="button">Lupa password?</button>
+                    </div>
+                    <button class="primary-button" type="submit"><a href="../index.html">Masuk sebagai Kasir</a></button>
+                    <button class="secondary-button" type="button"><a href="../index.html">Masuk sebagai Owner</a></button>
+                </form>
+            </section>
+        </main>
+    </div>
 </body>
 </html>
