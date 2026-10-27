@@ -58,7 +58,76 @@
             <span class="btn-toggle-summary-text">Pesanan</span>
             <span class="order-badge-count" id="order-badge-count">3</span>
           </button>
+
+          <button type="button" class="btn-hamburger" id="btn-hamburger" aria-label="Buka menu navigasi" aria-expanded="false" aria-controls="mobile-nav-drawer">
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+          </button>
         </div>
+
+        <div class="mobile-nav-drawer" id="mobile-nav-drawer" aria-hidden="true">
+          <div class="mobile-nav-inner">
+            <div class="mobile-nav-group">
+              <span class="mobile-nav-heading">Navigasi Utama</span>
+              <div class="mobile-nav-items">
+                <a href="index.html" class="mobile-nav-item active">
+                  <img src="assets/icons/coffee-bean.svg" alt="Kasir Icon">
+                  <span class="mobile-nav-text">Kasir (POS)</span>
+                  <span class="mobile-nav-badge">Aktif</span>
+                </a>
+                <a href="html/inventori.html" class="mobile-nav-item">
+                  <img src="assets/icons/package.svg" alt="Inventori Icon">
+                  <span class="mobile-nav-text">Inventori Stok</span>
+                </a>
+                <a href="html/bom.html" class="mobile-nav-item">
+                  <img src="assets/icons/circle-check.svg" alt="Komposisi Menu Icon">
+                  <span class="mobile-nav-text">Komposisi Menu (BOM)</span>
+                </a>
+                <a href="html/laporan.html" class="mobile-nav-item">
+                  <img src="assets/icons/wallet.svg" alt="Laporan Icon">
+                  <span class="mobile-nav-text">Laporan Finansial</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="mobile-nav-group mobile-nav-group--meta">
+              <span class="mobile-nav-heading">Status &amp; Operasional</span>
+              <div class="mobile-meta-cards">
+                <div class="mobile-meta-card">
+                  <img src="assets/icons/user.svg" alt="User Icon" width="16" height="16">
+                  <div class="mobile-meta-text">
+                    <span class="mobile-meta-label">Kasir Bertugas</span>
+                    <strong>Api Widi</strong>
+                  </div>
+                </div>
+                <div class="mobile-meta-card">
+                  <img src="assets/icons/calendar.svg" alt="Calendar Icon" width="16" height="16">
+                  <div class="mobile-meta-text">
+                    <span class="mobile-meta-label">Waktu Sistem</span>
+                    <strong id="mobile-live-datetime">Memuat waktu...</strong>
+                  </div>
+                </div>
+                <div class="mobile-meta-card mobile-meta-card--warning">
+                  <img src="assets/icons/alert-triangle.svg" alt="Alert Icon" width="16" height="16">
+                  <div class="mobile-meta-text">
+                    <span class="mobile-meta-label">Peringatan Stok</span>
+                    <strong>3 Stok Menipis</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mobile-nav-footer">
+              <a href="html/login.html" class="btn-mobile-logout">
+                <img src="assets/icons/logout-inventory.svg" alt="Logout Icon" width="16" height="16">
+                <span>Keluar dari Sesi</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="mobile-nav-backdrop" id="mobile-nav-backdrop" aria-hidden="true"></div>
       </header>
 
       <nav class="category-filter-row" aria-label="Kategori Produk">
@@ -193,15 +262,71 @@
               </div>
             </article>
 
-            <article class="product-card" data-category="coffee" data-name="Americano" data-price="24000">
-              <img src="assets/images/products/americano.png" alt="Americano" class="product-image">
+            <article class="product-card" data-category="coffee" data-name="Caramel Macchiato" data-price="28000">
+              <img src="assets/images/products/caramel-macchiato.png" alt="Caramel Macchiato" class="product-image">
               <div class="product-info-stack">
-                <h3 class="product-title">Americano</h3>
-                <span class="product-stock">Stok: 1</span>
+                <h3 class="product-title">Caramel Macchiato</h3>
+                <span class="product-stock">Stok: 6</span>
               </div>
               <div class="product-bottom-row">
-                <span class="product-price">Rp 24.000</span>
-                <button class="btn-add-product" aria-label="Tambah Americano ke Pesanan" data-id="americano-2">
+                <span class="product-price">Rp 28.000</span>
+                <button class="btn-add-product" aria-label="Tambah Caramel Macchiato ke Pesanan" data-id="caramel-macchiato">
+                  <img src="assets/icons/plus.svg" alt="Plus Icon">
+                </button>
+              </div>
+            </article>
+
+            <article class="product-card" data-category="coffee" data-name="Creamy Latte" data-price="27000">
+              <img src="assets/images/products/creamy-latte.jpg" alt="Creamy Latte" class="product-image">
+              <div class="product-info-stack">
+                <h3 class="product-title">Creamy Latte</h3>
+                <span class="product-stock">Stok: 9</span>
+              </div>
+              <div class="product-bottom-row">
+                <span class="product-price">Rp 27.000</span>
+                <button class="btn-add-product" aria-label="Tambah Creamy Latte ke Pesanan" data-id="creamy-latte">
+                  <img src="assets/icons/plus.svg" alt="Plus Icon">
+                </button>
+              </div>
+            </article>
+
+            <article class="product-card" data-category="snacks" data-name="Onion Rings" data-price="18000">
+              <img src="assets/images/products/onion-rings.jpg" alt="Onion Rings" class="product-image">
+              <div class="product-info-stack">
+                <h3 class="product-title">Onion Rings</h3>
+                <span class="product-stock">Stok: 10</span>
+              </div>
+              <div class="product-bottom-row">
+                <span class="product-price">Rp 18.000</span>
+                <button class="btn-add-product" aria-label="Tambah Onion Rings ke Pesanan" data-id="onion-rings">
+                  <img src="assets/icons/plus.svg" alt="Plus Icon">
+                </button>
+              </div>
+            </article>
+
+            <article class="product-card" data-category="pastry" data-name="Choco Croissant" data-price="26000">
+              <img src="assets/images/products/croissant.jpg" alt="Choco Croissant" class="product-image">
+              <div class="product-info-stack">
+                <h3 class="product-title">Choco Croissant</h3>
+                <span class="product-stock">Stok: 5</span>
+              </div>
+              <div class="product-bottom-row">
+                <span class="product-price">Rp 26.000</span>
+                <button class="btn-add-product" aria-label="Tambah Choco Croissant ke Pesanan" data-id="choco-croissant">
+                  <img src="assets/icons/plus.svg" alt="Plus Icon">
+                </button>
+              </div>
+            </article>
+
+            <article class="product-card" data-category="coffee" data-name="Espresso Doppio" data-price="20000">
+              <img src="assets/images/products/americano.png" alt="Espresso Doppio" class="product-image">
+              <div class="product-info-stack">
+                <h3 class="product-title">Espresso Doppio</h3>
+                <span class="product-stock">Stok: 12</span>
+              </div>
+              <div class="product-bottom-row">
+                <span class="product-price">Rp 20.000</span>
+                <button class="btn-add-product" aria-label="Tambah Espresso Doppio ke Pesanan" data-id="espresso-doppio">
                   <img src="assets/icons/plus.svg" alt="Plus Icon">
                 </button>
               </div>
@@ -210,51 +335,51 @@
           </div>
         </div>
 
-        <footer class="active-order-tracking">
-          <button class="active-order-toggle" aria-label="Filter Pesanan Aktif">
-            <span>Pesanan Aktif</span>
-            <img src="assets/icons/chevron-down.svg" alt="Chevron Down Icon">
-          </button>
-
-          <div class="order-status-viewport">
-
-            <div class="order-status-card">
-              <div class="order-status-card-top">
-                <strong class="order-status-table">Meja 04</strong>
-                <span class="order-status-type">Dine In</span>
-              </div>
-              <div class="order-status-card-bottom">
-                <span class="order-status-badge">Dapur</span>
-                <span class="order-status-time">10:00 AM</span>
-              </div>
-            </div>
-
-            <div class="order-status-card">
-              <div class="order-status-card-top">
-                <strong class="order-status-table">Meja 03</strong>
-                <span class="order-status-type">Take Away</span>
-              </div>
-              <div class="order-status-card-bottom">
-                <span class="order-status-badge">Selesai</span>
-                <span class="order-status-time">08:45 AM</span>
-              </div>
-            </div>
-
-            <div class="order-status-card">
-              <div class="order-status-card-top">
-                <strong class="order-status-table">Meja 02</strong>
-                <span class="order-status-type">Dine In</span>
-              </div>
-              <div class="order-status-card-bottom">
-                <span class="order-status-badge">Antri</span>
-                <span class="order-status-time">08:15 AM</span>
-              </div>
-            </div>
-
-          </div>
-        </footer>
-
       </section>
+
+      <footer class="active-order-tracking">
+        <button class="active-order-toggle" aria-label="Filter Pesanan Aktif">
+          <span>Pesanan Aktif</span>
+          <img src="assets/icons/chevron-down.svg" alt="Chevron Down Icon">
+        </button>
+
+        <div class="order-status-viewport">
+
+          <div class="order-status-card">
+            <div class="order-status-card-top">
+              <strong class="order-status-table">Meja 04</strong>
+              <span class="order-status-type">Dine In</span>
+            </div>
+            <div class="order-status-card-bottom">
+              <span class="order-status-badge">Dapur</span>
+              <span class="order-status-time">10:00 AM</span>
+            </div>
+          </div>
+
+          <div class="order-status-card">
+            <div class="order-status-card-top">
+              <strong class="order-status-table">Meja 03</strong>
+              <span class="order-status-type">Take Away</span>
+            </div>
+            <div class="order-status-card-bottom">
+              <span class="order-status-badge">Selesai</span>
+              <span class="order-status-time">08:45 AM</span>
+            </div>
+          </div>
+
+          <div class="order-status-card">
+            <div class="order-status-card-top">
+              <strong class="order-status-table">Meja 02</strong>
+              <span class="order-status-type">Dine In</span>
+            </div>
+            <div class="order-status-card-bottom">
+              <span class="order-status-badge">Antri</span>
+              <span class="order-status-time">08:15 AM</span>
+            </div>
+          </div>
+
+        </div>
+      </footer>
 
       <button type="button" class="btn-floating-summary" id="btn-floating-summary" aria-label="Buka ringkasan pesanan">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">

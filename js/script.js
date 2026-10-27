@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
   const liveDateTimeElement = document.getElementById('live-datetime');
+  const mobileLiveDateTimeElement = document.getElementById('mobile-live-datetime');
 
   function updateLiveClock() {
-    if (!liveDateTimeElement) return;
     const now = new Date();
     const days = ['Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab'];
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'];
@@ -15,7 +15,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const hours = String(now.getHours()).padStart(2, '0');
     const minutes = String(now.getMinutes()).padStart(2, '0');
 
-    liveDateTimeElement.textContent = `${dayName}, ${date} ${monthName} ${year} — ${hours}:${minutes} WIB`;
+    const formattedTime = `${dayName}, ${date} ${monthName} ${year} — ${hours}:${minutes} WIB`;
+    if (liveDateTimeElement) liveDateTimeElement.textContent = formattedTime;
+    if (mobileLiveDateTimeElement) mobileLiveDateTimeElement.textContent = formattedTime;
   }
 
   updateLiveClock();
@@ -287,6 +289,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (toggleSummaryBtn) {
     toggleSummaryBtn.addEventListener('click', (e) => {
       e.stopPropagation();
+      closeMobileNav();
       toggleSummaryPanel();
     });
   }
@@ -301,6 +304,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (floatingSummaryBtn) {
     floatingSummaryBtn.addEventListener('click', (e) => {
       e.stopPropagation();
+      closeMobileNav();
       openSummaryPanel();
     });
   }
@@ -311,9 +315,81 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && summaryPanel && !summaryPanel.classList.contains('closed')) {
+  // Mobile Hamburger Navigation Drawer logic
+  const hamburgerBtn = document.getElementById('btn-hamburger');
+  const mobileNavDrawer = document.getElementById('mobile-nav-drawer');
+  const mobileNavBackdrop = document.getElementById('mobile-nav-backdrop');
+
+  function openMobileNav() {
+    if (!mobileNavDrawer || !hamburgerBtn) return;
+    hamburgerBtn.classList.add('active');
+    hamburgerBtn.setAttribute('aria-expanded', 'true');
+    hamburgerBtn.setAttribute('aria-label', 'Tutup menu navigasi');
+    mobileNavDrawer.classList.add('open');
+    mobileNavDrawer.setAttribute('aria-hidden', 'false');
+    if (mobileNavBackdrop) {
+      mobileNavBackdrop.classList.add('active');
+    }
+  }
+
+  function closeMobileNav() {
+    if (!mobileNavDrawer || !hamburgerBtn) return;
+    hamburgerBtn.classList.remove('active');
+    hamburgerBtn.setAttribute('aria-expanded', 'false');
+    hamburgerBtn.setAttribute('aria-label', 'Buka menu navigasi');
+    mobileNavDrawer.classList.remove('open');
+    mobileNavDrawer.setAttribute('aria-hidden', 'true');
+    if (mobileNavBackdrop) {
+      mobileNavBackdrop.classList.remove('active');
+    }
+  }
+
+  function toggleMobileNav() {
+    if (!mobileNavDrawer) return;
+    if (mobileNavDrawer.classList.contains('open')) {
+      closeMobileNav();
+    } else {
+      openMobileNav();
+    }
+  }
+
+  if (hamburgerBtn) {
+    hamburgerBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
       closeSummaryPanel();
+      toggleMobileNav();
+    });
+  }
+
+  if (mobileNavBackdrop) {
+    mobileNavBackdrop.addEventListener('click', () => {
+      closeMobileNav();
+    });
+  }
+
+  // Close mobile nav when clicking a navigation link inside it
+  const mobileNavLinks = document.querySelectorAll('.mobile-nav-item');
+  mobileNavLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      closeMobileNav();
+    });
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      if (mobileNavDrawer && mobileNavDrawer.classList.contains('open')) {
+        closeMobileNav();
+      }
+      if (summaryPanel && !summaryPanel.classList.contains('closed')) {
+        closeSummaryPanel();
+      }
+    }
+  });
+
+  // Automatically close mobile menu if resized back to desktop
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+      closeMobileNav();
     }
   });
 
