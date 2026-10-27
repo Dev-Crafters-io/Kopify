@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>KOPIFY — POS Dashboard</title>
-  <link rel="icon" href="./assets/kopify-main-logo.png" type="image/png">
+  <link rel="icon" href="assets/kopify-main-logo.png" type="image/png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,24 +28,24 @@
 
         <nav class="nav-pills" aria-label="Navigasi Utama">
           <a href="index.html" class="nav-pill active">Kasir</a>
-          <a href="inventori.html" class="nav-pill">Inventori</a>
-          <a href="bom.html" class="nav-pill">Komposisi Menu</a>
-          <a href="laporan.html" class="nav-pill">Laporan</a>
+          <a href="/html/inventori.html" class="nav-pill">Inventori</a>
+          <a href="/html/bom.html" class="nav-pill">Komposisi Menu</a>
+          <a href="/html/laporan.html" class="nav-pill">Laporan</a>
         </nav>
 
         <div class="topbar-right">
           <div class="info-pill info-pill--datetime">
-            <img src="./assets/icons/calendar.svg" alt="Calendar Icon" width="16" height="16">
+            <img src="assets/icons/calendar.svg" alt="Calendar Icon" width="16" height="16">
             <span id="live-datetime">Memuat waktu...</span>
           </div>
 
           <div class="info-pill info-pill--user">
-            <img src="./assets/icons/user.svg" alt="User Kasir Icon">
+            <img src="assets/icons/user.svg" alt="User Kasir Icon">
             <span>Kasir: Api Widi</span>
           </div>
 
           <div class="info-pill info-pill--warning">
-            <img src="./assets/icons/alert-triangle.svg" alt="Alert Triangle Icon">
+            <img src="assets/icons/alert-triangle.svg" alt="Alert Triangle Icon">
             <span>3 Stok Menipis</span>
           </div>
         </div>
@@ -53,7 +53,7 @@
 
       <nav class="category-filter-row" aria-label="Kategori Produk">
         <button class="category-pill active" data-category="all">
-          <img src="./assets/icons/coffee-bean.svg" alt="Semua Menu Icon">
+          <img src="assets/icons/coffee-bean.svg" alt="Semua Menu Icon">
           <span>Semua Menu</span>
         </button>
         <button class="category-pill" data-category="coffee">
@@ -78,7 +78,7 @@
             aria-label="Cari kopi atau cemilan"
           >
           <div class="search-icon-badge">
-            <img src="./assets/icons/search.svg" alt="Search Icon">
+            <img src="assets/icons/search.svg" alt="Search Icon">
           </div>
         </div>
 
@@ -86,7 +86,7 @@
           <div class="menu-grid" id="product-grid-container">
 
             <article class="product-card" data-category="coffee" data-name="Americano" data-price="24000">
-              <img src="./assets/images/products/americano.png" alt="Americano" class="product-image">
+              <img src="assets/images/products/americano.png" alt="Americano" class="product-image">
               <div class="product-info-stack">
                 <h3 class="product-title">Americano</h3>
                 <span class="product-stock">Stok: 1</span>
@@ -94,13 +94,13 @@
               <div class="product-bottom-row">
                 <span class="product-price">Rp 24.000</span>
                 <button class="btn-add-product" aria-label="Tambah Americano ke Pesanan" data-id="americano">
-                  <img src="./assets/icons/plus.svg" alt="Plus Icon">
+                  <img src="assets/icons/plus.svg" alt="Plus Icon">
                 </button>
               </div>
             </article>
 
             <article class="product-card" data-category="pastry" data-name="Croissant" data-price="24000">
-              <img src="./assets/images/products/croissant.jpg" alt="Croissant" class="product-image">
+              <img src="assets/images/products/croissant.jpg" alt="Croissant" class="product-image">
               <div class="product-info-stack">
                 <h3 class="product-title">Croissant</h3>
                 <span class="product-stock">Stok: 15</span>
@@ -108,13 +108,13 @@
               <div class="product-bottom-row">
                 <span class="product-price">Rp 24.000</span>
                 <button class="btn-add-product" aria-label="Tambah Croissant ke Pesanan" data-id="croissant">
-                  <img src="./assets/icons/plus.svg" alt="Plus Icon">
+                  <img src="assets/icons/plus.svg" alt="Plus Icon">
                 </button>
               </div>
             </article>
 
             <article class="product-card" data-category="coffee" data-name="Butterscotch Sea Salt" data-price="31000">
-              <img src="./assets/images/products/butterscotch.png" alt="Butterscotch Sea Salt" class="product-image">
+              <img src="assets/images/products/butterscotch.png" alt="Butterscotch Sea Salt" class="product-image">
               <div class="product-info-stack">
                 <h3 class="product-title">Butterscotch Sea Salt</h3>
                 <span class="product-stock">Stok: 2</span>
@@ -122,13 +122,13 @@
               <div class="product-bottom-row">
                 <span class="product-price">Rp 31.000</span>
                 <button class="btn-add-product" aria-label="Tambah Butterscotch Sea Salt ke Pesanan" data-id="butterscotch">
-                  <img src="./assets/icons/plus.svg" alt="Plus Icon">
+                  <img src="assets/icons/plus.svg" alt="Plus Icon">
                 </button>
               </div>
             </article>
 
             <article class="product-card" data-category="coffee" data-name="Cappuccino" data-price="25000">
-              <img src="./assets/images/products/cappuccino.jpg" alt="Cappuccino" class="product-image">
+              <img src="assets/images/products/cappuccino.jpg" alt="Cappuccino" class="product-image">
               <div class="product-info-stack">
                 <h3 class="product-title">Cappuccino</h3>
                 <span class="product-stock">Stok: 2</span>
@@ -136,13 +136,13 @@
               <div class="product-bottom-row">
                 <span class="product-price">Rp 25.000</span>
                 <button class="btn-add-product" aria-label="Tambah Cappuccino ke Pesanan" data-id="cappuccino">
-                  <img src="./assets/icons/plus.svg" alt="Plus Icon">
+                  <img src="assets/icons/plus.svg" alt="Plus Icon">
                 </button>
               </div>
             </article>
 
             <article class="product-card" data-category="coffee" data-name="Vanilla Latte" data-price="26000">
-              <img src="./assets/images/products/vanilla-latte.jpg" alt="Vanilla Latte" class="product-image">
+              <img src="assets/images/products/vanilla-latte.jpg" alt="Vanilla Latte" class="product-image">
               <div class="product-info-stack">
                 <h3 class="product-title">Vanilla Latte</h3>
                 <span class="product-stock">Stok: 15</span>
@@ -150,13 +150,13 @@
               <div class="product-bottom-row">
                 <span class="product-price">Rp 26.000</span>
                 <button class="btn-add-product" aria-label="Tambah Vanilla Latte ke Pesanan" data-id="vanilla-latte">
-                  <img src="./assets/icons/plus.svg" alt="Plus Icon">
+                  <img src="assets/icons/plus.svg" alt="Plus Icon">
                 </button>
               </div>
             </article>
 
             <article class="product-card" data-category="snacks" data-name="French Fries" data-price="15000">
-              <img src="./assets/images/products/french-fries.jpg" alt="French Fries" class="product-image">
+              <img src="assets/images/products/french-fries.jpg" alt="French Fries" class="product-image">
               <div class="product-info-stack">
                 <h3 class="product-title">French Fries</h3>
                 <span class="product-stock">Stok: 8</span>
@@ -164,13 +164,13 @@
               <div class="product-bottom-row">
                 <span class="product-price">Rp 15.000</span>
                 <button class="btn-add-product" aria-label="Tambah French Fries ke Pesanan" data-id="french-fries">
-                  <img src="./assets/icons/plus.svg" alt="Plus Icon">
+                  <img src="assets/icons/plus.svg" alt="Plus Icon">
                 </button>
               </div>
             </article>
 
             <article class="product-card" data-category="snacks" data-name="Chicken Wings" data-price="28000">
-              <img src="./assets/images/products/chicken.jpg" alt="Chicken Wings" class="product-image">
+              <img src="assets/images/products/chicken.jpg" alt="Chicken Wings" class="product-image">
               <div class="product-info-stack">
                 <h3 class="product-title">Chicken Wings</h3>
                 <span class="product-stock">Stok: 12</span>
@@ -178,13 +178,13 @@
               <div class="product-bottom-row">
                 <span class="product-price">Rp 28.000</span>
                 <button class="btn-add-product" aria-label="Tambah Chicken Wings ke Pesanan" data-id="chicken-wings">
-                  <img src="./assets/icons/plus.svg" alt="Plus Icon">
+                  <img src="assets/icons/plus.svg" alt="Plus Icon">
                 </button>
               </div>
             </article>
 
             <article class="product-card" data-category="coffee" data-name="Americano" data-price="24000">
-              <img src="./assets/images/products/americano.png" alt="Americano" class="product-image">
+              <img src="assets/images/products/americano.png" alt="Americano" class="product-image">
               <div class="product-info-stack">
                 <h3 class="product-title">Americano</h3>
                 <span class="product-stock">Stok: 1</span>
@@ -192,7 +192,7 @@
               <div class="product-bottom-row">
                 <span class="product-price">Rp 24.000</span>
                 <button class="btn-add-product" aria-label="Tambah Americano ke Pesanan" data-id="americano-2">
-                  <img src="./assets/icons/plus.svg" alt="Plus Icon">
+                  <img src="assets/icons/plus.svg" alt="Plus Icon">
                 </button>
               </div>
             </article>
@@ -203,7 +203,7 @@
         <footer class="active-order-tracking">
           <button class="active-order-toggle" aria-label="Filter Pesanan Aktif">
             <span>Pesanan Aktif</span>
-            <img src="./assets/icons/chevron-down.svg" alt="Chevron Down Icon">
+            <img src="assets/icons/chevron-down.svg" alt="Chevron Down Icon">
           </button>
 
           <div class="order-status-viewport">
@@ -258,13 +258,13 @@
             <div class="custom-select-wrapper">
               <button class="custom-select-box" aria-label="Pilih Meja">
                 <span>Meja 05</span>
-                <img src="./assets/icons/chevron-down.svg" alt="Chevron Down Icon">
+                <img src="assets/icons/chevron-down.svg" alt="Chevron Down Icon">
               </button>
             </div>
             <div class="custom-select-wrapper">
               <button class="custom-select-box" aria-label="Pilih Tipe Pesanan">
                 <span>Dine In</span>
-                <img src="./assets/icons/chevron-down.svg" alt="Chevron Down Icon">
+                <img src="assets/icons/chevron-down.svg" alt="Chevron Down Icon">
               </button>
             </div>
           </div>
@@ -320,11 +320,11 @@
         <div class="order-summary-footer">
           <div class="payment-methods-row" role="radiogroup" aria-label="Metode Pembayaran">
             <button class="payment-btn payment-btn--qris" id="btn-pay-qris" role="radio" aria-checked="false">
-              <img src="./assets/icons/qr-code.svg" alt="QRIS Icon">
+              <img src="assets/icons/qr-code.svg" alt="QRIS Icon">
               <span>QRIS</span>
             </button>
             <button class="payment-btn payment-btn--cash active" id="btn-pay-cash" role="radio" aria-checked="true">
-              <img src="./assets/icons/wallet.svg" alt="Tunai Icon">
+              <img src="assets/icons/wallet.svg" alt="Tunai Icon">
               <span>Tunai</span>
             </button>
           </div>
