@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
   const liveDateTimeElement = document.getElementById('live-datetime');
-  const mobileLiveDateTimeElement = document.getElementById('mobile-live-datetime');
 
   function updateLiveClock() {
+    if (!liveDateTimeElement) return;
     const now = new Date();
     const days = ['Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab'];
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'];
@@ -15,9 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const hours = String(now.getHours()).padStart(2, '0');
     const minutes = String(now.getMinutes()).padStart(2, '0');
 
-    const formattedTime = `${dayName}, ${date} ${monthName} ${year} — ${hours}:${minutes} WIB`;
-    if (liveDateTimeElement) liveDateTimeElement.textContent = formattedTime;
-    if (mobileLiveDateTimeElement) mobileLiveDateTimeElement.textContent = formattedTime;
+    liveDateTimeElement.textContent = `${dayName}, ${date} ${monthName} ${year} — ${hours}:${minutes} WIB`;
   }
 
   updateLiveClock();
@@ -95,12 +93,84 @@ document.addEventListener('DOMContentLoaded', () => {
     if (subtotalEl) subtotalEl.textContent = formatRupiah(subtotal);
     if (totalEl) totalEl.textContent = formatRupiah(subtotal);
 
-    const badgeCounts = document.querySelectorAll('.order-badge-count');
-    badgeCounts.forEach(b => {
-      b.textContent = totalItems;
-      b.style.display = totalItems > 0 ? 'inline-flex' : 'none';
+    // Sync badges & floating trigger
+    const orderBadge = document.getElementById('order-badge-count');
+    if (orderBadge) orderBadge.textContent = `${totalItems} item`;
+
+    const topbarCartBadge = document.getElementById('topbar-cart-badge');
+    if (topbarCartBadge) topbarCartBadge.textContent = totalItems;
+
+    const floatingCartCount = document.getElementById('floating-cart-count');
+    if (floatingCartCount) floatingCartCount.textContent = totalItems;
+
+    const floatingOrderItemsText = document.getElementById('floating-order-items-text');
+    if (floatingOrderItemsText) floatingOrderItemsText.textContent = `${totalItems} Menu Dipilih`;
+
+    const floatingOrderTotal = document.getElementById('floating-order-total');
+    if (floatingOrderTotal) floatingOrderTotal.textContent = formatRupiah(subtotal);
+  }
+
+  // Order Summary Panel Toggle (Open / Close)
+  const orderSummaryPanel = document.getElementById('order-summary-panel');
+  const btnCloseOrder = document.getElementById('btn-close-order');
+  const floatingOrderTrigger = document.getElementById('floating-order-trigger');
+  const topbarCartBtn = document.getElementById('topbar-cart-btn');
+
+  function openOrderPanel() {
+    if (!orderSummaryPanel) return;
+    orderSummaryPanel.classList.remove('is-closed');
+    if (floatingOrderTrigger) floatingOrderTrigger.style.display = 'none';
+    if (window.innerWidth <= 992) {
+      orderSummaryPanel.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  function closeOrderPanel() {
+    if (!orderSummaryPanel) return;
+    orderSummaryPanel.classList.add('is-closed');
+    if (floatingOrderTrigger) {
+      floatingOrderTrigger.style.display = 'flex';
+      floatingOrderTrigger.classList.add('bounce-in');
+      setTimeout(() => floatingOrderTrigger.classList.remove('bounce-in'), 400);
+    }
+  }
+
+  if (btnCloseOrder) {
+    btnCloseOrder.addEventListener('click', closeOrderPanel);
+  }
+
+  if (floatingOrderTrigger) {
+    floatingOrderTrigger.addEventListener('click', openOrderPanel);
+  }
+
+  if (topbarCartBtn) {
+    topbarCartBtn.addEventListener('click', () => {
+      if (orderSummaryPanel && orderSummaryPanel.classList.contains('is-closed')) {
+        openOrderPanel();
+      } else {
+        closeOrderPanel();
+      }
     });
   }
+
+  // Initial sync of order totals and badges
+  updateOrderTotals();
+
+  // Auto-close order summary panel on mobile screens
+  if (window.innerWidth <= 992) {
+    closeOrderPanel();
+  }
+
+  let lastWindowWidth = window.innerWidth;
+  window.addEventListener('resize', () => {
+    const currentWidth = window.innerWidth;
+    if (lastWindowWidth > 992 && currentWidth <= 992) {
+      closeOrderPanel();
+    } else if (lastWindowWidth <= 992 && currentWidth > 992) {
+      openOrderPanel();
+    }
+    lastWindowWidth = currentWidth;
+  });
 
   function bindSteppers() {
     const itemRows = document.querySelectorAll('.order-item-row');
@@ -178,6 +248,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
       bindSteppers();
       updateOrderTotals();
+
+      if (orderSummaryPanel && orderSummaryPanel.classList.contains('is-closed') && floatingOrderTrigger) {
+        floatingOrderTrigger.classList.add('pulse-anim');
+        setTimeout(() => floatingOrderTrigger.classList.remove('pulse-anim'), 400);
+      }
     });
   });
 
@@ -243,163 +318,4 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
-
-  // Order summary panel toggle logic
-  const summaryPanel = document.getElementById('order-summary-panel');
-  const toggleSummaryBtn = document.getElementById('btn-toggle-summary');
-  const closeSummaryBtn = document.getElementById('btn-close-summary');
-  const floatingSummaryBtn = document.getElementById('btn-floating-summary');
-  const summaryBackdrop = document.getElementById('summary-backdrop');
-
-  function openSummaryPanel() {
-    if (!summaryPanel) return;
-    summaryPanel.classList.remove('closed');
-    document.body.classList.add('summary-open');
-    if (toggleSummaryBtn) {
-      toggleSummaryBtn.classList.add('active');
-      toggleSummaryBtn.setAttribute('aria-expanded', 'true');
-    }
-    if (summaryBackdrop) {
-      summaryBackdrop.classList.add('active');
-    }
-  }
-
-  function closeSummaryPanel() {
-    if (!summaryPanel) return;
-    summaryPanel.classList.add('closed');
-    document.body.classList.remove('summary-open');
-    if (toggleSummaryBtn) {
-      toggleSummaryBtn.classList.remove('active');
-      toggleSummaryBtn.setAttribute('aria-expanded', 'false');
-    }
-    if (summaryBackdrop) {
-      summaryBackdrop.classList.remove('active');
-    }
-  }
-
-  function toggleSummaryPanel() {
-    if (!summaryPanel) return;
-    if (summaryPanel.classList.contains('closed')) {
-      openSummaryPanel();
-    } else {
-      closeSummaryPanel();
-    }
-  }
-
-  if (toggleSummaryBtn) {
-    toggleSummaryBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      closeMobileNav();
-      toggleSummaryPanel();
-    });
-  }
-
-  if (closeSummaryBtn) {
-    closeSummaryBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      closeSummaryPanel();
-    });
-  }
-
-  if (floatingSummaryBtn) {
-    floatingSummaryBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      closeMobileNav();
-      openSummaryPanel();
-    });
-  }
-
-  if (summaryBackdrop) {
-    summaryBackdrop.addEventListener('click', () => {
-      closeSummaryPanel();
-    });
-  }
-
-  // Mobile Hamburger Navigation Drawer logic
-  const hamburgerBtn = document.getElementById('btn-hamburger');
-  const mobileNavDrawer = document.getElementById('mobile-nav-drawer');
-  const mobileNavBackdrop = document.getElementById('mobile-nav-backdrop');
-
-  function openMobileNav() {
-    if (!mobileNavDrawer || !hamburgerBtn) return;
-    hamburgerBtn.classList.add('active');
-    hamburgerBtn.setAttribute('aria-expanded', 'true');
-    hamburgerBtn.setAttribute('aria-label', 'Tutup menu navigasi');
-    mobileNavDrawer.classList.add('open');
-    mobileNavDrawer.setAttribute('aria-hidden', 'false');
-    if (mobileNavBackdrop) {
-      mobileNavBackdrop.classList.add('active');
-    }
-  }
-
-  function closeMobileNav() {
-    if (!mobileNavDrawer || !hamburgerBtn) return;
-    hamburgerBtn.classList.remove('active');
-    hamburgerBtn.setAttribute('aria-expanded', 'false');
-    hamburgerBtn.setAttribute('aria-label', 'Buka menu navigasi');
-    mobileNavDrawer.classList.remove('open');
-    mobileNavDrawer.setAttribute('aria-hidden', 'true');
-    if (mobileNavBackdrop) {
-      mobileNavBackdrop.classList.remove('active');
-    }
-  }
-
-  function toggleMobileNav() {
-    if (!mobileNavDrawer) return;
-    if (mobileNavDrawer.classList.contains('open')) {
-      closeMobileNav();
-    } else {
-      openMobileNav();
-    }
-  }
-
-  if (hamburgerBtn) {
-    hamburgerBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      closeSummaryPanel();
-      toggleMobileNav();
-    });
-  }
-
-  if (mobileNavBackdrop) {
-    mobileNavBackdrop.addEventListener('click', () => {
-      closeMobileNav();
-    });
-  }
-
-  // Close mobile nav when clicking a navigation link inside it
-  const mobileNavLinks = document.querySelectorAll('.mobile-nav-item');
-  mobileNavLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      closeMobileNav();
-    });
-  });
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      if (mobileNavDrawer && mobileNavDrawer.classList.contains('open')) {
-        closeMobileNav();
-      }
-      if (summaryPanel && !summaryPanel.classList.contains('closed')) {
-        closeSummaryPanel();
-      }
-    }
-  });
-
-  // Automatically close mobile menu if resized back to desktop
-  window.addEventListener('resize', () => {
-    if (window.innerWidth > 768) {
-      closeMobileNav();
-    }
-  });
-
-  // Check initial responsive state on load
-  if (window.innerWidth <= 768) {
-    closeSummaryPanel();
-  } else {
-    openSummaryPanel();
-  }
-
-  // Initial calculation of items and totals
-  updateOrderTotals();
 });

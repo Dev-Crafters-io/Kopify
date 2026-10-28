@@ -4,18 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>KOPIFY — Laporan Finansial & Audit</title>
-  <link rel="icon" href="../assets/kopify-main-logo.png" type="image/png">
+  <link rel="icon" href="./assets/kopify-main-logo.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/laporan.css">
+  <script>
+    if (!sessionStorage.getItem('kopify_logged_in')) {
+      window.location.replace('login.html');
+    }
+  </script>
+  <link rel="stylesheet" href="./assets/css/laporan.css?v=3">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
   <div class="report-container">
     <nav class="top-navbar" aria-label="Navigasi Utama">
       <div class="brand-wrapper">
-        <img src="../assets/kopify-mascot.svg" alt="Kopify Mascot" class="brand-mascot-img" width="36" height="36">
+        <img src="./assets/kopify-mascot.svg" alt="Kopify Mascot" class="brand-mascot-img" width="36" height="36">
         <div class="brand-details">
           <span class="brand-name">Kopify</span>
           <span class="brand-subtitle">Finansial & Bisnis</span>
@@ -23,7 +28,7 @@
       </div>
 
       <div class="nav-pills" role="navigation">
-        <a href="../index.html" class="nav-pill">Kasir</a>
+        <a href="index.html" class="nav-pill">Kasir</a>
         <a href="inventori.html" class="nav-pill">Inventori</a>
         <a href="bom.html" class="nav-pill">Komposisi Menu</a>
         <a href="laporan.html" class="nav-pill active">Laporan</a>
@@ -33,7 +38,7 @@
         <div class="user-badge">
           <span>Owner: Dimas Wijaya</span>
         </div>
-        <a href="login.html" class="btn-logout" aria-label="Logout">
+        <a href="login.html" class="btn-logout" aria-label="Logout" onclick="sessionStorage.removeItem('kopify_logged_in');">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
             <polyline points="16 17 21 12 16 7"></polyline>
@@ -302,6 +307,6 @@
     </footer>
   </div>
 
-  <script src="../js/laporan.js"></script>
+  <script src="./assets/js/laporan.js?v=3"></script>
 </body>
 </html>
