@@ -47,7 +47,7 @@ Fitur berikut merupakan target pengembangan Kopify pada milestone berikutnya. Pa
 - **Autentikasi:** Login, Logout, dan Proteksi terhadap halaman-halaman sensitif.
 - **Manajemen Inventaris (CRUD):** Kelola kategori, registrasi data produk, dan pengaturan jumlah stok.
 - **Sistem Transaksi:** Antarmuka kasir untuk memproses pesanan dan menghitung total secara otomatis yang terhubung dengan pengurangan stok.
-- **Navigasi AJAX:** Tampilan tabel daftar produk dan riwayat transaksi menggunakan fitur _pagination_ berbasis jQuery AJAX (navigasi perpindahan data tanpa _reload_ halaman).
+- **Navigasi & Interaktivitas Client-Side:** Tampilan tabel daftar bahan, filter katalog, pagination data, dan kalkulasi transaksi dikelola secara interaktif menggunakan Vanilla JS murni pada sisi klien (navigasi perpindahan data tanpa _reload_ halaman dan tanpa dependensi framework eksternal).
 - **Indikator Real-time:** Tampilan tanggal dan jam interaktif menggunakan JavaScript pada antarmuka pengguna.
 
 ---

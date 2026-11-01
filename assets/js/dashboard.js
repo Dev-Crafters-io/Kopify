@@ -237,9 +237,9 @@ document.addEventListener('DOMContentLoaded', () => {
             <span class="order-item-subtitle">Regular</span>
           </div>
           <div class="quantity-stepper">
-            <button class="stepper-btn stepper-btn--minus" aria-label="Kurangi kuantitas">−</button>
+            <button type="button" class="stepper-btn stepper-btn--minus" aria-label="Kurangi kuantitas">−</button>
             <span class="stepper-value">1</span>
-            <button class="stepper-btn stepper-btn--plus" aria-label="Tambah kuantitas">+</button>
+            <button type="button" class="stepper-btn stepper-btn--plus" aria-label="Tambah kuantitas">+</button>
           </div>
           <strong class="order-item-price">${formatRupiah(price)}</strong>
         `;

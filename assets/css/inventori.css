@@ -61,6 +61,12 @@ body {
   gap: 24px;
 }
 
+.inventory-main {
+  display: flex;
+  flex-direction: column;
+  gap: inherit;
+}
+
 .top-navbar {
   display: flex;
   justify-content: space-between;

@@ -68,6 +68,19 @@ body {
   overflow: hidden;
 }
 
+/* Accessibility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .pos-main {
   flex: 1;
   display: flex;
@@ -228,6 +241,34 @@ body {
   color: #FFFFFF;
   font-weight: 700;
   height: 36px;
+}
+
+.btn-logout {
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #FFFFFF;
+  border: none !important;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 2px 8px rgba(43, 24, 16, 0.04);
+  color: #2B1810;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.btn-logout:hover {
+  background-color: var(--color-pill-inactive);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(43, 24, 16, 0.08);
+}
+
+.btn-logout img {
+  width: 18px;
+  height: 18px;
+  display: block;
 }
 
 .category-filter-row {

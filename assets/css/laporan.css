@@ -45,6 +45,12 @@ body {
   gap: 24px;
 }
 
+.report-main {
+  display: flex;
+  flex-direction: column;
+  gap: inherit;
+}
+
 .top-navbar {
   display: flex;
   justify-content: space-between;

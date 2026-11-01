@@ -55,7 +55,8 @@
       </button>
     </header>
 
-    <section class="summary-cards-grid" aria-label="Ringkasan Inventori">
+    <main class="inventory-main">
+      <section class="summary-cards-grid" aria-label="Ringkasan Inventori">
       <article class="summary-card">
         <div class="card-top">
           <span class="card-label">TOTAL BAHAN</span>
@@ -92,12 +93,12 @@
       </article>
     </section>
 
-    <main class="table-card">
+    <div class="table-card">
       <div class="table-toolbar">
         <div class="search-filters-group">
           <div class="search-input-wrapper">
             <img src="./assets/icons/search.svg" alt="Search Icon" width="16" height="16">
-            <input type="text" id="inventory-search" class="table-search-input" placeholder="Cari bahan baku...">
+            <input type="text" id="inventory-search" class="table-search-input" placeholder="Cari bahan baku..." aria-label="Cari bahan baku">
           </div>
 
           <div class="category-filter-pills" role="tablist">
@@ -422,7 +423,8 @@
           <button type="button" class="page-btn" aria-label="Halaman berikutnya">&gt;</button>
         </div>
       </footer>
-    </main>
+    </div>
+  </main>
   </div>
 
   <div id="modalTambahBahan" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modalTambahTitle">
