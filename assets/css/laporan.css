@@ -136,6 +136,14 @@ body {
   box-shadow: 0 4px 14px rgba(43, 24, 16, 0.22);
 }
 
+.btn-hamburger {
+  display: none;
+}
+
+.mobile-nav-drawer {
+  display: none;
+}
+
 .user-profile {
   display: flex;
   align-items: center;
@@ -731,7 +739,8 @@ body {
     grid-template-columns: repeat(2, 1fr);
   }
   .mid-analytics-section {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+    min-width: 0;
   }
 }
 
@@ -763,25 +772,78 @@ body {
   }
 
   .nav-pills {
-    order: 3;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    overflow-x: auto;
-    white-space: nowrap;
-    flex-wrap: nowrap;
-    gap: 8px;
-    padding: 4px 0;
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
+    display: none !important;
   }
 
-  .nav-pills::-webkit-scrollbar {
-    display: none;
-  }
-
-  .nav-pill {
+  .btn-hamburger {
+    width: 36px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-card);
+    border: none;
+    border-radius: var(--radius-lg);
+    color: var(--color-primary-dark);
+    box-shadow: var(--shadow-pill);
+    cursor: pointer;
+    transition: all 0.2s ease;
     flex-shrink: 0;
+  }
+
+  .btn-hamburger:hover {
+    background-color: var(--color-pill-bg);
+    box-shadow: var(--shadow-pill-hover);
+    transform: translateY(-1px);
+  }
+
+  .btn-hamburger img,
+  .btn-hamburger svg {
+    width: 18px;
+    height: 18px;
+    display: block;
+  }
+
+  .mobile-nav-drawer {
+    display: none;
+    width: 100%;
+    order: 99;
+  }
+
+  .mobile-nav-drawer.is-open,
+  .mobile-nav-drawer.show {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--color-border-subtle);
+  }
+
+  .mobile-nav-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 100%;
+  }
+
+  .mobile-nav-link {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 10px 14px;
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-primary-dark);
+    text-decoration: none;
+    background-color: transparent;
+    transition: all 0.2s ease;
+  }
+
+  .mobile-nav-link:hover,
+  .mobile-nav-link.active {
+    background-color: var(--color-primary-dark);
+    color: #FFFFFF;
   }
 
   .header-title-bar {
@@ -824,6 +886,22 @@ body {
   .metrics-grid {
     grid-template-columns: 1fr;
     gap: 12px;
+  }
+
+  .mid-analytics-section {
+    grid-template-columns: minmax(0, 1fr);
+    min-width: 0;
+  }
+
+  .analytics-card {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .sales-summary-wrapper {
+    overflow-x: auto;
+    max-width: 100%;
+    display: block;
   }
 
   .audit-header-row {
