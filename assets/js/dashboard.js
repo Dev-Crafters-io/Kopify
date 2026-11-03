@@ -93,7 +93,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (subtotalEl) subtotalEl.textContent = formatRupiah(subtotal);
     if (totalEl) totalEl.textContent = formatRupiah(subtotal);
 
-    // Sync badges & floating trigger
     const orderBadge = document.getElementById('order-badge-count');
     if (orderBadge) orderBadge.textContent = `${totalItems} item`;
 
@@ -110,7 +109,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (floatingOrderTotal) floatingOrderTotal.textContent = formatRupiah(subtotal);
   }
 
-  // Order Summary Panel Toggle (Open / Close)
   const orderSummaryPanel = document.getElementById('order-summary-panel');
   const btnCloseOrder = document.getElementById('btn-close-order');
   const floatingOrderTrigger = document.getElementById('floating-order-trigger');
@@ -153,10 +151,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Initial sync of order totals and badges
   updateOrderTotals();
 
-  // Auto-close order summary panel on mobile screens
   if (window.innerWidth <= 992) {
     closeOrderPanel();
   }

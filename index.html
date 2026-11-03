@@ -4,11 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>KOPIFY — POS Dashboard</title>
-  <script>
-    if (!sessionStorage.getItem('kopify_logged_in')) {
-      window.location.replace('login.html');
-    }
-  </script>
   <link rel="icon" href="./assets/kopify-main-logo.png" type="image/png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -369,7 +364,6 @@
 
     </aside>
 
-    <!-- Floating Trigger to Reopen Order Summary when closed -->
     <button type="button" class="floating-order-trigger" id="floating-order-trigger" aria-label="Buka Ringkasan Pesanan" style="display: none;">
       <div class="floating-order-left">
         <div class="floating-cart-icon-box">

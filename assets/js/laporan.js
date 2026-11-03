@@ -133,7 +133,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // Date filter buttons
   const dateBtns = document.querySelectorAll('.date-btn');
   const dateRangeDisplay = document.querySelector('.date-range-display');
   dateBtns.forEach(btn => {
@@ -150,7 +149,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // Download button
   const downloadBtn = document.querySelector('.btn-download');
   if (downloadBtn) {
     downloadBtn.addEventListener('click', function () {
