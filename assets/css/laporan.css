@@ -426,6 +426,64 @@ body {
   width: 100%;
 }
 
+.sales-summary-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+}
+
+.sales-summary-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  text-align: left;
+}
+
+.sales-summary-table th,
+.sales-summary-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.sales-summary-table thead th {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-subtle);
+  background-color: var(--color-pill-bg);
+}
+
+.sales-summary-table tbody td {
+  color: var(--color-primary-dark);
+}
+
+.sales-summary-table tfoot th,
+.sales-summary-table tfoot td {
+  border-bottom: none;
+  border-top: 2px solid var(--color-border);
+  background-color: var(--bg-page);
+  font-weight: 700;
+}
+
+.badge-profit {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: var(--radius-badge);
+  background-color: var(--color-success-bg);
+  color: var(--color-success);
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.total-profit {
+  color: var(--color-success);
+  font-weight: 700;
+}
+
 .chart-disclosure-row {
   display: flex;
   justify-content: space-between;

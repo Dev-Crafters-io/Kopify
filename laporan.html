@@ -9,7 +9,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./assets/css/laporan.css?v=3">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
   <div class="report-container">
@@ -110,7 +109,7 @@
           <div class="chart-legends">
             <div class="legend-item">
               <span class="legend-color legend-color--sales"></span>
-              <span>Omzet harian</span>
+              <span>Omzet</span>
             </div>
             <div class="legend-item">
               <span class="legend-color legend-color--costs"></span>
@@ -119,13 +118,56 @@
           </div>
         </div>
 
-        <div class="chart-container-wrapper">
-          <canvas id="revenueChart"></canvas>
+        <div class="sales-summary-wrapper">
+          <table class="sales-summary-table">
+            <thead>
+              <tr>
+                <th scope="col">Periode</th>
+                <th scope="col">Omzet</th>
+                <th scope="col">Biaya Bahan</th>
+                <th scope="col">Laba Bersih</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Minggu 1 (01-07 Okt)</strong></td>
+                <td>Rp 8.850.000</td>
+                <td>Rp 3.540.000</td>
+                <td><span class="badge-profit">+Rp 5.310.000</span></td>
+              </tr>
+              <tr>
+                <td><strong>Minggu 2 (08-14 Okt)</strong></td>
+                <td>Rp 9.420.000</td>
+                <td>Rp 3.768.000</td>
+                <td><span class="badge-profit">+Rp 5.652.000</span></td>
+              </tr>
+              <tr>
+                <td><strong>Minggu 3 (15-21 Okt)</strong></td>
+                <td>Rp 9.880.000</td>
+                <td>Rp 3.952.000</td>
+                <td><span class="badge-profit">+Rp 5.928.000</span></td>
+              </tr>
+              <tr>
+                <td><strong>Minggu 4 (22-30 Okt)</strong></td>
+                <td>Rp 10.300.000</td>
+                <td>Rp 4.120.000</td>
+                <td><span class="badge-profit">+Rp 6.180.000</span></td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <th scope="row">Total 30 Hari</th>
+                <td><strong>Rp 38.450.000</strong></td>
+                <td><strong>Rp 15.380.000</strong></td>
+                <td><strong class="total-profit">+Rp 23.070.000</strong></td>
+              </tr>
+            </tfoot>
+          </table>
         </div>
 
         <div class="chart-disclosure-row">
-          <span>Ilustrasi tren harian</span>
-          <span>Hari ke-1 hingga ke-30</span>
+          <span>Ringkasan performa 4 pekan</span>
+          <span>Berdasarkan rekap transaksi kasir</span>
         </div>
       </article>
 

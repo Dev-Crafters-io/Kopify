@@ -2,9 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const menuSearchInput = document.getElementById('menu-search');
   const menuPills = document.querySelectorAll('.menu-pill');
   const menuItems = document.querySelectorAll('.product-menu-item');
-  const tableRows = document.querySelectorAll('.ingredients-table tbody tr');
-  const totalCostDisplay = document.querySelector('.total-bar-cost');
-  const metricHppValue = document.querySelector('.metric-data-value');
 
   function filterMenus() {
     const query = (menuSearchInput?.value || '').toLowerCase().trim();
@@ -53,45 +50,6 @@ document.addEventListener('DOMContentLoaded', () => {
         activeIcon.src = './assets/icons/circle-check.svg';
       }
     });
-  });
-
-  function calculateHpp() {
-    let total = 0;
-    tableRows.forEach(row => {
-      const input = row.querySelector('.quantity-number-input');
-      const unitCost = parseInt(row.getAttribute('data-unit-cost'), 10) || 0;
-      const subtotalEl = row.querySelector('.subtotal-cell-value');
-
-      const qty = parseFloat(input?.value) || 0;
-      const subtotal = Math.round(qty * unitCost);
-
-      if (subtotalEl) {
-        subtotalEl.textContent = `Rp ${subtotal.toLocaleString('id-ID')}`;
-      }
-      total += subtotal;
-    });
-
-    if (totalCostDisplay) {
-      totalCostDisplay.textContent = `Total HPP: Rp ${total.toLocaleString('id-ID')}`;
-    }
-    if (metricHppValue) {
-      metricHppValue.textContent = `Rp ${total.toLocaleString('id-ID')} / cup`;
-    }
-  }
-
-  tableRows.forEach(row => {
-    const input = row.querySelector('.quantity-number-input');
-    if (input) {
-      input.addEventListener('input', calculateHpp);
-    }
-
-    const removeBtn = row.querySelector('.btn-remove-material');
-    if (removeBtn) {
-      removeBtn.addEventListener('click', () => {
-        row.remove();
-        calculateHpp();
-      });
-    }
   });
 
   const saveBtn = document.getElementById('btn-save-recipe');
