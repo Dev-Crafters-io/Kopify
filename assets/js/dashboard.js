@@ -24,7 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const orderSummaryPanel = document.getElementById('order-summary-panel');
   const btnCloseOrder = document.getElementById('btn-close-order');
   const floatingOrderTrigger = document.getElementById('floating-order-trigger');
-  const topbarCartBtn = document.getElementById('topbar-cart-btn');
 
   function openOrderPanel() {
     if (!orderSummaryPanel) return;
@@ -51,16 +50,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (floatingOrderTrigger) {
     floatingOrderTrigger.addEventListener('click', openOrderPanel);
-  }
-
-  if (topbarCartBtn) {
-    topbarCartBtn.addEventListener('click', () => {
-      if (orderSummaryPanel && orderSummaryPanel.classList.contains('is-closed')) {
-        openOrderPanel();
-      } else {
-        closeOrderPanel();
-      }
-    });
   }
 
   if (window.innerWidth <= 992) {
