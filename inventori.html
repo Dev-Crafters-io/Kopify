@@ -4,11 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>KOPIFY — Inventori Bahan Baku</title>
-  <script>
-    if (!sessionStorage.getItem('kopify_logged_in')) {
-      window.location.replace('login.html');
-    }
-  </script>
   <link rel="icon" href="./assets/kopify-main-logo.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,6 +37,28 @@
         <a href="login.html" class="btn-logout" aria-label="Logout" onclick="sessionStorage.removeItem('kopify_logged_in');">
           <img src="./assets/icons/logout-inventory.svg" alt="Logout Icon" width="18" height="18">
         </a>
+        <button type="button" class="btn-hamburger" id="btn-hamburger" aria-label="Toggle menu navigasi" aria-expanded="false" aria-controls="mobile-nav-drawer">
+          <img src="./assets/icons/menu-burger.svg" alt="" width="20" height="20">
+        </button>
+      </div>
+
+      <div class="mobile-nav-drawer" id="mobile-nav-drawer">
+        <nav class="mobile-nav-menu" aria-label="Menu Navigasi Mobile">
+          <a href="index.html" class="mobile-nav-link">Kasir</a>
+          <a href="inventori.html" class="mobile-nav-link active">Inventori</a>
+          <a href="bom.html" class="mobile-nav-link">Komposisi Menu</a>
+          <a href="laporan.html" class="mobile-nav-link">Laporan</a>
+        </nav>
+        <div class="mobile-nav-user-section">
+          <div class="mobile-user-info">
+            <img src="./assets/icons/user.svg" alt="User Kasir Icon" width="18" height="18">
+            <span>Kasir: Api Widi</span>
+          </div>
+          <a href="login.html" class="mobile-btn-logout" aria-label="Logout" onclick="sessionStorage.removeItem('kopify_logged_in');">
+            <img src="./assets/icons/logout-inventory.svg" alt="" width="18" height="18">
+            <span>Logout</span>
+          </a>
+        </div>
       </div>
     </nav>
 
@@ -55,7 +72,8 @@
       </button>
     </header>
 
-    <section class="summary-cards-grid" aria-label="Ringkasan Inventori">
+    <main class="inventory-main">
+      <section class="summary-cards-grid" aria-label="Ringkasan Inventori">
       <article class="summary-card">
         <div class="card-top">
           <span class="card-label">TOTAL BAHAN</span>
@@ -92,12 +110,12 @@
       </article>
     </section>
 
-    <main class="table-card">
+    <div class="table-card">
       <div class="table-toolbar">
         <div class="search-filters-group">
           <div class="search-input-wrapper">
             <img src="./assets/icons/search.svg" alt="Search Icon" width="16" height="16">
-            <input type="text" id="inventory-search" class="table-search-input" placeholder="Cari bahan baku...">
+            <input type="text" id="inventory-search" class="table-search-input" placeholder="Cari bahan baku..." aria-label="Cari bahan baku">
           </div>
 
           <div class="category-filter-pills" role="tablist">
@@ -422,7 +440,8 @@
           <button type="button" class="page-btn" aria-label="Halaman berikutnya">&gt;</button>
         </div>
       </footer>
-    </main>
+    </div>
+  </main>
   </div>
 
   <div id="modalTambahBahan" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modalTambahTitle">
