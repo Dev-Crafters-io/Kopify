@@ -12,20 +12,20 @@
   --bg-page: #FAF8F5;
   --color-surface-white: #FFFFFF;
 
-  --color-brand-primary: #D48C46;
-  --color-brand-accent: #C87D53;
+  --color-brand-primary: #9A5A24;
+  --color-brand-accent: #9C5B33;
   --color-brand-dark: #2C1A11;
   --color-brand-subtle: #FFF7ED;
   --color-brand-dark-brown: #3E2723;
 
   --color-text-main: #111827;
   --color-text-body: #2C1A11;
-  --color-text-muted: #78716C;
+  --color-text-muted: #6E6863;
   --color-text-subtle: #6B7280;
   --color-text-secondary: #57534E;
 
   --color-warning-bg: #FEF08A;
-  --color-warning-text: #B45309;
+  --color-warning-text: #92400E;
 
   --color-pill-inactive: #F3EFEA;
   --color-card-btn-bg: #F8F5F0;
@@ -48,6 +48,11 @@
   --radius-xl: 16px;
   --radius-pill: 100px;
   --radius-cta: 28px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-brand-dark);
+  outline-offset: 2px;
 }
 
 body {
@@ -375,12 +380,13 @@ body {
 }
 
 .menu-search-bar:focus-within {
-  box-shadow: 0 0 0 3px rgba(43, 24, 16, 0.08), 0 4px 16px -2px rgba(43, 24, 16, 0.06);
+  box-shadow: 0 0 0 2px var(--color-brand-dark), 0 4px 16px -2px rgba(43, 24, 16, 0.06);
 }
 
 .search-input {
   flex: 1;
   border: none !important;
+  /* ring fokus digambar di .menu-search-bar:focus-within, bukan di input */
   outline: none !important;
   font-family: inherit;
   font-size: 14px;
@@ -389,9 +395,6 @@ body {
   background: transparent;
 }
 
-.search-input:focus {
-  outline: none !important;
-}
 
 .search-input::placeholder {
   color: var(--color-text-muted);
@@ -637,7 +640,7 @@ body {
   border-radius: var(--radius-xs);
   background-color: var(--color-brand-primary);
   color: var(--color-surface-white);
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 700;
   line-height: 1.26;
   text-transform: capitalize;
@@ -701,7 +704,7 @@ body {
   border-radius: var(--radius-pill);
   background-color: var(--color-brand-subtle);
   color: var(--color-brand-primary);
-  border: 1px solid rgba(212, 140, 70, 0.25);
+  border: 1px solid rgba(154, 90, 36, 0.25);
 }
 
 .btn-close-order {
@@ -764,7 +767,6 @@ body {
   color: #374151;
   cursor: pointer;
   appearance: none;
-  outline: none !important;
 }
 
 .custom-select-box img {
@@ -964,21 +966,21 @@ body {
 .payment-btn--qris {
   background-color: var(--color-brand-subtle);
   border: none !important;
-  box-shadow: 0 2px 8px rgba(212, 140, 70, 0.15);
+  box-shadow: 0 2px 8px rgba(154, 90, 36, 0.15);
   color: var(--color-brand-primary);
 }
 
 .payment-btn--qris.active {
   background-color: var(--color-brand-subtle);
   border: none !important;
-  box-shadow: 0 2px 10px rgba(212, 140, 70, 0.25);
+  box-shadow: 0 2px 10px rgba(154, 90, 36, 0.25);
   color: var(--color-brand-primary);
 }
 
 .payment-btn--cash {
   background-color: var(--color-brand-primary);
   border: none !important;
-  box-shadow: 0 4px 12px rgba(212, 140, 70, 0.3);
+  box-shadow: 0 4px 12px rgba(154, 90, 36, 0.3);
   color: var(--color-surface-white);
 }
 
@@ -986,7 +988,7 @@ body {
   background-color: var(--color-brand-primary);
   color: var(--color-surface-white);
   border: none !important;
-  box-shadow: 0px 4px 14px rgba(212, 140, 70, 0.35);
+  box-shadow: 0px 4px 14px rgba(154, 90, 36, 0.35);
 }
 
 .btn-checkout-primary {
@@ -1004,13 +1006,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0px 4px 12px rgba(212, 140, 70, 0.3);
+  box-shadow: 0px 4px 12px rgba(154, 90, 36, 0.3);
   transition: background-color 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
 }
 
 .btn-checkout-primary:hover {
-  background-color: #C37B35;
-  box-shadow: 0px 6px 16px rgba(212, 140, 70, 0.4);
+  background-color: #8A4F1F;
+  box-shadow: 0px 6px 16px rgba(154, 90, 36, 0.4);
 }
 
 .btn-checkout-primary:active {
@@ -1022,7 +1024,7 @@ body {
   align-items: center;
   gap: 8px;
   background-color: var(--color-brand-subtle);
-  border: 1px solid rgba(212, 140, 70, 0.28);
+  border: 1px solid rgba(154, 90, 36, 0.28);
   color: var(--color-brand-dark-brown);
   cursor: pointer;
   padding: 6px 14px;
@@ -1038,7 +1040,7 @@ body {
   background-color: #FEEED9;
   border-color: var(--color-brand-primary);
   transform: translateY(-1px);
-  box-shadow: 0 2px 8px rgba(212, 140, 70, 0.18);
+  box-shadow: 0 2px 8px rgba(154, 90, 36, 0.18);
 }
 
 .cart-pill-badge {
@@ -1163,7 +1165,7 @@ body {
 }
 
 .floating-order-trigger:hover .floating-order-cta {
-  background-color: #E09852;
+  background-color: #8A4F1F;
 }
 
 @keyframes triggerBounceIn {
@@ -1230,7 +1232,7 @@ body {
     width: 100% !important;
     height: auto !important;
     overflow: visible !important;
-    padding: 16px 24px 0 !important;
+    padding: 16px 24px 96px !important;
   }
 
   .menu-grid-wrapper {
@@ -1288,6 +1290,18 @@ body {
 
   .floating-order-sub {
     display: none !important;
+  }
+
+  /* target sentuh minimal 44px untuk kasir di tablet/HP */
+  .stepper-btn,
+  .btn-add-product,
+  .btn-hamburger {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .category-pill {
+    min-height: 44px;
   }
 }
 
@@ -1480,7 +1494,7 @@ body {
   }
 
   .menu-area {
-    padding: 16px 16px 0 !important;
+    padding: 16px 16px 96px !important;
   }
 
   .menu-grid {
@@ -1537,7 +1551,7 @@ body {
   }
 
   .menu-area {
-    padding: 12px 12px 0 !important;
+    padding: 12px 12px 88px !important;
   }
 
   .menu-grid {
@@ -1688,7 +1702,7 @@ body {
 }
 
 .meta-label {
-  color: #7A6E65;
+  color: #6E655D;
   text-transform: uppercase;
   font-weight: 500;
   letter-spacing: 0.04em;
@@ -1711,7 +1725,7 @@ body {
   justify-content: space-between;
   font-size: 10px;
   font-weight: 700;
-  color: #7A6E65;
+  color: #6E655D;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   padding-bottom: 2px;
@@ -1741,7 +1755,7 @@ body {
 
 .receipt-item-detail {
   font-size: 10px;
-  color: #7A6E65;
+  color: #6E655D;
   line-height: 1.3;
 }
 
@@ -1757,7 +1771,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #7A6E65;
+  color: #6E655D;
 }
 
 .receipt-summary-num {
@@ -1820,7 +1834,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  color: #7A6E65;
+  color: #6E655D;
   font-size: 10px;
 }
 
@@ -1846,7 +1860,7 @@ body {
 .receipt-coupon-title {
   font-size: 10px;
   font-weight: 700;
-  color: #7A6E65;
+  color: #6E655D;
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
@@ -1884,7 +1898,7 @@ body {
 
 .receipt-coupon-desc {
   font-size: 9px;
-  color: #7A6E65;
+  color: #6E655D;
   text-align: center;
   line-height: 1.3;
 }
@@ -1909,7 +1923,7 @@ body {
   font-family: 'Playfair Display', Georgia, serif;
   font-size: 13px;
   font-style: italic;
-  color: #7A6E65;
+  color: #6E655D;
 }
 
 .receipt-actions {

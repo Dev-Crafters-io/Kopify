@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="./assets/css/dashboard.css?v=9">
+  <link rel="stylesheet" href="./assets/css/dashboard.css?v=10">
 </head>
 <body>
   <div class="pos-container">
@@ -36,22 +36,22 @@
 
         <div class="topbar-right">
           <div class="info-pill info-pill--datetime">
-            <img src="./assets/icons/calendar.svg" alt="Calendar Icon" width="16" height="16">
+            <img src="./assets/icons/calendar.svg" alt="" width="16" height="16">
             <span id="live-datetime">Memuat waktu...</span>
           </div>
 
           <div class="info-pill info-pill--user">
-            <img src="./assets/icons/user.svg" alt="User Kasir Icon">
+            <img src="./assets/icons/user.svg" alt="">
             <span>Kasir: Api Widi</span>
           </div>
 
           <div class="info-pill info-pill--warning">
-            <img src="./assets/icons/alert-triangle.svg" alt="Alert Triangle Icon">
+            <img src="./assets/icons/alert-triangle.svg" alt="">
             <span>3 Stok Menipis</span>
           </div>
 
           <a href="login.html" class="btn-logout" aria-label="Logout" title="Logout" onclick="sessionStorage.removeItem('kopify_logged_in');">
-            <img src="./assets/icons/logout-inventory.svg" alt="Logout Icon" width="18" height="18">
+            <img src="./assets/icons/logout-inventory.svg" alt="" width="18" height="18">
           </a>
 
           <button type="button" class="btn-hamburger" id="btn-hamburger" aria-label="Toggle menu navigasi" aria-expanded="false" aria-controls="mobile-nav-drawer">
@@ -68,7 +68,7 @@
           </nav>
           <div class="mobile-nav-user-section">
             <div class="mobile-user-info">
-              <img src="./assets/icons/user.svg" alt="User Kasir Icon" width="18" height="18">
+              <img src="./assets/icons/user.svg" alt="" width="18" height="18">
               <span>Kasir: Api Widi</span>
             </div>
             <a href="login.html" class="mobile-btn-logout" aria-label="Logout" onclick="sessionStorage.removeItem('kopify_logged_in');">
@@ -81,7 +81,7 @@
 
       <nav class="category-filter-row" aria-label="Kategori Produk">
         <button type="button" class="category-pill active" data-category="all">
-          <img src="./assets/icons/coffee-bean.svg" alt="Semua Menu Icon">
+          <img src="./assets/icons/coffee-bean.svg" alt="">
           <span>Semua Menu</span>
         </button>
         <button type="button" class="category-pill" data-category="coffee">
@@ -95,7 +95,8 @@
         </button>
       </nav>
 
-      <section class="menu-area">
+      <section class="menu-area" aria-labelledby="menu-heading">
+        <h2 id="menu-heading" class="sr-only">Daftar Menu</h2>
 
         <div class="menu-search-bar">
           <input 
@@ -106,7 +107,7 @@
             aria-label="Cari kopi atau cemilan"
           >
           <div class="search-icon-badge">
-            <img src="./assets/icons/search.svg" alt="Search Icon">
+            <img src="./assets/icons/search.svg" alt="">
           </div>
         </div>
 
@@ -122,7 +123,7 @@
               <div class="product-bottom-row">
                 <span class="product-price">Rp 24.000</span>
                 <button type="button" class="btn-add-product" aria-label="Tambah Americano ke Pesanan" data-id="americano">
-                  <img src="./assets/icons/plus.svg" alt="Plus Icon">
+                  <img src="./assets/icons/plus.svg" alt="">
                 </button>
               </div>
             </article>
@@ -136,7 +137,7 @@
               <div class="product-bottom-row">
                 <span class="product-price">Rp 24.000</span>
                 <button type="button" class="btn-add-product" aria-label="Tambah Croissant ke Pesanan" data-id="croissant">
-                  <img src="./assets/icons/plus.svg" alt="Plus Icon">
+                  <img src="./assets/icons/plus.svg" alt="">
                 </button>
               </div>
             </article>
@@ -150,7 +151,7 @@
               <div class="product-bottom-row">
                 <span class="product-price">Rp 31.000</span>
                 <button type="button" class="btn-add-product" aria-label="Tambah Butterscotch Sea Salt ke Pesanan" data-id="butterscotch">
-                  <img src="./assets/icons/plus.svg" alt="Plus Icon">
+                  <img src="./assets/icons/plus.svg" alt="">
                 </button>
               </div>
             </article>
@@ -164,7 +165,7 @@
               <div class="product-bottom-row">
                 <span class="product-price">Rp 25.000</span>
                 <button type="button" class="btn-add-product" aria-label="Tambah Cappuccino ke Pesanan" data-id="cappuccino">
-                  <img src="./assets/icons/plus.svg" alt="Plus Icon">
+                  <img src="./assets/icons/plus.svg" alt="">
                 </button>
               </div>
             </article>
@@ -178,7 +179,7 @@
               <div class="product-bottom-row">
                 <span class="product-price">Rp 26.000</span>
                 <button type="button" class="btn-add-product" aria-label="Tambah Vanilla Latte ke Pesanan" data-id="vanilla-latte">
-                  <img src="./assets/icons/plus.svg" alt="Plus Icon">
+                  <img src="./assets/icons/plus.svg" alt="">
                 </button>
               </div>
             </article>
@@ -192,7 +193,7 @@
               <div class="product-bottom-row">
                 <span class="product-price">Rp 15.000</span>
                 <button type="button" class="btn-add-product" aria-label="Tambah French Fries ke Pesanan" data-id="french-fries">
-                  <img src="./assets/icons/plus.svg" alt="Plus Icon">
+                  <img src="./assets/icons/plus.svg" alt="">
                 </button>
               </div>
             </article>
@@ -206,21 +207,7 @@
               <div class="product-bottom-row">
                 <span class="product-price">Rp 28.000</span>
                 <button type="button" class="btn-add-product" aria-label="Tambah Chicken Wings ke Pesanan" data-id="chicken-wings">
-                  <img src="./assets/icons/plus.svg" alt="Plus Icon">
-                </button>
-              </div>
-            </article>
-
-            <article class="product-card" data-category="coffee" data-name="Americano" data-price="24000">
-              <img src="./assets/images/products/americano.png" alt="Americano" class="product-image">
-              <div class="product-info-stack">
-                <h3 class="product-title">Americano</h3>
-                <span class="product-stock">Stok: 1</span>
-              </div>
-              <div class="product-bottom-row">
-                <span class="product-price">Rp 24.000</span>
-                <button type="button" class="btn-add-product" aria-label="Tambah Americano ke Pesanan" data-id="americano-2">
-                  <img src="./assets/icons/plus.svg" alt="Plus Icon">
+                  <img src="./assets/icons/plus.svg" alt="">
                 </button>
               </div>
             </article>
@@ -231,7 +218,7 @@
         <footer class="active-order-tracking">
           <button type="button" class="active-order-toggle" aria-label="Filter Pesanan Aktif">
             <span>Pesanan Aktif</span>
-            <img src="./assets/icons/chevron-down.svg" alt="Chevron Down Icon">
+            <img src="./assets/icons/chevron-down.svg" alt="">
           </button>
 
           <div class="order-status-viewport">
@@ -297,13 +284,13 @@
             <div class="custom-select-wrapper">
               <button type="button" class="custom-select-box" aria-label="Pilih Meja">
                 <span>Meja 05</span>
-                <img src="./assets/icons/chevron-down.svg" alt="Chevron Down Icon">
+                <img src="./assets/icons/chevron-down.svg" alt="">
               </button>
             </div>
             <div class="custom-select-wrapper">
               <button type="button" class="custom-select-box" aria-label="Pilih Tipe Pesanan">
                 <span>Dine In</span>
-                <img src="./assets/icons/chevron-down.svg" alt="Chevron Down Icon">
+                <img src="./assets/icons/chevron-down.svg" alt="">
               </button>
             </div>
           </div>
@@ -311,30 +298,30 @@
 
         <div class="order-items-list" id="order-items-container">
 
-          <div class="order-item-row" data-id="cappuccino-item" data-price="35000">
+          <div class="order-item-row" data-id="cappuccino-item" data-price="25000">
             <div class="order-item-info">
-              <h4 class="order-item-title">Cappuccino</h4>
+              <h3 class="order-item-title">Cappuccino</h3>
               <span class="order-item-subtitle">Hot • Medium</span>
             </div>
             <div class="quantity-stepper">
-              <button type="button" class="stepper-btn stepper-btn--minus" aria-label="Kurangi kuantitas">−</button>
+              <button type="button" class="stepper-btn stepper-btn--minus" aria-label="Kurangi Cappuccino">−</button>
               <span class="stepper-value">1</span>
-              <button type="button" class="stepper-btn stepper-btn--plus" aria-label="Tambah kuantitas">+</button>
+              <button type="button" class="stepper-btn stepper-btn--plus" aria-label="Tambah Cappuccino">+</button>
             </div>
-            <strong class="order-item-price">Rp 35.000</strong>
+            <strong class="order-item-price">Rp 25.000</strong>
           </div>
 
-          <div class="order-item-row" data-id="croissant-item" data-price="16600">
+          <div class="order-item-row" data-id="croissant-item" data-price="24000">
             <div class="order-item-info">
-              <h4 class="order-item-title">Croissant</h4>
+              <h3 class="order-item-title">Croissant</h3>
               <span class="order-item-subtitle">Butter • Plain</span>
             </div>
             <div class="quantity-stepper">
-              <button type="button" class="stepper-btn stepper-btn--minus" aria-label="Kurangi kuantitas">−</button>
+              <button type="button" class="stepper-btn stepper-btn--minus" aria-label="Kurangi Croissant">−</button>
               <span class="stepper-value">2</span>
-              <button type="button" class="stepper-btn stepper-btn--plus" aria-label="Tambah kuantitas">+</button>
+              <button type="button" class="stepper-btn stepper-btn--plus" aria-label="Tambah Croissant">+</button>
             </div>
-            <strong class="order-item-price">Rp 33.200</strong>
+            <strong class="order-item-price">Rp 48.000</strong>
           </div>
 
         </div>
@@ -348,22 +335,22 @@
         <div class="order-summary-breakdown">
           <div class="summary-row">
             <span class="summary-label">Subtotal</span>
-            <strong class="summary-value" id="order-subtotal">Rp 68.200</strong>
+            <strong class="summary-value" id="order-subtotal">Rp 73.000</strong>
           </div>
           <div class="summary-row summary-row--total">
             <span class="total-label">TOTAL</span>
-            <strong class="total-value" id="order-total">Rp 68.200</strong>
+            <strong class="total-value" id="order-total">Rp 73.000</strong>
           </div>
         </div>
 
         <div class="order-summary-footer">
           <div class="payment-methods-row" role="radiogroup" aria-label="Metode Pembayaran">
             <button type="button" class="payment-btn payment-btn--qris" id="btn-pay-qris" role="radio" aria-checked="false">
-              <img src="./assets/icons/qr-code.svg" alt="QRIS Icon">
+              <img src="./assets/icons/qr-code.svg" alt="">
               <span>QRIS</span>
             </button>
             <button type="button" class="payment-btn payment-btn--cash active" id="btn-pay-cash" role="radio" aria-checked="true">
-              <img src="./assets/icons/wallet.svg" alt="Tunai Icon">
+              <img src="./assets/icons/wallet.svg" alt="">
               <span>Tunai</span>
             </button>
           </div>
@@ -393,7 +380,7 @@
         </div>
       </div>
       <div class="floating-order-right">
-        <strong class="floating-order-total" id="floating-order-total">Rp 68.200</strong>
+        <strong class="floating-order-total" id="floating-order-total">Rp 73.000</strong>
         <span class="floating-order-cta">
           Buka Pesanan
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -425,7 +412,7 @@
           </div>
           <div class="receipt-meta-row">
             <span class="meta-label">ORDER TYPE</span>
-            <span class="meta-value">Dine In – Meja 04</span>
+            <span class="meta-value">Dine In – Meja 05</span>
           </div>
         </section>
 
@@ -440,7 +427,7 @@
           <div class="receipt-item">
             <div class="receipt-item-main">
               <span class="receipt-item-name">1x Cappuccino</span>
-              <strong class="receipt-item-price">Rp 35.000</strong>
+              <strong class="receipt-item-price">Rp 25.000</strong>
             </div>
             <span class="receipt-item-detail">Hot / Medium • Extra Foam, No Sugar</span>
           </div>
@@ -448,7 +435,7 @@
           <div class="receipt-item">
             <div class="receipt-item-main">
               <span class="receipt-item-name">2x Croissant</span>
-              <strong class="receipt-item-price">Rp 33.200</strong>
+              <strong class="receipt-item-price">Rp 48.000</strong>
             </div>
             <span class="receipt-item-detail">Butter / Original • Freshly Baked</span>
           </div>
@@ -459,18 +446,12 @@
         <section class="receipt-summary">
           <div class="receipt-summary-row">
             <span>Subtotal</span>
-            <span class="receipt-summary-num">Rp 68.200</span>
+            <span class="receipt-summary-num">Rp 73.000</span>
           </div>
           <div class="receipt-summary-row">
             <span>Pembayaran</span>
             <div class="receipt-qris-badge">
-              <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="3" y="3" width="7" height="7"></rect>
-                <rect x="14" y="3" width="7" height="7"></rect>
-                <rect x="14" y="14" width="7" height="7"></rect>
-                <rect x="3" y="14" width="7" height="7"></rect>
-              </svg>
-              <span>QRIS</span>
+              <span id="receipt-payment-method">Tunai</span>
             </div>
           </div>
         </section>
@@ -478,7 +459,7 @@
         <section class="receipt-total-section">
           <div class="receipt-total-row">
             <strong class="receipt-total-label">TOTAL</strong>
-            <strong class="receipt-total-val">Rp 68.200</strong>
+            <strong class="receipt-total-val">Rp 73.000</strong>
           </div>
         </section>
 
@@ -536,7 +517,7 @@
 
       <div class="receipt-actions">
         <button type="button" class="btn-receipt-print" id="print-receipt-btn">
-          <span>🖨️ Cetak Struk</span>
+          <span>Cetak Struk</span>
         </button>
         <button type="button" class="btn-receipt-close" id="close-receipt-btn">
           <span>Selesai &amp; Lanjut</span>
@@ -545,6 +526,6 @@
     </div>
   </div>
 
-  <script src="./assets/js/dashboard.js?v=4"></script>
+  <script src="./assets/js/dashboard.js?v=5"></script>
 </body>
 </html>

@@ -86,4 +86,48 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+  // Tombol bayar berperan sebagai radio (role="radio"), jadi status terpilih diatur manual
+  const paymentButtons = document.querySelectorAll('.payment-btn');
+  const receiptPaymentMethod = document.getElementById('receipt-payment-method');
+
+  paymentButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      paymentButtons.forEach((other) => {
+        const isSelected = other === button;
+        other.classList.toggle('active', isSelected);
+        other.setAttribute('aria-checked', String(isSelected));
+      });
+      if (receiptPaymentMethod) {
+        receiptPaymentMethod.textContent = button.querySelector('span').textContent;
+      }
+    });
+  });
+
+  const receiptModal = document.getElementById('receiptModal');
+  const btnCheckout = document.getElementById('btn-checkout');
+  const btnCloseReceipt = document.getElementById('close-receipt-btn');
+
+  // Fokus dipindah ke modal saat dibuka dan dikembalikan ke tombol bayar saat ditutup
+  function openReceipt() {
+    receiptModal.classList.add('show');
+    btnCloseReceipt.focus();
+  }
+
+  function closeReceipt() {
+    receiptModal.classList.remove('show');
+    btnCheckout.focus();
+  }
+
+  if (receiptModal && btnCheckout && btnCloseReceipt) {
+    btnCheckout.addEventListener('click', openReceipt);
+    btnCloseReceipt.addEventListener('click', closeReceipt);
+
+    receiptModal.addEventListener('click', (e) => {
+      if (e.target === receiptModal) closeReceipt();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && receiptModal.classList.contains('show')) closeReceipt();
+    });
+  }
 });
