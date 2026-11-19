@@ -42,3 +42,29 @@ Log ini mengikuti format minimal pada panduan PjBL PBW bagian I (Ketentuan Pengg
 - **Perubahan / Penyesuaian oleh Mahasiswa:**
 - **Hasil Pengujian:**
 - **Commit Terkait:**
+
+---
+
+## Milestone 3 — Autentikasi dan Session PHP
+
+### 2026-11-19 — Perbaikan UI sebelum Milestone 3 (audit, critique, harden, responsive)
+
+- **Oleh:** Dimm
+- **Tujuan:** Memperbaiki aksesibilitas dan konsistensi UI sebelum mulai Milestone 3.
+- **Prompt / Ringkasan Pertanyaan:** "Lanjut project PjBL Kopify, cek pakai Graphify", "Sebelum itu aku mau improve dulu UI UX-nya", "Jalankan ketiganya" (audit, harden index, critique inventori/bom/laporan), lalu memilih fix kecil dan tabel jadi card di mobile.
+- **Bagian Kode / Solusi yang Dibantu AI:** Warna token kontras (WCAG AA) dan aturan `:focus-visible` di 5 file CSS; struk kasir berbahasa Indonesia dan tanggal struk dari jam topbar (`dashboard.js`); istilah "Laba Kotor", warna badge pertumbuhan, taksonomi kategori inventori; layout card tabel di ≤768px (inventori, bom, laporan).
+- **Penjelasan Mahasiswa:**
+- **Perubahan / Penyesuaian oleh Mahasiswa:**
+- **Hasil Pengujian:**
+- **Commit Terkait:** `fix(kasir): …`, `fix(login): …`, `fix(inventori): …`, `fix(bom): …`, `fix(laporan): …`
+
+### 2026-11-19 — Login, session, logout, dan hak akses per peran
+
+- **Oleh:** Dimm
+- **Tujuan:** Memenuhi rubrik Milestone 3 (login PHP, session, logout, proteksi halaman, identitas user, pesan login gagal) dengan akses dibatasi per peran.
+- **Prompt / Ringkasan Pertanyaan:** Brainstorming desain (akses bertingkat Kasir/Manajer/Owner, redirect + flash message untuk akses ditolak, satu tabel akses bersama), lalu eksekusi rencana `docs/superpowers/plans/2026-11-19-milestone-3-auth.md`.
+- **Bagian Kode / Solusi yang Dibantu AI:** `includes/auth.php` (akun dengan `password_hash`, tabel `PAGES`, `find_user`, `can_access`, `require_page`, `render_nav`, flash message, `session_regenerate_id`), `login.php`, `logout.php`, guard dan menu di `index.php`, `inventori.php`, `bom.php`, `laporan.php`, `tests/auth_test.php`.
+- **Penjelasan Mahasiswa:**
+- **Perubahan / Penyesuaian oleh Mahasiswa:**
+- **Hasil Pengujian:**
+- **Commit Terkait:**
