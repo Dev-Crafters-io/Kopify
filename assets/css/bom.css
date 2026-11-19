@@ -10,14 +10,14 @@
   --bg-card: #FFFFFF;
   --color-primary-dark: #2B1810;
   --color-brand-title: #2B1704;
-  --color-muted: #81766E;
-  --color-subtle: #8C7E74;
+  --color-muted: #6F645C;
+  --color-subtle: #6F645C;
   --color-pill-bg: #F5F1EC;
   --color-chip-bg: #F7F4F0;
   --color-active-menu: #F3EFEA;
   --color-success: #397356;
   --color-success-bg: #EAF5EE;
-  --color-remove: #A76A59;
+  --color-remove: #8F4F3F;
   --color-remove-hover: #8D5444;
   --shadow-navbar: 0 4px 20px -2px rgba(43, 24, 16, 0.05), 0 2px 6px -1px rgba(43, 24, 16, 0.03);
   --shadow-card: 0 10px 25px -4px rgba(43, 24, 16, 0.05), 0 4px 10px -2px rgba(43, 24, 16, 0.02);
@@ -334,7 +334,6 @@ body {
 }
 
 .menu-search-input:focus {
-  outline: none;
   background-color: #FFFFFF;
   box-shadow: 0 0 0 3px rgba(43, 24, 16, 0.08), 0 2px 8px rgba(43, 24, 16, 0.04);
 }
@@ -672,7 +671,6 @@ body {
 }
 
 .quantity-number-input:focus {
-  outline: none;
   background-color: #FFFFFF;
   box-shadow: 0 0 0 2px rgba(43, 24, 16, 0.12), 0 2px 6px rgba(43, 24, 16, 0.04);
 }
@@ -733,6 +731,7 @@ body {
   font-size: 15px;
   font-weight: 700;
   color: var(--color-primary-dark);
+  white-space: nowrap;
 }
 
 .recipe-actions-row {
@@ -946,7 +945,7 @@ body {
     border-radius: var(--radius-sm);
     background-color: #FEF2F2;
     border: 1px solid #FECACA;
-    color: #DC2626;
+    color: #B91C1C;
     font-size: 13px;
     font-weight: 600;
     text-decoration: none;
@@ -1066,5 +1065,84 @@ body {
     width: 52px;
     height: 28px;
     font-size: 12px;
+  }
+}
+
+/* ring fokus keyboard; diletakkan paling akhir agar menang atas outline:none di rule dasar */
+:focus-visible {
+  outline: 2px solid var(--color-primary-dark);
+  outline-offset: 2px;
+}
+
+/* ≤768px: tiap bahan jadi card, supaya Sub-total dan tombol Hapus tidak terpotong scroll horizontal */
+@media (max-width: 768px) {
+  .recipe-table-responsive {
+    overflow-x: visible;
+  }
+
+  .ingredients-table,
+  .ingredients-table tbody {
+    display: block;
+  }
+
+  /* header disembunyikan secara visual tapi tetap dibaca screen reader */
+  .ingredients-table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  .ingredients-table tbody tr {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "name action"
+      "quantity subtotal"
+      "cost cost";
+    align-items: center;
+    gap: 8px 12px;
+    padding: 14px 16px;
+  }
+
+  .ingredients-table tbody td {
+    padding: 0;
+  }
+
+  .ingredients-table tbody td:nth-child(1) { grid-area: name; }
+  .ingredients-table tbody td:nth-child(2) { grid-area: quantity; }
+  .ingredients-table tbody td:nth-child(3) { grid-area: cost; }
+  .ingredients-table tbody td:nth-child(4) { grid-area: subtotal; justify-self: end; }
+  .ingredients-table tbody td:nth-child(5) { grid-area: action; justify-self: end; }
+
+  .ingredients-table tbody td:nth-child(3)::before {
+    content: "Harga modal ";
+  }
+
+  .ingredients-table tbody td:nth-child(4)::before {
+    content: "Sub-total ";
+  }
+
+  .ingredients-table tbody td:nth-child(3)::before,
+  .ingredients-table tbody td:nth-child(4)::before {
+    font-size: 12px;
+    color: var(--color-muted);
+  }
+
+  .quantity-control-wrapper {
+    justify-content: flex-start;
+  }
+
+  .quantity-number-input {
+    width: 80px;
+    height: 44px;
+    font-size: 16px;
+  }
+
+  .btn-remove-material {
+    min-height: 44px;
+    padding: 0 12px;
   }
 }
