@@ -1959,7 +1959,8 @@ body {
 .btn-receipt-close {
   flex: 1;
   height: 44px;
-  background-color: transparent;
+  /* latar solid: tombol berada di atas backdrop gelap modal, transparent membuat teks tak terbaca */
+  background-color: #FFFFFF;
   color: #2B1810;
   border: 1.5px solid #2B1810;
   border-radius: var(--radius-sm);

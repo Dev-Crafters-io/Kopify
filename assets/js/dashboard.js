@@ -108,7 +108,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const btnCloseReceipt = document.getElementById('close-receipt-btn');
 
   // Fokus dipindah ke modal saat dibuka dan dikembalikan ke tombol bayar saat ditutup
+  const receiptDate = document.getElementById('receipt-date');
+
   function openReceipt() {
+    // Tanggal struk diambil dari jam topbar supaya sama dengan waktu transaksi
+    if (receiptDate && liveDateTimeElement) receiptDate.textContent = liveDateTimeElement.textContent;
     receiptModal.classList.add('show');
     btnCloseReceipt.focus();
   }
