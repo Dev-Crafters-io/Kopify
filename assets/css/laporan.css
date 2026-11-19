@@ -10,14 +10,14 @@
   --bg-card: #FFFFFF;
   --color-primary-dark: #2B1810;
   --color-muted: #6F645C;
-  --color-subtle: #887A70;
+  --color-subtle: #6F645C;
   --color-border: #ECE7E1;
   --color-border-subtle: #EAE4DD;
   --color-shadow: rgba(43, 24, 16, 0.06);
   --shadow-card: 0 8px 24px -4px rgba(43, 24, 16, 0.06), 0 4px 8px -2px rgba(43, 24, 16, 0.04);
   --color-success: #50745E;
   --color-success-bg: #EDF4EE;
-  --color-alert: #D96B43;
+  --color-alert: #A84B25;
   --color-alert-bg: #FCF0E9;
   --color-chart-bar: #D8C7B7;
   --color-pill-bg: #F5F1EC;
@@ -893,7 +893,7 @@ body {
     border-radius: var(--radius-sm);
     background-color: #FEF2F2;
     border: 1px solid #FECACA;
-    color: #DC2626;
+    color: #B91C1C;
     font-size: 13px;
     font-weight: 600;
     text-decoration: none;
@@ -1033,4 +1033,84 @@ body {
     padding: 10px 12px;
     font-size: 12px;
   }
+}
+
+/* ring fokus keyboard; diletakkan paling akhir agar menang atas outline:none di rule dasar */
+:focus-visible {
+  outline: 2px solid var(--color-primary-dark);
+  outline-offset: 2px;
+}
+
+/* ≤768px: tiap baris tabel jadi card berisi pasangan label–nilai, supaya kolom kanan tidak terpotong */
+@media (max-width: 768px) {
+  .sales-summary-wrapper,
+  .table-responsive {
+    overflow-x: visible;
+  }
+
+  .sales-summary-table,
+  .sales-summary-table tbody,
+  .sales-summary-table tfoot,
+  .audit-table,
+  .audit-table tbody {
+    display: block;
+  }
+
+  /* header disembunyikan secara visual tapi tetap dibaca screen reader */
+  .sales-summary-table thead,
+  .audit-table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  .sales-summary-table tr,
+  .audit-table tbody tr {
+    display: block;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--color-border-subtle);
+  }
+
+  .sales-summary-table tfoot tr {
+    border-bottom: none;
+    border-top: 2px solid var(--color-border);
+  }
+
+  .sales-summary-table th,
+  .sales-summary-table td,
+  .sales-summary-table tfoot th,
+  .sales-summary-table tfoot td,
+  .audit-table td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 4px 0;
+    border: none;
+    background: none;
+  }
+
+  .sales-summary-table td::before,
+  .audit-table td::before {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--color-subtle);
+  }
+
+  .sales-summary-table td:nth-child(2)::before { content: "Omzet"; }
+  .sales-summary-table td:nth-child(3)::before { content: "Biaya bahan"; }
+  .sales-summary-table td:nth-child(4)::before { content: "Laba kotor"; }
+
+  .audit-table td.cell-material {
+    font-weight: 700;
+  }
+
+  .audit-table td:nth-child(2)::before { content: "Teori (POS)"; }
+  .audit-table td:nth-child(3)::before { content: "Fisik terpakai"; }
+  .audit-table td:nth-child(4)::before { content: "Selisih"; }
+  .audit-table td:nth-child(5)::before { content: "Nilai kerugian"; }
+  .audit-table td:nth-child(6)::before { content: "Status"; }
 }
