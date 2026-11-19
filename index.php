@@ -1,3 +1,7 @@
+<?php
+require_once __DIR__ . '/includes/auth.php';
+require_page('kasir');
+?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -10,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="./assets/css/dashboard.css?v=11">
+  <link rel="stylesheet" href="./assets/css/dashboard.css?v=12">
 </head>
 <body>
   <div class="pos-container">
@@ -28,10 +32,7 @@
         </div>
 
         <nav class="nav-pills" aria-label="Navigasi Utama">
-          <a href="index.html" class="nav-pill active">Kasir</a>
-          <a href="inventori.html" class="nav-pill">Inventori</a>
-          <a href="bom.html" class="nav-pill">Komposisi Menu</a>
-          <a href="laporan.html" class="nav-pill">Laporan</a>
+          <?php render_nav('kasir', 'nav-pill'); ?>
         </nav>
 
         <div class="topbar-right">
@@ -42,7 +43,7 @@
 
           <div class="info-pill info-pill--user">
             <img src="./assets/icons/user.svg" alt="">
-            <span>Kasir: Api Widi</span>
+            <span><?= htmlspecialchars(current_user_label()) ?></span>
           </div>
 
           <div class="info-pill info-pill--warning">
@@ -50,7 +51,7 @@
             <span>3 Stok Menipis</span>
           </div>
 
-          <a href="login.html" class="btn-logout" aria-label="Logout" title="Logout" onclick="sessionStorage.removeItem('kopify_logged_in');">
+          <a href="logout.php" class="btn-logout" aria-label="Logout" title="Logout">
             <img src="./assets/icons/logout-inventory.svg" alt="" width="18" height="18">
           </a>
 
@@ -61,23 +62,25 @@
 
         <div class="mobile-nav-drawer" id="mobile-nav-drawer">
           <nav class="mobile-nav-menu" aria-label="Menu Navigasi Mobile">
-            <a href="index.html" class="mobile-nav-link active">Kasir</a>
-            <a href="inventori.html" class="mobile-nav-link">Inventori</a>
-            <a href="bom.html" class="mobile-nav-link">Komposisi Menu</a>
-            <a href="laporan.html" class="mobile-nav-link">Laporan</a>
+            <?php render_nav('kasir', 'mobile-nav-link'); ?>
           </nav>
           <div class="mobile-nav-user-section">
             <div class="mobile-user-info">
               <img src="./assets/icons/user.svg" alt="" width="18" height="18">
-              <span>Kasir: Api Widi</span>
+              <span><?= htmlspecialchars(current_user_label()) ?></span>
             </div>
-            <a href="login.html" class="mobile-btn-logout" aria-label="Logout" onclick="sessionStorage.removeItem('kopify_logged_in');">
+            <a href="logout.php" class="mobile-btn-logout" aria-label="Logout">
               <img src="./assets/icons/logout-inventory.svg" alt="" width="18" height="18">
               <span>Logout</span>
             </a>
           </div>
         </div>
       </header>
+
+      <?php $flash = take_flash(); ?>
+      <?php if ($flash !== null): ?>
+        <p class="flash-message" role="alert"><?= htmlspecialchars($flash) ?></p>
+      <?php endif; ?>
 
       <nav class="category-filter-row" aria-label="Kategori Produk">
         <button type="button" class="category-pill active" data-category="all">
