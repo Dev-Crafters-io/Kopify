@@ -1,3 +1,7 @@
+<?php
+require_once __DIR__ . '/includes/auth.php';
+require_page('inventori');
+?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -23,18 +27,15 @@
         </div>
       </div>
 
-      <div class="nav-pills" role="navigation">
-        <a href="index.html" class="nav-pill">Kasir</a>
-        <a href="inventori.html" class="nav-pill active">Inventori</a>
-        <a href="bom.html" class="nav-pill">Komposisi Menu</a>
-        <a href="laporan.html" class="nav-pill">Laporan</a>
+      <div class="nav-pills">
+        <?php render_nav('inventori', 'nav-pill'); ?>
       </div>
 
       <div class="user-actions">
         <div class="user-badge">
-          <span>Admin: Api Widi</span>
+          <span><?= htmlspecialchars(current_user_label()) ?></span>
         </div>
-        <a href="login.html" class="btn-logout" aria-label="Logout" onclick="sessionStorage.removeItem('kopify_logged_in');">
+        <a href="logout.php" class="btn-logout" aria-label="Logout">
           <img src="./assets/icons/logout-inventory.svg" alt="Logout Icon" width="18" height="18">
         </a>
         <button type="button" class="btn-hamburger" id="btn-hamburger" aria-label="Toggle menu navigasi" aria-expanded="false" aria-controls="mobile-nav-drawer">
@@ -44,17 +45,14 @@
 
       <div class="mobile-nav-drawer" id="mobile-nav-drawer">
         <nav class="mobile-nav-menu" aria-label="Menu Navigasi Mobile">
-          <a href="index.html" class="mobile-nav-link">Kasir</a>
-          <a href="inventori.html" class="mobile-nav-link active">Inventori</a>
-          <a href="bom.html" class="mobile-nav-link">Komposisi Menu</a>
-          <a href="laporan.html" class="mobile-nav-link">Laporan</a>
+          <?php render_nav('inventori', 'mobile-nav-link'); ?>
         </nav>
         <div class="mobile-nav-user-section">
           <div class="mobile-user-info">
             <img src="./assets/icons/user.svg" alt="User Kasir Icon" width="18" height="18">
-            <span>Kasir: Api Widi</span>
+            <span><?= htmlspecialchars(current_user_label()) ?></span>
           </div>
-          <a href="login.html" class="mobile-btn-logout" aria-label="Logout" onclick="sessionStorage.removeItem('kopify_logged_in');">
+          <a href="logout.php" class="mobile-btn-logout" aria-label="Logout">
             <img src="./assets/icons/logout-inventory.svg" alt="" width="18" height="18">
             <span>Logout</span>
           </a>

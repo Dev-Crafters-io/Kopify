@@ -20,6 +20,36 @@ Repository GitHub Kopify dapat diakses melalui tautan berikut:
 
 ---
 
+## Menjalankan Aplikasi
+
+Mulai Milestone 3 halaman aplikasi memakai PHP (sudah diuji dengan PHP 8.5). Dari folder repository:
+
+```bash
+php -S localhost:8000
+```
+
+Lalu buka <http://localhost:8000/login.php>.
+
+### Akun Demo
+
+| Peran | Username | Password | Halaman yang bisa dibuka |
+|---|---|---|---|
+| Kasir | `kasir` | `kasir123` | Kasir |
+| Manajer | `manajer` | `manajer123` | Kasir, Inventori, Komposisi Menu |
+| Owner | `owner` | `owner123` | Kasir, Inventori, Komposisi Menu, Laporan |
+
+Halaman yang tidak boleh dibuka sebuah peran tidak muncul di menu. Jika URL-nya dibuka langsung, pengguna dikembalikan ke halaman awalnya dengan pesan "Anda tidak punya akses ke halaman ...".
+
+### Tes Logika Autentikasi
+
+```bash
+php -d zend.assertions=1 -d assert.exception=1 tests/auth_test.php
+```
+
+Output `OK` berarti semua tes lulus.
+
+---
+
 ## 1. Latar Belakang & Studi Kasus
 
 Kopify adalah sistem Point of Sale (POS) dan manajemen inventaris berbasis web untuk mendigitalisasi operasional kedai kopi. Sistem ini menyelesaikan masalah pencatatan manual yang sering memperlambat alur kerja kedai skala kecil–menengah, di antaranya:
