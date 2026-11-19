@@ -259,14 +259,14 @@ body {
   justify-content: center;
   gap: 6px;
   font-size: 12px;
-  color: #8C7E74;
+  color: #6F645C;
   margin-top: 4px;
   text-align: center;
   font-family: inherit;
 }
 
 .demo-link {
-  color: #8C7E74;
+  color: #6F645C;
   text-decoration: underline;
   text-underline-offset: 3px;
   font-weight: 500;
@@ -278,7 +278,7 @@ body {
 }
 
 .demo-separator {
-  color: #8C7E74;
+  color: #6F645C;
   user-select: none;
 }
 
@@ -329,4 +329,10 @@ body {
   .login-card {
     padding: 56px 64px;
   }
+}
+
+/* ring fokus keyboard; diletakkan paling akhir agar menang atas outline:none di rule dasar */
+:focus-visible {
+  outline: 2px solid var(--color-espresso);
+  outline-offset: 2px;
 }
