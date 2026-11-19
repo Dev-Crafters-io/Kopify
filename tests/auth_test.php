@@ -5,7 +5,7 @@ if (PHP_SAPI !== 'cli') { http_response_code(404); exit; }
 require __DIR__ . '/../includes/auth.php';
 
 assert(find_user('kasir', 'kasir123')['role'] === 'kasir');
-assert(find_user('manajer', 'manajer123')['name'] === 'Nama Manajer');
+assert(find_user('manajer', 'manajer123')['name'] === 'Afrizal Irfan');
 assert(find_user('owner', 'owner123')['role'] === 'owner');
 assert(!array_key_exists('password_hash', find_user('kasir', 'kasir123')));
 assert(find_user(' Kasir ', 'kasir123')['username'] === 'kasir');
@@ -50,7 +50,7 @@ assert(!str_contains($nav, 'inventori.php'));
 assert(!str_contains($nav, 'laporan.php'));
 
 $_SESSION['user'] = find_user('manajer', 'manajer123');
-assert(current_user_label() === 'Manajer: Nama Manajer');
+assert(current_user_label() === 'Manajer: Afrizal Irfan');
 ob_start();
 render_nav('bom', 'mobile-nav-link');
 $nav = ob_get_clean();

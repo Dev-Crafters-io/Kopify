@@ -11,7 +11,7 @@ const USERS = [
     'password_hash' => '$2y$12$khMNBOFEV56uBxX/Kb4B1OAd0zVJxl42BfLMyja/oKifQt47gV5TC',
   ],
   'manajer' => [
-    'name' => 'Nama Manajer',
+    'name' => 'Afrizal Irfan',
     'role' => 'manajer',
     'password_hash' => '$2y$12$ZPXZ9v9Bn.UmqGuNDhmD3ep7qM1GtJHu.4qGr3D1jMXoiK1bH4Iaa',
   ],
