@@ -56,7 +56,7 @@ Log ini mengikuti format minimal pada panduan PjBL PBW bagian I (Ketentuan Pengg
 - **Penjelasan Mahasiswa:**
 - **Perubahan / Penyesuaian oleh Mahasiswa:**
 - **Hasil Pengujian:**
-- **Commit Terkait:** `fix(kasir): …`, `fix(login): …`, `fix(inventori): …`, `fix(bom): …`, `fix(laporan): …`
+- **Commit Terkait:** `9c86ad4` fix(kasir), `19707d8` fix(login), `f42940c` fix(inventori), `957cac9` fix(bom), `018e1e8` fix(laporan)
 
 ### 2026-11-19 — Login, session, logout, dan hak akses per peran
 
@@ -67,4 +67,4 @@ Log ini mengikuti format minimal pada panduan PjBL PBW bagian I (Ketentuan Pengg
 - **Penjelasan Mahasiswa:**
 - **Perubahan / Penyesuaian oleh Mahasiswa:**
 - **Hasil Pengujian:**
-- **Commit Terkait:**
+- **Commit Terkait:** `800d4f1`, `81beca7`, `c2ea9ce`, `ec12fbf`, `bc4923f`, `7fdabf6`; digabung ke `main` lewat PR #8 (`b7c5920`)
