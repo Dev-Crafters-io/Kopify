@@ -660,6 +660,11 @@ body {
   user-select: none;
 }
 
+.btn-step.btn-edit {
+  width: auto;
+  padding: 0 12px;
+  font-size: 13px;
+}
 .btn-step:hover {
   background-color: var(--color-pill-bg);
   box-shadow: var(--shadow-btn-step-hover);
