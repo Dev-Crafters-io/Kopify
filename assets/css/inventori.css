@@ -10,9 +10,9 @@
   --bg-card: #FFFFFF;
   --color-primary-dark: #2B1810;
   --color-brand-title: #2B1704;
-  --color-muted: #6B7280;
-  --color-subtle: #8C7E74;
-  --color-subtle-light: #A3978E;
+  --color-muted: #6F645C;
+  --color-subtle: #6F645C;
+  --color-subtle-light: #6F645C;
   --color-pill-bg: #F5F1EC;
   --color-chip-bg: #F7F4F0;
   --shadow-navbar: 0 4px 20px -2px rgba(43, 24, 16, 0.05), 0 2px 6px -1px rgba(43, 24, 16, 0.03);
@@ -27,12 +27,12 @@
   --shadow-btn-step: 0 2px 6px rgba(43, 24, 16, 0.08);
   --shadow-btn-step-hover: 0 4px 12px rgba(43, 24, 16, 0.14);
   --shadow-input-inset: inset 0 1px 3px rgba(43, 24, 16, 0.06);
-  --color-alert-text: #D96B43;
+  --color-alert-text: #A84B25;
   --color-alert-bg: #FDF4EC;
-  --color-danger-text: #DC2626;
+  --color-danger-text: #B91C1C;
   --color-danger-bg: #FEF2F2;
   --color-danger-dot: #EF4444;
-  --color-success-text: #10B981;
+  --color-success-text: #047857;
   --color-success-bg: #ECFDF5;
   --color-success-dot: #10B981;
   --radius-card: 18px;
@@ -419,7 +419,6 @@ body {
 }
 
 .table-search-input:focus {
-  outline: none;
   background-color: #FFFFFF;
   box-shadow: 0 0 0 3px rgba(43, 24, 16, 0.08), 0 2px 8px rgba(43, 24, 16, 0.04);
 }
@@ -878,7 +877,7 @@ body {
     border-radius: var(--radius-sm);
     background-color: #FEF2F2;
     border: 1px solid #FECACA;
-    color: #DC2626;
+    color: #B91C1C;
     font-size: 13px;
     font-weight: 600;
     text-decoration: none;
@@ -1126,7 +1125,6 @@ body {
 
 .form-input:focus,
 .form-select:focus {
-  outline: none !important;
   background-color: #FFFFFF;
   box-shadow: 0 0 0 3px rgba(43, 24, 16, 0.08), 0 2px 8px rgba(43, 24, 16, 0.04);
 }
@@ -1174,4 +1172,77 @@ body {
 .btn-modal-submit:hover {
   box-shadow: var(--shadow-btn-primary-hover);
   transform: translateY(-1px);
+}
+
+/* ring fokus keyboard; diletakkan paling akhir agar menang atas outline:none di rule dasar */
+:focus-visible {
+  outline: 2px solid var(--color-primary-dark);
+  outline-offset: 2px;
+}
+
+/* ≤768px: tiap baris jadi card, supaya kolom Status dan Aksi tidak tersembunyi di scroll horizontal */
+@media (max-width: 768px) {
+  .table-responsive {
+    overflow-x: visible;
+  }
+
+  .inventory-table,
+  .inventory-table tbody {
+    display: block;
+  }
+
+  /* header disembunyikan secara visual tapi tetap dibaca screen reader */
+  .inventory-table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  .inventory-table tbody tr {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "name status"
+      "category stock"
+      "price action";
+    align-items: center;
+    gap: 10px 12px;
+    padding: 16px;
+  }
+
+  .inventory-table tbody td {
+    padding: 0;
+  }
+
+  .inventory-table tbody td:nth-child(1) { grid-area: name; }
+  .inventory-table tbody td:nth-child(2) { grid-area: category; }
+  .inventory-table tbody td:nth-child(3) { grid-area: stock; justify-self: end; }
+  .inventory-table tbody td:nth-child(4) { grid-area: price; }
+  .inventory-table tbody td:nth-child(5) { grid-area: status; justify-self: end; }
+  .inventory-table tbody td:nth-child(6) { grid-area: action; justify-self: end; }
+
+  .inventory-table tbody td:nth-child(3)::before {
+    content: "Stok ";
+    font-size: 12px;
+    color: var(--color-muted);
+  }
+
+  .category-tag {
+    height: auto;
+    min-height: 28px;
+    padding: 4px 12px;
+  }
+
+  .btn-step {
+    width: 44px;
+    height: 44px;
+  }
+
+  .btn-step.btn-edit {
+    width: auto;
+    padding: 0 16px;
+  }
 }
